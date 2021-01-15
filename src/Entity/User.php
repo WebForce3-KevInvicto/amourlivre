@@ -82,6 +82,11 @@ class User
      */
     private $updated_at;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Ranking::class, mappedBy="user_id", cascade={"persist", "remove"})
+     */
+    private $ranking;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -239,6 +244,23 @@ class User
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getRanking(): ?Ranking
+    {
+        return $this->ranking;
+    }
+
+    public function setRanking(Ranking $ranking): self
+    {
+        // set the owning side of the relation if necessary
+        if ($ranking->getUserId() !== $this) {
+            $ranking->setUserId($this);
+        }
+
+        $this->ranking = $ranking;
 
         return $this;
     }
