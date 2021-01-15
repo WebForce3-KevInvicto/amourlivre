@@ -21,7 +21,7 @@ class Matching
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="matchingsA")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $userA_id;
+    private $userA;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="matchingsB")
@@ -49,14 +49,14 @@ class Matching
         return $this->id;
     }
 
-    public function getUserAId(): ?User
+    public function getUserA(): ?User
     {
-        return $this->userA_id;
+        return $this->userA;
     }
 
-    public function setUserAId(?User $userA_id): self
+    public function setUserA(?User $userA): self
     {
-        $this->userA_id = $userA_id;
+        $this->userA = $userA;
 
         return $this;
     }

@@ -21,13 +21,13 @@ class Comment
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user_id;
+    private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity=Book::class, inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $book_id;
+    private $book;
 
     /**
      * @ORM\Column(type="text")
@@ -49,26 +49,26 @@ class Comment
         return $this->id;
     }
 
-    public function getUserId(): ?User
+    public function getUser(): ?User
     {
-        return $this->user_id;
+        return $this->user;
     }
 
-    public function setUserId(?User $user_id): self
+    public function setUser(?User $user): self
     {
-        $this->user_id = $user_id;
+        $this->user = $user;
 
         return $this;
     }
 
-    public function getBookId(): ?Book
+    public function getBook(): ?Book
     {
-        return $this->book_id;
+        return $this->book;
     }
 
-    public function setBookId(?Book $book_id): self
+    public function setBook(?Book $book): self
     {
-        $this->book_id = $book_id;
+        $this->book = $book;
 
         return $this;
     }
