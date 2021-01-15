@@ -9,10 +9,12 @@
 @import url('layout/login-form.css');
 
 /* COMPONENTS */
+@import url('components/background.css');
 @import url('components/buttons.css');
 @import url('components/footer-menu.css');
 @import url('components/forms.css');
 @import url('components/jumbotron.css');
 @import url('components/landing-page__background.css');
 @import url('components/logo.css');
+@import url('components/navbar.css');
 

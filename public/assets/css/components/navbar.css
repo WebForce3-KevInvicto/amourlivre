@@ -1,0 +1,20 @@
+.navbar{
+    background-color: var(--color--theme--dark);
+    border-bottom-left-radius: 50px;
+    
+}
+
+.navbar-brand img{
+    width: 50%;
+}
+
+.nav-link{
+    font-size: var(--font--size--up-scaled-3);
+    margin-left: 2rem;
+}
+
+.nav-link:hover{
+    color: var(--color--text--light);
+    text-decoration: underline;
+    font-weight: bold;
+}

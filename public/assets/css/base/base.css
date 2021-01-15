@@ -38,3 +38,7 @@ img{
   max-height: 100vh;
   object-fit: cover;
 }
+
+a{
+  color: var(--color--text--light);
+}

@@ -508,7 +508,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->nickname;
     }
 
     /**

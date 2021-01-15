@@ -60,7 +60,7 @@
     --color--theme--alt: var(--color--coral-tree);
 
     /* BACKGROUND */
-    --color--background--dark: var(--color--cocoa-bean70);
+    --color--background--dark: var(--color--theme--dark70);
 
     /* TEXT */
     --color--text--light: var(--color--periglacial-blue);
