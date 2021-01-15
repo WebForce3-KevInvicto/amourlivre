@@ -70,9 +70,21 @@ class Book
      */
     private $publisher;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Author::class, inversedBy="books")
+     */
+    private $author;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Genre::class, inversedBy="books")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $genre;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->author = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -214,6 +226,42 @@ class Book
     public function setPublisher(?Publisher $publisher): self
     {
         $this->publisher = $publisher;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Author[]
+     */
+    public function getAuthor(): Collection
+    {
+        return $this->author;
+    }
+
+    public function addAuthor(Author $author): self
+    {
+        if (!$this->author->contains($author)) {
+            $this->author[] = $author;
+        }
+
+        return $this;
+    }
+
+    public function removeAuthor(Author $author): self
+    {
+        $this->author->removeElement($author);
+
+        return $this;
+    }
+
+    public function getGenre(): ?Genre
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(?Genre $genre): self
+    {
+        $this->genre = $genre;
 
         return $this;
     }
