@@ -304,8 +304,8 @@ class User
     public function setRanking(Ranking $ranking): self
     {
         // set the owning side of the relation if necessary
-        if ($ranking->getUserId() !== $this) {
-            $ranking->setUserId($this);
+        if ($ranking->getUser() !== $this) {
+            $ranking->setUser($this);
         }
 
         $this->ranking = $ranking;
@@ -325,7 +325,7 @@ class User
     {
         if (!$this->photos->contains($photo)) {
             $this->photos[] = $photo;
-            $photo->setUserId($this);
+            $photo->setUser($this);
         }
 
         return $this;
@@ -335,8 +335,8 @@ class User
     {
         if ($this->photos->removeElement($photo)) {
             // set the owning side to null (unless already changed)
-            if ($photo->getUserId() === $this) {
-                $photo->setUserId(null);
+            if ($photo->getUser() === $this) {
+                $photo->setUser(null);
             }
         }
 
@@ -355,7 +355,7 @@ class User
     {
         if (!$this->comments->contains($comment)) {
             $this->comments[] = $comment;
-            $comment->setUserId($this);
+            $comment->setUser($this);
         }
 
         return $this;
@@ -365,8 +365,8 @@ class User
     {
         if ($this->comments->removeElement($comment)) {
             // set the owning side to null (unless already changed)
-            if ($comment->getUserId() === $this) {
-                $comment->setUserId(null);
+            if ($comment->getUser() === $this) {
+                $comment->setUser(null);
             }
         }
 
@@ -385,7 +385,7 @@ class User
     {
         if (!$this->matchingsA->contains($matchingsA)) {
             $this->matchingsA[] = $matchingsA;
-            $matchingsA->setUserAId($this);
+            $matchingsA->setUserA($this);
         }
 
         return $this;
@@ -395,8 +395,8 @@ class User
     {
         if ($this->matchingsA->removeElement($matchingsA)) {
             // set the owning side to null (unless already changed)
-            if ($matchingsA->getUserAId() === $this) {
-                $matchingsA->setUserAId(null);
+            if ($matchingsA->getUserA() === $this) {
+                $matchingsA->setUserA(null);
             }
         }
 

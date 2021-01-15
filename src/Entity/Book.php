@@ -200,7 +200,7 @@ class Book
     {
         if (!$this->comments->contains($comment)) {
             $this->comments[] = $comment;
-            $comment->setBookId($this);
+            $comment->setBook($this);
         }
 
         return $this;
@@ -210,8 +210,8 @@ class Book
     {
         if ($this->comments->removeElement($comment)) {
             // set the owning side to null (unless already changed)
-            if ($comment->getBookId() === $this) {
-                $comment->setBookId(null);
+            if ($comment->getBook() === $this) {
+                $comment->setBook(null);
             }
         }
 
