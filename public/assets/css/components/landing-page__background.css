@@ -1,0 +1,13 @@
+.landing-page__background{
+    z-index: -1;
+    position: absolute;
+    min-width: 100%;
+}
+
+.overlay-background{
+    background-color: var(--color--theme--dark70);
+    width: 100%;
+    min-height: 100vh;
+    z-index: 1;
+    position: absolute;
+}

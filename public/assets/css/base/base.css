@@ -1,0 +1,40 @@
+/* =========================================================================
+ * BASE
+ * ========================================================================= */
+
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+
+
+/* HTML
+ * ------------------------------------------------------------------------- */
+
+ html {
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* BODY
+   * ------------------------------------------------------------------------- */
+  
+  body {
+    display: flex;
+    margin: 0; 
+    min-width: var(--dom--min-width);
+    max-height: 100vh;
+    color: var(--color--text--light);
+    font-family: "Poppins", sans-serif;
+    background-color: var(--color--theme--light);
+  }
+
+  h1,
+  h2,
+  h3{
+    font-family: "Playfair Display", sans-serif;
+  }
+
+img{
+  max-height: 100vh;
+  object-fit: cover;
+}

@@ -1,0 +1,138 @@
+/* =========================================================================
+ * THEMES
+ * ========================================================================= */
+
+/* BASIC COLORS
+ * ------------------------------------------------------------------------- */
+
+ :root {
+    /* PERIGLACIAL BLUE */
+    --color--periglacial-blue: rgb(227,229,211);
+    --color--periglacial-blue70:rgba(227,229,211, 0.7);
+    --color--periglacial-blue50:rgba(227,229,211, 0.5);
+  
+    /* CORAL TREE */
+    --color--coral-tree: rgb(166,115,113);
+    --color--coral-tree70: rgba(166,115,113, 0.7);
+    --color--coral-tree50: rgba(166,115,113, 0.5);
+
+    /* MANDY */
+    --color--mandy: rgb(228,79,89);
+    --color--mandy70:rgba(228,79,89, 0.7);
+    --color--mandy50: rgba(228,79,89, 0.5);
+
+    /* ORIENTAL PINK */
+    --color--oriental-pink: rgb(196,153,136);
+    --color--oriental-pink70: rgba(196,153,136, 0.7);
+    --color--oriental-pink50: rgb(196,153,136, 0.5);
+
+     /* COCOA BEAN */
+     --color--cocoa-bean: rgb(94,34,35);
+     --color--cocoa-bean70: rgba(94,34,35, 0.7);
+     --color--cocoa-bean50: rgba(94,34,35, 0.5);
+
+    /* MIKADO YELLOW */
+    --color--mikado-yellow: rgb(255, 196, 12);
+    --color--mikado-yellow70: rgba(255, 196, 12, 0.7);
+    --color--mikado-yellow50: rgba(255, 196, 12, 0.5);
+
+    /* GENOA GREEN */
+    --color--genoa-green : rgb(25, 135, 84);
+
+    /* PUNCH RED */
+    --color--punch--red : rgb(220, 53, 69);
+
+    /* BLACK */
+    --color--lite-black: rgb(37, 37, 37);
+    --color--black: rgb(0, 0, 0);
+  }
+  
+  /* APP COLORS
+   * ------------------------------------------------------------------------- */
+  
+  :root {
+    /* THEME */
+    --color--theme--primary: var(--color--mandy);
+    --color--theme--secondary: var(--color--oriental-pink);
+    --color--theme--light: var(--color--periglacial-blue);
+    --color--theme--dark: var(--color--cocoa-bean);
+    --color--theme--dark70: var(--color--cocoa-bean70);
+    --color--theme--alt: var(--color--coral-tree);
+
+    /* BACKGROUND */
+    --color--background--dark: var(--color--cocoa-bean70);
+
+    /* TEXT */
+    --color--text--light: var(--color--periglacial-blue);
+    --color--text--dark: var(--color--cocoa-bean);
+    --color--text--alt: var(--color--mikado-yellow);
+
+    /* SUCCESS */
+    --color--success : var(--color--genoa-green);
+
+    /* DANGER */
+    --color--danger : var(--color--punch--red);
+
+  }
+
+  /* =========================================================================
+ * DIMENSIONS
+ * ========================================================================= */
+
+/* DOM
+ * ------------------------------------------------------------------------- */
+
+:root {
+  --dom--min-width: 540px;
+  --dom--max-width: 1216px;
+}
+
+/* OFFSETS
+ * ------------------------------------------------------------------------- */
+
+:root {
+  --offset--x-small: 5px;
+  --offset--small: 10px;
+  --offset--medium: 20px;
+  --offset--large: 40px;
+  --offset--x-large: 80px;
+}
+
+/* BORDERS
+ * ------------------------------------------------------------------------- */
+
+:root {
+  /* WIDTH */
+  --border--width--small: 1px;
+  --border--width--medium: 2px;
+  --border--width--large: 4px;
+
+  /* RADIUS */
+  --border--radius--x-small: 2px;
+  --border--radius--small: 4px;
+  --border--radius--medium: 8px;
+  --border--radius--large: 16px;
+  --border--radius--x-large: 21px;
+}
+
+/* FONTS
+ * ------------------------------------------------------------------------- */
+
+:root {
+  --font--size--down-scaled-6: 0.4rem;
+  --font--size--down-scaled-5: 0.5rem;
+  --font--size--down-scaled-4: 0.6rem;
+  --font--size--down-scaled-3: 0.7rem;
+  --font--size--down-scaled-2: 0.8rem;
+  --font--size--down-scaled-1: 0.9rem;
+  --font--size--standard: 1rem;
+  --font--size--up-scaled-1: 1.1rem;
+  --font--size--up-scaled-2: 1.2rem;
+  --font--size--up-scaled-3: 1.4rem;
+  --font--size--up-scaled-4: 1.6rem;
+  --font--size--up-scaled-5: 1.8rem;
+  --font--size--up-scaled-6: 2rem;
+  --font--size--up-scaled-7: 2.2rem;
+  --font--size--up-scaled-8: 2.6rem;
+  --font--size--up-scaled-9: 3rem;
+}
