@@ -4,16 +4,23 @@
     
 }
 
-.navbar-brand img{
+.main-menu__brand img{
     width: 50%;
 }
 
-.nav-link{
+.main-menu__toggler-icon{
+    color: var(--color--text--light);
+    font-size: var(--font--size--up-scaled-6);
+}
+
+.main-menu__link{
     font-size: var(--font--size--up-scaled-3);
     margin-left: 2rem;
 }
 
-.nav-link:hover{
+.main-menu__link:hover,
+.main-menu__link:focus
+.main-menu__link:active{
     color: var(--color--text--light);
     text-decoration: underline;
     font-weight: bold;
