@@ -15,6 +15,10 @@
     background-color: rgba(196,153,136, 0.3);
 }
 
+.jumbotron__subtitle{
+    line-height: 2rem;
+}
+
 
 
 .jumbotron-one p {

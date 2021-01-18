@@ -4,7 +4,8 @@
    
 }
 
-.btn:hover{
+.btn:hover,
+.btn:focus{
     background-color: var(--color--theme--dark);
 }
 
