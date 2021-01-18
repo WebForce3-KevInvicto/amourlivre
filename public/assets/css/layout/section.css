@@ -6,6 +6,11 @@
     background-color: var(--color--theme--secondary);
     max-height: 74vh;
     overflow: scroll;
+    overflow-x: hidden;
+}
+
+.section-footer::-webkit-scrollbar{
+    display: none;
 }
 
 
