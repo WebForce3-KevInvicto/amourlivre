@@ -5,15 +5,18 @@
 @import url('base/base.css');
 
 /* LAYOUT */
+@import url('layout/footer-home.css');
 @import url('layout/landing-page.css');
 @import url('layout/login-form.css');
 @import url('layout/main.css');
 @import url('layout/section.css');
 
+
 /* COMPONENTS */
 @import url('components/background.css');
 @import url('components/buttons.css');
 @import url('components/conditions-article.css');
+@import url('components/footer-homemenu.css');
 @import url('components/footer-menu.css');
 @import url('components/forms.css');
 @import url('components/jumbotron.css');

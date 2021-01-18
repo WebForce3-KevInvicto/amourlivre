@@ -25,3 +25,11 @@
     text-decoration: underline;
     font-weight: bold;
 }
+
+.home-menu{
+    background-color: transparent;
+}
+
+.home-menu__brand img{
+    width: 50%;
+}

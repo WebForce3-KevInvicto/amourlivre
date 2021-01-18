@@ -1,4 +1,8 @@
 main{
+    width: 99%;
     position: absolute;
     top: 12rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }

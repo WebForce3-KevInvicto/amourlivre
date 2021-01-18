@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+		name="description" content="blablablablablablablablablablabla">
+		{# <link rel="shortcut icon" type="img/png" href="#"> #}
+		<title>
+			{% block title %}Amour Livre
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+            <link rel="stylesheet" href="{{ asset('assets/css/reset.css') }} ">
+			<link rel="stylesheet" href="{{ asset('assets/css/style.css') }} ">
+
+		{% endblock %}
+	</head>
+	<body class="landing-page">
+		<div class="landing-page__background">
+		<div class="overlay-background">
+
+		</div>
+		<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="assets/img/home-bg/home-bg_1.jpg" class="d-block w-100" alt="...">
+			</div>
+			<div class="carousel-item">
+				<img src="assets/img/home-bg/home-bg_2.jpg" class="d-block w-100" alt="...">
+			</div>
+			<div class="carousel-item">
+				<img src="assets/img/home-bg/home-bg_3.jpg" class="d-block w-100" alt="...">
+			</div>
+			<div class="carousel-item">
+				<img src="assets/img/home-bg/home-bg_4.jpg" class="d-block w-100" alt="...">
+			</div>
+			</div>
+		</div>
+		</div>
+		<div class="container-fluid">
+		
+		<header>
+			<nav class="navbar home-menu navbar-expand-lg">
+				<div class="container-fluid">
+					<a class="navbar-brand home-menu__brand" href="#"><img src="{{ asset('assets/img/logo/logo-bright.png')}}" alt=""></a
+			</nav>
+		</header>
+	
+			<main>
+			
+			
+		{% block body %}{% endblock %}
+			
+			</main>
+			<footer class="footer-home">
+				<nav class="footer-homemenu">
+					<ul class="nav footer-homemenu__nav">
+						<li class="nav-item footer-homemenu__item">
+							<a class="nav-link footer-homemenu__link active" aria-current="page" href="{{path('contact')}}">Contact</a>
+						</li>
+						<li class="nav-item footer-homemenu__item">
+							<a class="nav-link footer-homemenu__link" href="{{path('cgu')}}">CGU</a>
+						</li>
+						<li class="nav-item footer-homemenu__item">
+							<a class="nav-link footer-homemenu__link" href="{{path('cgv')}}">CGV</a>
+						</li>
+						<li class="nav-item footer-homemenu__item">
+							<a class="nav-link footer-homemenu__link" href="{{path('about')}}">Qui sommes-nous ?</a>
+						</li>
+						<li class="nav-item footer-homemenu__item">
+							<a class="nav-link footer-homemenu__link" href="{{path('mentions')}}">Mentions Légales</a>
+						</li>
+					</ul>
+				</nav>
+				<p class="footer-hometext">Tous droits réservés - &copy;Team CHECK - 2021</p>
+			</footer>
+
+		</div>
+
+		{% block javascripts %}
+			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+		{% endblock %}
+	</body>
+</html>

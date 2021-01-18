@@ -1,0 +1,26 @@
+
+
+.footer-homemenu__nav{
+    display: flex;
+    justify-content: center;
+}
+
+.footer-homemenu__link{
+    color: var(--color--text--light);
+    font-size: var(--font--size--down-scaled-1);
+}
+
+.footer-homemenu__link:hover,
+.footer-homemenu__link:focus
+.footer-homemenu__link:active{
+    color: var(--color--text--light);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.footer-hometext{
+    color: var(--color--text--light);
+    text-align: center;
+    font-size: var(--font--size--down-scaled-1);
+    padding-top: 1rem;
+}
