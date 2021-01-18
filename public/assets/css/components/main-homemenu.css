@@ -1,0 +1,10 @@
+.main-homemenu{
+    background-color: transparent;
+    border-bottom-left-radius: 50px;
+    
+}
+
+.main-homemenu__brand img{
+    width: 50%;
+}
+

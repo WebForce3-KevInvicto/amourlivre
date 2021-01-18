@@ -14,6 +14,7 @@
 
 /* COMPONENTS */
 @import url('components/background.css');
+@import url('components/home-background.css');
 @import url('components/buttons.css');
 @import url('components/conditions-article.css');
 @import url('components/footer-homemenu.css');
@@ -23,4 +24,4 @@
 @import url('components/landing-page__background.css');
 @import url('components/logo.css');
 @import url('components/main-menu.css');
-
+@import url('components/main-homemenu.css');

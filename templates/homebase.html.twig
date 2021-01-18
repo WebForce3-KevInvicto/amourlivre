@@ -19,41 +19,58 @@
 		{% endblock %}
 	</head>
 	<body>
-		<div class="background">
-			<div id="myCarousel" class="carousel container slide">
-				<div class="carousel-inner">
-					<div class="active item one"></div>
-					<div class="item two"></div>
-					<div class="item three"></div>
-					<div class="item four"></div>
+		<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item one active">
+				{# <img src="..." class="d-block w-100" alt="..."> #}
+				</div>
+				<div class="carousel-item two">
+				{# <img src="..." class="d-block w-100" alt="..."> #}
+				</div>
+				<div class="carousel-item three">
+				{# <img src="..." class="d-block w-100" alt="..."> #}
+				</div>
+				<div class="carousel-item four">
+				{# <img src="..." class="d-block w-100" alt="..."> #}
 				</div>
 			</div>
-			<header></header>
+		</div>
+	
+		<div class="home-background">
+			<header>
+			<nav class="navbar main-homemenu navbar-expand-lg">
+					<div class="container-fluid">
+						<a class="navbar-brand main-homemenu__brand" href="#"><img src="{{ asset('assets/img/logo/logo-light.png')}}" alt=""></a>
+					</div>
+				</nav>
+			</header>
+		</div>
+			
 		</div>
 		<main>
 			{% block body %}{% endblock %}
 		</main>
 		<footer>
-			<nav class="footer-menu">
-				<ul class="nav footer-menu__nav">
-					<li class="nav-item footer-menu__item">
-						<a class="nav-link footer-menu__link active" aria-current="page" href="{{path('contact')}}">Contact</a>
+			<nav class="footer-homemenu">
+				<ul class="nav footer-homemenu__nav">
+					<li class="nav-item footer-homemenu__item">
+						<a class="nav-link footer-homemenu__link active" aria-current="page" href="{{path('contact')}}">Contact</a>
 					</li>
-					<li class="nav-item footer-menu__item">
-						<a class="nav-link footer-menu__link" href="{{path('cgu')}}">CGU</a>
+					<li class="nav-item footer-homemenu__item">
+						<a class="nav-link footer-homemenu__link" href="{{path('cgu')}}">CGU</a>
 					</li>
-					<li class="nav-item footer-menu__item">
-						<a class="nav-link footer-menu__link" href="{{path('cgv')}}">CGV</a>
+					<li class="nav-item footer-homemenu__item">
+						<a class="nav-link footer-homemenu__link" href="{{path('cgv')}}">CGV</a>
 					</li>
-					<li class="nav-item footer-menu__item">
-						<a class="nav-link footer-menu__link" href="{{path('about')}}">Qui sommes-nous ?</a>
+					<li class="nav-item footer-homemenu__item">
+						<a class="nav-link footer-homemenu__link" href="{{path('about')}}">Qui sommes-nous ?</a>
 					</li>
-					<li class="nav-item footer-menu__item">
-						<a class="nav-link footer-menu__link" href="{{path('mentions')}}">Mentions Légales</a>
+					<li class="nav-item footer-homemenu__item">
+						<a class="nav-link footer-homemenu__link" href="{{path('mentions')}}">Mentions Légales</a>
 					</li>
 				</ul>
 			</nav>
-			<p class="footer-text">Tous droits réservés - &copy;Team CHECK - 2021</p>
+			<p class="footer-hometext">Tous droits réservés - &copy;Team CHECK - 2021</p>
 		</footer>
 
 
