@@ -31,7 +31,25 @@
   h2,
   h3{
     font-family: "Playfair Display", sans-serif;
+    padding : 1rem;
   }
+
+  h1{
+    font-size: var(--font--size--up-scaled-6);
+    
+  }
+  
+  h2{
+    font-size: var(--font--size--up-scaled-4);
+    font-weight: bold;
+  }
+
+
+
+  h3{
+    font-size: var(--font--size--up-scaled-2);
+  }
+
 
 img{
   max-height: 100vh;
@@ -40,4 +58,8 @@ img{
 
 a{
   color: var(--color--text--light);
+}
+
+p{
+  padding: 1rem;
 }

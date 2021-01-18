@@ -7,6 +7,8 @@
 /* LAYOUT */
 @import url('layout/landing-page.css');
 @import url('layout/login-form.css');
+@import url('layout/main.css');
+@import url('layout/section.css');
 
 /* COMPONENTS */
 @import url('components/background.css');
