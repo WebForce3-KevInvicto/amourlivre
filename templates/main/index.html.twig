@@ -1,33 +1,42 @@
 {% extends 'homebase.html.twig' %}
 
-{% block title %}Amour Livre{% endblock %}
+{% block title %}Amour Livre
+{% endblock %}
 
 {% block body %}
-        
-         <div class="jumbotron jumbotron-one">
-                <h1 class="display-4 jumbotron__title">Bienvenue</h1>
-                <h2 class="jumbotron__subtitle">
-                    Rejoignez la communauté Amour Livre et écrivez votre plus belle histoire d’amour !
-                </h2>
-               
-                    <p>Amour Livre est à la fois un site pour les célibataires et une communauté dédiée aux amoureux de la lecture.</p>
+	<div class="container-fluid">
+		<div class="row justify-content-evenly align-items-center">
 
-                    <p>En tant que membre, vous pourrez créer votre propre profil, afficher le top 5 de vos goûts littéraires et parcourir les profils disponibles.</p>
+			<div class="jumbotron jumbotron-one col col-lg-9">
+				<h1 class="display-4 jumbotron__title">Bienvenue</h1>
+				<h2 class="jumbotron__subtitle">
+					Rejoignez la communauté Amour Livre et écrivez votre plus belle histoire d’amour !
+				</h2>
 
-                    <p>Que vous soyez férus de polars ou d’heroic fantasy, vous y trouverez des personnes partageant votre passion.</p>
+				<p>Amour Livre est à la fois un site pour les célibataires et une communauté dédiée aux amoureux de la lecture.</p>
 
-                    <p>Car ici, les membres se définissent plus par leurs goûts en matière de lecture que du point de vue de leur apparence.</p> 
+				<p>En tant que membre, vous pourrez créer votre propre profil, afficher le top 5 de vos goûts littéraires et parcourir les profils disponibles.</p>
 
-                    <p>Soyez-en sûrs, tous les profils sont validés par notre équipe.</p>
+				<p>Que vous soyez férus de polars ou d’heroic fantasy, vous y trouverez des personnes partageant votre passion.</p>
 
-                    <p>Belle romance sur Amour Livre !</p>
- 
-           
-                        
-            </div> {# ferme jumbotron #}
-            <div class="jumbotron__buttons">
-                    <a class="btn btn-secondary btn-signin" href="#">Connexion</a>
-                    <a class="btn btn-primary btn-signup" href="#">Inscription</a>
-            </div>
+				<p>Car ici, les membres se définissent plus par leurs goûts en matière de lecture que du point de vue de leur apparence.</p>
+
+				<p>Soyez-en sûrs, tous les profils sont validés par notre équipe.</p>
+
+				<p>Belle romance sur Amour Livre !</p>
+
+
+			</div>
+
+			{# ferme jumbotron #}
+
+			<div class="jumbotron__buttons col col-lg-3">
+				<a class="btn btn-secondary btn-signin" href="#">Connexion</a>
+				<a class="btn btn-primary btn-signup" href="#">Inscription</a>
+			</div>
+
+		</div>
+	</div>
+
 
 {% endblock %}

@@ -1,8 +1,7 @@
 main{
-    width: 99%;
-    position: absolute;
-    top: 12rem;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-top: -18rem;
 }

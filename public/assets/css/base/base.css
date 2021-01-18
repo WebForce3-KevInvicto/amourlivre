@@ -2,68 +2,66 @@
  * BASE
  * ========================================================================= */
 
- @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap');
- @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap");
 
 /* HTML
  * ------------------------------------------------------------------------- */
 
- html {
-    height: 100%;
-    box-sizing: border-box;
-  }
-  
-  /* BODY
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* BODY
    * ------------------------------------------------------------------------- */
-  
-  body {
-    margin: 0; 
-    min-width: var(--dom--min-width);
-    max-height: 100vh;
-    color: var(--color--text--light);
-    font-family: "Poppins", sans-serif;
-    background-color: var(--color--theme--light);
-  }
 
-  h1,
-  h2,
-  h3{
-    font-family: "Playfair Display", sans-serif;
-    padding : 1rem;
-  }
+body {
+  margin: 0;
+  min-width: var(--dom--min-width);
+  max-height: 100vh;
+  color: var(--color--text--light);
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color--theme--light);
+  position: relative;
+}
+footer {
+  margin-top: 2rem;
+}
 
-  h1{
-    font-size: var(--font--size--up-scaled-6);
-    
-  }
-  
-  h2{
-    font-size: var(--font--size--up-scaled-4);
-    font-weight: bold;
-  }
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", sans-serif;
+  padding: 1rem;
+}
 
+h1 {
+  font-size: var(--font--size--up-scaled-6);
+}
 
+h2 {
+  font-size: var(--font--size--up-scaled-4);
+  font-weight: bold;
+}
 
-  h3{
-    font-size: var(--font--size--up-scaled-2);
-  }
+h3 {
+  font-size: var(--font--size--up-scaled-2);
+}
 
-
-img{
+img {
   max-height: 100vh;
   object-fit: cover;
 }
 
-a{
+a {
   color: var(--color--text--light);
 }
 
-p{
+p {
   padding: 1rem;
 }
 
-strong{
+strong {
   font-weight: bold;
 }
