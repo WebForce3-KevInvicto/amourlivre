@@ -63,3 +63,7 @@ a{
 p{
   padding: 1rem;
 }
+
+strong{
+  font-weight: bold;
+}

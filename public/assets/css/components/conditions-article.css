@@ -1,0 +1,16 @@
+.conditions-article__text{
+    color: var(--color--text--dark);
+}
+
+.conditions-article__text span{
+    font-weight: bold;
+}
+
+.conditions-article__list{
+    list-style: inside;
+    padding-left: 5rem;
+}
+
+.conditions-article__list li{
+    margin: 0.5rem 0;
+}
