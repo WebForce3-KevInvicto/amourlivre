@@ -61,6 +61,7 @@ class RegistrationFormType extends AbstractType
                     'Selectionnez' => null,
                     'Les Femmes' => 'femmes',
                     'Les Hommes' => 'hommes',
+                    'Les Deux'   => 'both'
                 ],
             ])
            

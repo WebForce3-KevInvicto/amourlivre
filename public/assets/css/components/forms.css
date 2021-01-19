@@ -60,6 +60,11 @@ label,
     font-weight: bold;
 }
 
+.col-form-label{
+    padding-top : 0;
+    padding-bottom: 0;
+}
+
 form{
     display: flex;
     flex-direction: column;
@@ -73,3 +78,23 @@ form small a:hover{
     color: var(--color--text--dark);
     text-decoration: underline;
 }
+
+.form-inline{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.form-inline .form-control{
+    width: 150px;
+    margin-right : 1rem;
+}
+
+.form-inline .form-control:not(:last-of-type){
+    margin-left: 1rem;
+}
+
+/* .form-part-bottom .form-control{
+    width: 50%;
+} */
