@@ -13,4 +13,13 @@
     display: none;
 }
 
+.section-connexion{
+    width: 80%;
+    margin: auto;
+    border-radius: 50px;
+    padding: 5rem;
+    background-color: var(--color--theme--secondary);
+    max-height: 74vh;
+}
+
 
