@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+<section>
+    <h1>Register</h1>
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.nickname, {
+            label: 'Pseudonyme'
+        }) }}
+        {{ form_row(registrationForm.gender, {
+            label : 'Je suis'
+        })  }}
+        {{ form_row(registrationForm.birthdate, {
+            label : 'Date de naissance'
+        }) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de Passe'
+        }) }}
+        {{ form_row(registrationForm.address, {
+            label: 'Adresse'
+        }) }}
+        {{ form_row(registrationForm.postal_code, {
+            label: 'Code Postal'
+        }) }}
+        {{ form_row(registrationForm.city, {
+            label: 'Ville'
+        }) }}
+        {{ form_row(registrationForm.preference, {
+            label: 'Intéressé par'
+        }) }}
+        
+        <small>En créant un compte, vous acceptez automatiquement nos <a href="{{path('cgu')}}">Conditions Générales d'Utilisation</a></small>
+
+        <button type="submit" class="btn btn-primary btn-signin">Inscription</button>
+    {{ form_end(registrationForm) }}
+</section>
+{% endblock %}
