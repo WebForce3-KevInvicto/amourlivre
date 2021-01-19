@@ -1,5 +1,9 @@
 /* VARS */
 @import url('abstacts/vars.css');
+@import url('abstacts/text.css');
+@import url('abstacts/display.css');
+@import url('abstacts/spacing.css');
+@import url('abstacts/sizing.css');
 
 /* BASE */
 @import url('base/base.css');

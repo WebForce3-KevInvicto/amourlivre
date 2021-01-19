@@ -1,4 +1,4 @@
-.form-label{
+/* .form-label{
     color: var(--color--text--dark);
     font-weight: bold;
 }
@@ -47,4 +47,29 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 
 .confirm-password:invalid{
     border: 5px solid var(--color--danger);
+} */
+
+.form-group{
+    margin : 1rem 1rem 0 1rem;
+}
+
+label,
+.col-form-label{
+    margin-bottom: 1rem;
+    color: var(--color--text--dark);
+    font-weight: bold;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form small a{
+    text-decoration: none;
+}
+
+form small a:hover{
+    color: var(--color--text--dark);
+    text-decoration: underline;
 }

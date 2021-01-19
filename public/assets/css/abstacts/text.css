@@ -1,0 +1,22 @@
+/* COLOR
+ * ------------------------------------------------------------------------- */
+
+ .text-color-dark{
+    color : var(--color--text--dark);
+  }
+
+  .text-color-light{
+    color : var(--color--text--light);
+  }
+
+  .text-color-alt{
+    color : var(--color--text--alt);
+  }
+
+
+/* WEIGHT
+ * ------------------------------------------------------------------------- */
+
+ .fw--b{
+   font-weight: bold;
+ }
