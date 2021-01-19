@@ -1,0 +1,18 @@
+
+.container-fluid .row {
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@media (max-width: 540px){
+
+    .container-fluid .row{
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.row{
+    margin-right: 0;
+    margin-left:0;
+}

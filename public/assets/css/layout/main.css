@@ -1,7 +1,10 @@
 main{
     width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: -18rem;
+    margin-top: -20rem;
+}
+
+@media(max-width:540px){
+    main{
+        margin-top: -10rem;
+    }
 }

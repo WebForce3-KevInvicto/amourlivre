@@ -21,32 +21,24 @@
 	<body>
 		<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
-				<div class="carousel-item one active">
-				{# <img src="..." class="d-block w-100" alt="..."> #}
-				</div>
-				<div class="carousel-item two">
-				{# <img src="..." class="d-block w-100" alt="..."> #}
-				</div>
-				<div class="carousel-item three">
-				{# <img src="..." class="d-block w-100" alt="..."> #}
-				</div>
-				<div class="carousel-item four">
-				{# <img src="..." class="d-block w-100" alt="..."> #}
-				</div>
+				<div class="carousel-item one active"></div>
+				<div class="carousel-item two"></div>
+				<div class="carousel-item three"></div>
+				<div class="carousel-item four"></div>
 			</div>
 		</div>
-	
+
 		<div class="home-background">
 			<header>
-			<nav class="navbar main-homemenu navbar-expand-lg">
+				<nav class="navbar main-homemenu navbar-expand-lg">
 					<div class="container-fluid">
 						<a class="navbar-brand main-homemenu__brand" href="#"><img src="{{ asset('assets/img/logo/logo-light.png')}}" alt=""></a>
 					</div>
 				</nav>
 			</header>
 		</div>
-			
-		</div>
+
+
 		<main>
 			{% block body %}{% endblock %}
 		</main>
