@@ -22,12 +22,20 @@ $(document).ready(function(){
          let publicationDay = "";
          let publicationMonth = "";
          let publicationYear = "";
-         let publicationDateFr = "";
+           
+         let resultSection = document.querySelector('.searchbook-result-section');
+         let resultElement = document.querySelector('#result');
+
+         while(resultElement.firstChild){
+           resultElement.removeChild(resultElement.firstChild);
+         }
+
        
 
-         let resultElement = document.querySelector('#result');
-  
+
          let template = document.querySelector('#cardResult');
+
+      
                  
          // On envoie la requête à l'API
           $.get("https://www.googleapis.com/books/v1/volumes?q=" + search,function(response){
@@ -40,6 +48,12 @@ $(document).ready(function(){
             let cloneTemplate = document.importNode(template.content, true);
  
             let cardElement = cloneTemplate.querySelector('.card');
+
+            
+              
+            
+            // let haschildnodes = resultElement.hasChildNodes();
+            // console.log(haschildnodes);break;
 
  
             let imgElement = cloneTemplate.querySelector('#book-cover');
@@ -115,14 +129,6 @@ $(document).ready(function(){
               publicationDay = dateArray[2];
             }
 
-            if(publicationDay !== "" && publicationMonth !== "" && publicationYear !== ""){
-              publicationDateFr = publicationDay + '-' + publicationMonth + '-' + publicationYear;
-            } else if ( publicationMonth !== "" && publicationYear !== ""){
-              publicationDateFr = publicationMonth + '-' + publicationYear;
-            } else {
-              publicationDateFr = publicationYear;
-            }
-
 
             // *** SYNOPSIS ***
             synopsis = response.items[i].volumeInfo.description;
@@ -171,8 +177,20 @@ $(document).ready(function(){
             publicationDayInput.setAttribute('disabled', true);
             publicationMonthInput.setAttribute('disabled', true);
             publicationYearInput.setAttribute('disabled', true);
-              
 
+            if(publicationDay !== ""){
+              publicationDayInput.setAttribute('value', publicationDay);
+            }
+            
+            if(publicationMonth !== ""){
+              publicationMonthInput.setAttribute('value', publicationMonth);
+            }
+
+            if( publicationYear !== ""){
+              publicationYearInput.setAttribute('value', publicationYear);
+            }
+            
+         
              //*** ISBN INPUT ***/
              isbnInput.setAttribute('value', isbn);
             
@@ -181,6 +199,7 @@ $(document).ready(function(){
  
             // J'ajoute TOUS les éléments dans le DOM.
             resultElement.appendChild(cardElement);
+            resultSection.appendChild(resultElement);
            
             
           

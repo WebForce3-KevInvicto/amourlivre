@@ -13,6 +13,10 @@
   .d--flex-nowrap{
     display: flex;
   }
+
+  .d--none{ /* d-none et pas Danone */
+    display: none; 
+  }
   
   .f--300{
     flex: 1 1 300px;
