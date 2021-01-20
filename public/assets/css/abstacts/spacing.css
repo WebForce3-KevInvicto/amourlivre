@@ -24,7 +24,7 @@
     padding-top: 2rem;
   }
   
-  .pb--2{
+  .pb--4{
     padding-bottom: 4rem;
   }
   
@@ -66,4 +66,11 @@
   .mtrl--1{
     margin: 1rem 1rem 0 1rem;
   }
+
+  .mb--1{
+    margin-bottom: 1rem;
+  }
   
+  .m--3-auto{
+    margin: 3rem auto 0 auto;
+  }

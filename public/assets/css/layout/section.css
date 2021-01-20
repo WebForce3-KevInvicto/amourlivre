@@ -27,4 +27,15 @@ section{
     background-color: var(--color--theme--secondary);
 }
 
+.section-admin-contact a{
+    text-decoration: none;
+}
 
+.section-admin-contact a:hover{
+    text-decoration: underline;
+    color: var(--color--text--dark);
+}
+
+.section-contact fieldset{
+    display: none;
+}
