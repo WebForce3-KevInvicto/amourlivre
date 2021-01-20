@@ -45,6 +45,9 @@
     /* BLACK */
     --color--lite-black: rgb(37, 37, 37);
     --color--black: rgb(0, 0, 0);
+    
+    /* BRIGHT TURQUOISE */
+    --color--bright-turquoise: rgb(15, 242, 219);
   }
   
   /* APP COLORS
@@ -58,6 +61,7 @@
     --color--theme--dark: var(--color--cocoa-bean);
     --color--theme--dark70: var(--color--cocoa-bean70);
     --color--theme--alt: var(--color--coral-tree);
+    --color--theme--alt2: var(--color--bright-turquoise);
 
     /* BACKGROUND */
     --color--background--dark: var(--color--theme--dark70);
@@ -66,6 +70,7 @@
     --color--text--light: var(--color--periglacial-blue);
     --color--text--dark: var(--color--cocoa-bean);
     --color--text--alt: var(--color--mikado-yellow);
+    --color--text--alt2: var(--color--bright-turquoise);
 
     /* SUCCESS */
     --color--success : var(--color--genoa-green);

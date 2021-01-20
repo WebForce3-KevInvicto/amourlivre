@@ -9,6 +9,10 @@
     width:50%;
   }
 
+  .w--200{
+    width: 200px;
+  }
+
   .w--300{
     width: 300px;
   }
@@ -27,4 +31,8 @@
   
   .m--width{
     max-width: 1200px;
+  }
+
+  .m--height{
+    max-height: 350px;
   }
