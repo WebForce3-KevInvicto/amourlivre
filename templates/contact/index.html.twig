@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Amour Livre - adminContact
+{% endblock %}
+
+{% block body %}
+	<section class="section-admin-contact w--900">
+		<h1 class="text-center pb--4">Admin Contact</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="text-color-dark">Id</th>
+					<th class="text-color-dark">Nom</th>
+					<th class="text-color-dark">Email</th>
+					<th class="text-color-dark">Message</th>
+					<th class="text-color-dark">DateMessage</th>
+					<th class="text-color-dark">actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for contact in contacts %}
+					<tr>
+						<td>{{ contact.id }}</td>
+						<td>{{ contact.nom }}</td>
+						<td>{{ contact.email }}</td>
+						<td>{{ contact.message }}</td>
+						<td>{{ contact.dateMessage ? contact.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
+						<td>
+							<a href="{{ path('contact_show', {'id': contact.id}) }}">montrer</a>
+							<a href="{{ path('contact_edit', {'id': contact.id}) }}">éditer</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="6" class="text-color-dark">Pas d'entrée</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<a href="{{ path('contact_new') }}" class="text-color-dark fw--b">Créer nouvelle entrée</a>
+	</section>
+{% endblock %}
