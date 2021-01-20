@@ -1,7 +1,7 @@
 $(document).ready(function(){	
     $(".search-book").submit(function(event){
         event.preventDefault();
-         var search = $("#books").val();
+         let search = $("#books").val();
          // Si l'utilisateur click sur rechercher sans avoir saisis un titre 
           if(search == "")
           {
@@ -10,123 +10,179 @@ $(document).ready(function(){
          }
         // Sinon
           else{	
-         // On initialise les variables nécéssaires dans lesquelles on va stocker les reponses que l'on recherche, retournées par l'API.   	
-         var img = ""; // Image de couverture du livre
-         var title = ""; // Titre du livre
-         var authors = ""; // Auteur
-         var synopsis = ""
-         var datePublication = "";
-         var publisher = "";
-         var language = "";
-         var isbn ="";
-         var genre ="";
+         // On initialise les letiables nécéssaires dans lesquelles on va stocker les reponses que l'on recherche, retournées par l'API.   	
+         let img = ""; // Image de couverture du livre
+         let title = ""; // Titre du livre
+         let authors = ""; // Auteur
+         let synopsis = ""
+         let publicationDate = "";
+         let publisher = "";
+         let language = "";
+         let isbn ="";
+         let publicationDay = "";
+         let publicationMonth = "";
+         let publicationYear = "";
+         let publicationDateFr = "";
        
-       //   var bodyElement = document.querySelector('body');
-         var resultElement = document.querySelector('#result');
-         console.log(resultElement);
-         var template = document.querySelector('#cardResult');
+
+         let resultElement = document.querySelector('#result');
+  
+         let template = document.querySelector('#cardResult');
                  
          // On envoie la requête à l'API
           $.get("https://www.googleapis.com/books/v1/volumes?q=" + search,function(response){
-             console.log(response); // L'API nous retourne un tableau d'objets response. Il contient tout les livres correspondant à la recherche de l'utilisateur et pour chaque livre, toutes ses infos.
+           
           
            // On utilise une boucle for pour récuperer les infos de chaque livre et les affichés. 
            for(i=0;i<response.items.length;i++)
            {
  
-            var cloneTemplate = document.importNode(template.content, true);
+            let cloneTemplate = document.importNode(template.content, true);
  
-            var cardElement = cloneTemplate.querySelector('.card');
-            var addBookForm = cloneTemplate.querySelector('#book_form');
- 
-            var imgElement = cloneTemplate.querySelector('#book-cover');
-            var titleInput =  cloneTemplate.querySelector('#book_form_title');
-            var authorSelect = cloneTemplate.querySelector('#book_form_author');
-            var thumbnailInput =  cloneTemplate.querySelector('#book_form_thumbnail');
-            var synopsisTextarea = cloneTemplate.querySelector('#book_form_synopsis'); 
-            var datePublicationDay = cloneTemplate.querySelector('#book_form_publication_date_day'); 
-            var datePublicationMonth = cloneTemplate.querySelector('#book_form_publication_date_month'); 
-            var datePublicationYear = cloneTemplate.querySelector('#book_form_publication_date_year'); 
-            var publisherSelect = cloneTemplate.querySelector('#book_form_publisher');
-            var languageInput = cloneTemplate.querySelector('#book_form_language');
-            var isbnInput = cloneTemplate.querySelector('#book_form_isbn');
-            var publisherOption = document.createElement('option');
-            var genreSelect = cloneTemplate.querySelector('#book_form_genre');
+            let cardElement = cloneTemplate.querySelector('.card');
 
-             console.log(imgElement);
  
-            // On stocke les infos dans les variables initialisées plus haut  
-            title = response.items[i].volumeInfo.title ;  
+            let imgElement = cloneTemplate.querySelector('#book-cover');
+            let titleInput =  cloneTemplate.querySelector('#book_form_title');
+            let authorSelect = cloneTemplate.querySelector('#book_form_author');
+            let thumbnailInput =  cloneTemplate.querySelector('#book_form_thumbnail');
+            let synopsisTextarea = cloneTemplate.querySelector('#book_form_synopsis'); 
+            let publicationDayInput =  cloneTemplate.querySelector('#book_form_publication_date_day');
+            let publicationMonthInput =  cloneTemplate.querySelector('#book_form_publication_date_month');
+            let publicationYearInput =  cloneTemplate.querySelector('#book_form_publication_date_year');
+            let publisherSelect = cloneTemplate.querySelector('#book_form_publisher');
+            let languageInput = cloneTemplate.querySelector('#book_form_language');
+            let isbnInput = cloneTemplate.querySelector('#book_form_isbn');
+            let publisherOption = document.createElement('option');
+            let genreSelect = cloneTemplate.querySelector('#book_form_genre');
+
+ 
+            // On stocke les infos dans les variables initialisées plus haut
+            
+            // *** TITRE ***
+            title = response.items[i].volumeInfo.title ;
+            
+            // *** AUTEUR(S) ***
             authors =response.items[i].volumeInfo.authors;
 
+            // Boucle foreach jQuery sur authors
             $.each(authors, function(index){
+                // A chaque itération,
 
-                var authorOption = document.createElement('option');
+                // Je créé un élément <option> 
+                let authorOption = document.createElement('option');
+
+                // J'ajoute les info (de l'itération courantes) dans l'attribut adéquat de l'élément (partie 1)
                 authorOption.setAttribute('value', authors[index]);
+                //J'ajoute le innerHTML dans l'élément option
                 authorOption.innerHTML = authors[index];
+                // J'ajoute l'élément <option> dans son <select>.
                 authorSelect.appendChild(authorOption);
 
             })
+
+            // *** GENRE(S) ***
             
             genres = response.items[i].volumeInfo.categories;
 
             $.each(genres, function(index){
 
-              var genreOption = document.createElement('option');
+              let genreOption = document.createElement('option');
+
+              // J'ajoute les infos dans l'attribut adéquat de l'élément (partie 2)
+              //*** GENRE ***/
               genreOption.setAttribute('value', genres[index]);
               genreOption.innerHTML = genres[index];
               genreSelect.appendChild(genreOption);
 
           })
 
+          // *** DATE DE PUBLICATION ***
+
+            publicationDate = response.items[i].volumeInfo.publishedDate;
+
+            let dateArray = publicationDate.split("-");
+
+            if(dateArray[0] !== ""){
+              publicationYear = dateArray[0];
+            }
+
+            if(dateArray[1] !== ""){
+              publicationMonth = dateArray[1];
+            }
+
+            if(dateArray[2] !== ""){
+              publicationDay = dateArray[2];
+            }
+
+            if(publicationDay !== "" && publicationMonth !== "" && publicationYear !== ""){
+              publicationDateFr = publicationDay + '-' + publicationMonth + '-' + publicationYear;
+            } else if ( publicationMonth !== "" && publicationYear !== ""){
+              publicationDateFr = publicationMonth + '-' + publicationYear;
+            } else {
+              publicationDateFr = publicationYear;
+            }
+
+
+            // *** SYNOPSIS ***
             synopsis = response.items[i].volumeInfo.description;
+
+            // *** EDITEUR ***
             publisher = response.items[i].volumeInfo.publisher;
-            publisherOption.setAttribute('value', publisher);
-            publisherOption.innerHTML = publisher;
-            publisherSelect.appendChild(publisherOption);
+            
+
+            // *** LANGUE ***
             language = response.items[i].volumeInfo.language;
+
+            // *** ISBN ***
             isbn = response.items[i].volumeInfo.industryIdentifiers[0].identifier;
             
- 
-             // console.log(response.items[i].volumeInfo.hasOwnProperty('imageLinks'));
- 
+            // *** COUVERTURE *** 
             if(response.items[i].volumeInfo.hasOwnProperty('imageLinks')){
                img =  response.items[i].volumeInfo.imageLinks['thumbnail'];
             } else {
              img = "book.png";
             }
               
-             // console.log(img);
-        
-            
- 
-            altImg = "Converture du livre " + title;
- 
+            let altImg = "Converture du livre " + title;
+
+
+            // Je place les infos dans l'attribut adéquat de chaque élément ciblé (suite)
+              //*** IMG ***/
              imgElement.setAttribute('src', img);
              imgElement.setAttribute('alt', altImg);
+
+             //*** THUMBNAIL INPUT ***
              thumbnailInput.setAttribute('value', img);
+
+             //*** TITLE ***/
              titleInput.setAttribute('value', title);
-            //  authorSelect.setAttribute('value', author);
-            //  publisherSelect.setAttribute('value', publisher);
+
+             //*** LANGUAGE INPUT***/
              languageInput.setAttribute('value', language);
+
+            //*** PUBLISHER OPTION***/
+            publisherOption.setAttribute('value', publisher);
+            publisherOption.innerHTML = publisher;
+            // J'ajoute l'élément <option> dans son élément <select>.
+            publisherSelect.appendChild(publisherOption);
+
+            // //*** PUBLICATION DATE INPUT ***
+            publicationDayInput.setAttribute('disabled', true);
+            publicationMonthInput.setAttribute('disabled', true);
+            publicationYearInput.setAttribute('disabled', true);
+              
+
+             //*** ISBN INPUT ***/
              isbnInput.setAttribute('value', isbn);
-         
+            
+             //*** SYNOPSIS TEXTAREA ***
              synopsisTextarea.textContent = synopsis;
  
-             // imgElement.appendTo(addBookForm);
-             // titleInput.appendTo(addBookForm);
-             // authorInput.appendTo(addBookForm);
-             // thumbnailInput.appendTo(addBookForm);
-             // synopsisTextarea.appendTo(addBookForm);
- 
-             // addBookForm.appendChild(cloneTemplate);
- 
-             console.log(addBookForm);
- 
-            // On les ajoutes dans le DOM.
+            // J'ajoute TOUS les éléments dans le DOM.
             resultElement.appendChild(cardElement);
            
-            console.log(resultElement);
+            
           
            }
           });
