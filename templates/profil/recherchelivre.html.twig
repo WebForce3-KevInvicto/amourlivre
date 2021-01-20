@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Amour Livre - Rechercher un livre{% endblock %}
+
+{% block body %}
+
+<section>
+
+<h1> Rechercher un livre</h1>
+
+<div class="searchfield">
+
+<div class="form-group">
+
+<label>
+Saisissez le titre ou l'auteur ou l'ISBN du livre que vous recherchez :
+</label>
+
+<input class="search-book_input" type="text">
+</input>
+</div>
+</div>
+
+</section>
+
+<section>
+
+<h2> Résultats de la recherche</h2>
+
+<div class="search-book__result">
+
+</div>
+</section>
+{% endblock %}
