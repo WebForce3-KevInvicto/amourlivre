@@ -1,0 +1,100 @@
+{{ form_start(bookForm) }}
+
+    <article class="card">
+      <div class="card-header">
+
+      <img id="book-cover" src="" alt="">
+      
+
+      </div>
+
+      <div class="card-body">
+      {{
+          form_widget(
+            bookForm.title,
+            {
+
+              'attr': {'disabled': 'true'} 
+            }
+          )
+        }}
+
+        {{
+          form_widget(
+            bookForm.author,
+            {
+              'attr': {'disabled': 'true'} 
+            }
+          )
+        }}
+       {{
+          form_widget(
+            bookForm.publisher,
+            {
+              'attr': {'disabled': 'true'} 
+            }
+          )
+        }}
+
+        {{
+          form_widget(
+            bookForm.publication_date,
+            {
+              'attr': {'disabled': 'true'} 
+            }
+          )
+        }}
+        {{
+          form_widget(
+            bookForm.isbn,
+            {
+              'attr': {'disabled': 'true'} 
+            }
+          )
+        }}
+        {{
+          form_widget(
+            bookForm.language,
+            {
+              'attr': {'disabled': 'true'} 
+            }
+          )
+        }}
+
+        {{
+          form_widget(
+            bookForm.genre,
+            {
+              'attr': {'disabled': 'true'} 
+            }
+          )
+        }}
+        {{
+          form_widget(
+            bookForm.synopsis,
+            {
+              'attr': {'disabled': 'true'} 
+            }
+          )
+        }}
+
+        <div class="card-footer">
+
+        {{
+          form_widget(
+            bookForm.thumbnail,
+            {
+              'attr': {'disabled': 'true'} 
+            }
+          )
+        }}
+
+        <button id="searchBookButton" type="submit"
+          class="btn btn-primary m--top-1 w--300">
+          Ajouter
+        </button>
+        {{ form_end(bookForm) }}
+      </div>
+      </div>
+    </article>
+  

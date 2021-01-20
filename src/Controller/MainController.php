@@ -20,24 +20,13 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/membre/recherchelivre", name="searchbook")
-     */
-    public function recherchelivre(): Response
-    {
-        
-        return $this->render('profil/recherchelivre.html.twig', [
-            'controller_name' => 'MainController',
-        ]);
-    }
-
-    /**
      * @Route("/profil", name="profil")
      */
     public function profil(): Response
     {
         
-        return $this->render('main/profil.html.twig', [
-            'controller_name' => 'MainController',
+        return $this->render('book/index.html.twig', [
+            'controller_name' => 'BookController',
         ]);
     }
 
