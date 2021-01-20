@@ -20,6 +20,7 @@ class BookFormType extends AbstractType
             ->add('isbn')
             ->add('publication_date', DateType::class, [
                 'format' => 'yyyy-MM-dd',
+                'widget' => 'text'
                 ])
             // ->add('created_at')
             // ->add('updated_at')
