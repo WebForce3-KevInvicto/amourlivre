@@ -29,3 +29,13 @@
 .btn-signup {
   margin-top: 2rem;
 }
+
+.btn-matching {
+  background-color: var(--color--theme--alt2);
+  color: var(--color--text--dark);
+}
+
+.btn-matching:hover {
+  background-color: var(--color--text--dark);
+  color: var(--color--theme--alt2); 
+}

@@ -39,3 +39,7 @@ section{
 .section-contact fieldset{
     display: none;
 }
+
+#section-transparent{
+    background-color: transparent;
+}

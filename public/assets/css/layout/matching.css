@@ -1,9 +1,25 @@
-.section-matching-left img{
+.article-matching img{
     height: 300px;
-    width: 200px;
+    width: 250px;
     object-fit: cover;
 }
 
-.section-matching-left{
+.article-matching{
     padding: 2rem;
 }
+
+.article-matching li{
+    font-size: var(--font--size--up-scaled-2);
+    margin: 1rem 0;
+}
+
+.article-matching h2{
+    font-size: var(--font--size--up-scaled-5);
+    color: var(--color--text--alt2);
+}
+
+.section-transparent__h1{
+    font-size: var(--font--size--up-scaled-8);
+}
+
+
