@@ -5,6 +5,9 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use App\Entity\Contact;
+use App\Form\ContactType;
 
 class MainController extends AbstractController
 {
@@ -53,13 +56,32 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/contact", name="contact")
+     * @Route("/contact", name="contact", methods={"GET","POST"})
      */
-    public function contact(): Response
+    public function contact(Request $request): Response
     {
-        
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
+
+        // ON VALIDE LES INFOS DU FORMULAIRE
+        $messageConfirmation = "merci de remplir le formulaire";
+        if ($form->isSubmitted() && $form->isValid()) {
+            // IL FAUT COMPLETER LES INFOS MANQUANTES
+            $contact->setDateMessage(new \DateTime());
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($contact);
+            $entityManager->flush();
+
+            $messageConfirmation = "Message bien reçu. Nous vous répondrons rapidement.";
+
+            //return $this->redirectToRoute('contact_index');
+        }
         return $this->render('footer/contact.html.twig', [
-            'controller_name' => 'MainController',
+            'messageConfirmation'   => $messageConfirmation,
+            'contact' => $contact,
+            'form' => $form->createView(),
         ]);
     }
 
