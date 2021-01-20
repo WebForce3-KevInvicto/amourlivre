@@ -1,0 +1,9 @@
+.section-matching-left img{
+    height: 300px;
+    width: 200px;
+    object-fit: cover;
+}
+
+.section-matching-left{
+    padding: 2rem;
+}

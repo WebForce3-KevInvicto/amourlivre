@@ -1,7 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Amour Livre{% endblock %}
+{% block title %}Amour Livre
+{% endblock %}
 
 {% block body %}
-<h1> Je suis sur Matching</h1>
+	<h1>
+		Je suis sur Matching</h1>
+
+	<section class="section-matching-left w--600 d--flex fd--c">
+		<h2 class="w--100">Matching : 60 %</h2>
+		<div class="d--flex">
+            <img src="{{asset('assets/img/profil/silhouette-amour-livre.jpg')}}" alt="silhouette">
+			<ul class="w--50">
+				<li>Pseudo :
+				</li>
+				<li>Age :
+				</li>
+				<li>Ville :
+				</li>
+				<li>Description :
+				</li>
+			</ul>
+		</div>
+		<button class="btn btn-primary"></button>
+		<button class="btn btn-primary"></button>
+	</section>
+
+	<section class="section-matching-left w--600 d--flex">
+		<h2>Matching : 60 %</h2>
+		<img src="{{asset('assets/img/profil/silhouette-amour-livre.jpg')}}" alt="silhouette">
+		<ul>
+			<li>Pseudo :
+			</li>
+			<li>Age :
+			</li>
+			<li>Ville :
+			</li>
+			<li>Description :
+			</li>
+		</ul>
+		<button class="btn btn-primary"></button>
+		<button class="btn btn-primary"></button>
+	</section>
+
+
 {% endblock %}

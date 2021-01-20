@@ -49,4 +49,8 @@
     align-self: center;
   }
 
-  
+  /***Flex-Direction***/
+
+  .fd--c{
+    flex-direction: column;
+  }
