@@ -6,7 +6,10 @@
     flex-wrap: wrap;
   }
 
-
+  .d--inlblc{
+    display: inline-block;
+  }
+  
   .d--flex-nowrap{
     display: flex;
   }

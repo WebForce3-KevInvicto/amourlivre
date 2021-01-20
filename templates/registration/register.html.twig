@@ -59,6 +59,10 @@
             }
           )
         }}
+         <small class="d--inlblc ml--1 m--top-05 text-color-dark ">Force:</small>
+        <meter  max="5" id="password-strength-meter"></meter>
+        <span class="d--inlblc strength-text m--top-05 text-color-dark"></span>
+        <ul class="ml--1 m--top-05 text-color-dark" id="password-strength-text"></ul>
       </div>
 
       <div class="form-right w--50">
@@ -111,6 +115,7 @@
       </div>
       
       <div class="form-footer d--flex jc--c m--top-1 w--100">
+     
         <small class="m--1 text-color-dark">
           En créant un compte, vous acceptez automatiquement nos <a class="text-color-dark fw--b"
             href="{{ path('cgu') }}">
@@ -126,4 +131,8 @@
     </div>
     {{ form_end(registrationForm) }}
   </section>
+
 {% endblock %}
+    {% block javascripts %}
+			<script src="{{asset('assets/js/registration.js')}}"></script>
+		{% endblock %}
