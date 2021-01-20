@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Book{% endblock %}
+
+{% block body %}
+    <section>
+
+    <h1> Rechercher un livre</h1>
+
+    <div class="searchfield">
+
+        <div class="form-group">
+
+            <form action="#" method="POST" class="search-book">
+                <label>
+                    Saisissez le titre ou l'auteur ou l'ISBN du livre que vous recherchez :
+                </label>
+
+                <input id="books" type="text">
+                </input>
+
+                <button class="btn btn-primary"> Rechercher
+                </button>
+            </form>
+        </div>
+    </div>
+
+</section>
+
+<section>
+
+<div id="result" class="articles">
+
+</div>
+
+</section>
+
+<template id="cardResult">
+
+{{ include('book/_form.html.twig') }}
+
+</template>
+
+    <a href="{{ path('book_index') }}">back to list</a>
+{% endblock %}
+
+{% block javascripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script src="{{asset('assets/js/booksearch.js')}}"></script>
+{% endblock %}

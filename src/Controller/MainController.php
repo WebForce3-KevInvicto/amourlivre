@@ -28,8 +28,8 @@ class MainController extends AbstractController
     public function profil(): Response
     {
         
-        return $this->render('main/profil.html.twig', [
-            'controller_name' => 'MainController',
+        return $this->render('book/index.html.twig', [
+            'controller_name' => 'BookController',
         ]);
     }
 
