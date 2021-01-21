@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\BookRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @ORM\Entity(repositoryClass=BookRepository::class)
@@ -65,26 +67,32 @@ class Book
     private $comments;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Publisher::class, inversedBy="books")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $publisher;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Author::class, inversedBy="books")
+     * @ORM\Column(type="string", length=255)
      */
     private $author;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Genre::class, inversedBy="books")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\ManyToMany(targetEntity=Genre::class, inversedBy="books")
      */
     private $genre;
+
+    
+
+    
 
     public function __construct()
     {
         $this->comments = new ArrayCollection();
         $this->author = new ArrayCollection();
+        $this->created_at = new DateTime();
+        $this->updated_at = new DateTime();
+        $this->genre = new ArrayCollection();
+       
     }
 
     public function getId(): ?int
@@ -217,13 +225,21 @@ class Book
 
         return $this;
     }
-
-    public function getPublisher(): ?Publisher
+  
+    /**
+     * Get the value of publisher
+     */ 
+    public function getPublisher()
     {
         return $this->publisher;
     }
 
-    public function setPublisher(?Publisher $publisher): self
+    /**
+     * Set the value of publisher
+     *
+     * @return  self
+     */ 
+    public function setPublisher($publisher)
     {
         $this->publisher = $publisher;
 
@@ -231,38 +247,52 @@ class Book
     }
 
     /**
-     * @return Collection|Author[]
-     */
-    public function getAuthor(): Collection
+     * Get the value of author
+     */ 
+    public function getAuthor()
     {
         return $this->author;
     }
 
-    public function addAuthor(Author $author): self
+    /**
+     * Set the value of author
+     *
+     * @return  self
+     */ 
+    public function setAuthor($author)
     {
-        if (!$this->author->contains($author)) {
-            $this->author[] = $author;
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Genre[]
+     */
+    public function getGenre(): Collection
+    {
+        return $this->genre;
+    }
+
+    public function addGenre(Genre $genre): self
+    {
+        if (!$this->genre->contains($genre)) {
+            $this->genre[] = $genre;
         }
 
         return $this;
     }
 
-    public function removeAuthor(Author $author): self
+    public function removeGenre(Genre $genre): self
     {
-        $this->author->removeElement($author);
+        $this->genre->removeElement($genre);
 
         return $this;
     }
 
-    public function getGenre(): ?Genre
-    {
-        return $this->genre;
-    }
+    
 
-    public function setGenre(?Genre $genre): self
-    {
-        $this->genre = $genre;
+    
 
-        return $this;
-    }
+   
 }

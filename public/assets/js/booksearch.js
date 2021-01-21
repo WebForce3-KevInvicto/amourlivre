@@ -19,9 +19,7 @@ $(document).ready(function(){
          let publisher = "";
          let language = "";
          let isbn ="";
-         let publicationDay = "";
-         let publicationMonth = "";
-         let publicationYear = "";
+         
            
          let resultSection = document.querySelector('.searchbook-result-section');
          let resultElement = document.querySelector('#result');
@@ -48,19 +46,15 @@ $(document).ready(function(){
 
 
             let imgElement = cloneTemplate.querySelector('#book-cover');
-            let titleInput =  cloneTemplate.querySelector('#book_form_title');
-            // let authorSelect = cloneTemplate.querySelector('#book_form_author');
-            let thumbnailInput =  cloneTemplate.querySelector('#book_form_thumbnail');
-            let synopsisTextarea = cloneTemplate.querySelector('#book_form_synopsis'); 
-            let publicationDateInput = cloneTemplate.querySelector('#book_form_publication_date');
-            // let publicationDayInput =  cloneTemplate.querySelector('#book_form_publication_date_day');
-            // let publicationMonthInput =  cloneTemplate.querySelector('#book_form_publication_date_month');
-            // let publicationYearInput =  cloneTemplate.querySelector('#book_form_publication_date_year');
-            // let publisherSelect = cloneTemplate.querySelector('#book_form_publisher');
-            let languageInput = cloneTemplate.querySelector('#book_form_language');
-            let isbnInput = cloneTemplate.querySelector('#book_form_isbn');
-            // let publisherOption = document.createElement('option');
-            // let genreSelect = cloneTemplate.querySelector('#book_form_genre');
+            let titleInput =  cloneTemplate.querySelector('#book_title');
+            let authorsInput = cloneTemplate.querySelector('#book_author');
+            let thumbnailInput =  cloneTemplate.querySelector('#book_thumbnail');
+            let synopsisTextarea = cloneTemplate.querySelector('#book_synopsis'); 
+            let publicationDateInput = cloneTemplate.querySelector('#book_publication_date');
+            let languageInput = cloneTemplate.querySelector('#book_language');
+            let isbnInput = cloneTemplate.querySelector('#book_isbn');
+            let publisherInput = cloneTemplate.querySelector('#book_publisher');
+
  
             // On stocke les infos dans les variables initialisées plus haut
             
@@ -68,58 +62,21 @@ $(document).ready(function(){
             title = response.items[i].volumeInfo.title ;
             
             // *** AUTEUR(S) ***
-            authors =response.items[i].volumeInfo.authors;
+            let authorsArray =response.items[i].volumeInfo.authors;
 
-            // Boucle foreach jQuery sur authors
-            // $.each(authors, function(index){
-            //     // A chaque itération,
-
-            //     // Je créé un élément <option> 
-            //     let authorOption = document.createElement('option');
-
-            //     // J'ajoute les info (de l'itération courantes) dans l'attribut adéquat de l'élément (partie 1)
-            //     authorOption.setAttribute('value', authors[index]);
-            //     //J'ajoute le innerHTML dans l'élément option
-            //     authorOption.innerHTML = authors[index];
-            //     // J'ajoute l'élément <option> dans son <select>.
-            //     authorSelect.appendChild(authorOption);
-
-            // })
+            authors = authorsArray.join(', ');
 
             // *** GENRE(S) ***
             
             genres = response.items[i].volumeInfo.categories;
 
-          //   $.each(genres, function(index){
+          
 
-          //     let genreOption = document.createElement('option');
-
-          //     // J'ajoute les infos dans l'attribut adéquat de l'élément (partie 2)
-          //     //*** GENRE ***/
-          //     genreOption.setAttribute('value', genres[index]);
-          //     genreOption.innerHTML = genres[index];
-          //     genreSelect.appendChild(genreOption);
-
-          // })
-
-          // *** DATE DE PUBLICATION ***
+            // *** DATE DE PUBLICATION ***
 
             publicationDate = response.items[i].volumeInfo.publishedDate;
 
-            // let dateArray = publicationDate.split("-");
-
-            // if(dateArray[0] !== ""){
-            //   publicationYear = dateArray[0];
-            // }
-
-            // if(dateArray[1] !== ""){
-            //   publicationMonth = dateArray[1];
-            // }
-
-            // if(dateArray[2] !== ""){
-            //   publicationDay = dateArray[2];
-            // }
-
+         
             // *** SYNOPSIS ***
             synopsis = response.items[i].volumeInfo.description;
 
@@ -129,6 +86,18 @@ $(document).ready(function(){
 
             // *** LANGUE ***
             language = response.items[i].volumeInfo.language;
+
+            if(language == 'fr'){
+              language = "Français";
+            } else if(language == 'en'){
+              language = "Anglais";
+            } else if(language == 'al'){
+              language = 'Allemands'
+            } else if(language == 'es'){
+              language = 'Espagnol';
+            } else {
+              language = "NC"
+            }
 
             // *** ISBN ***
             isbn = response.items[i].volumeInfo.industryIdentifiers[0].identifier;
@@ -157,32 +126,15 @@ $(document).ready(function(){
              //*** LANGUAGE INPUT***/
              languageInput.setAttribute('value', language);
 
-            //*** PUBLISHER OPTION***/
-            // publisherOption.setAttribute('value', publisher);
-            // publisherOption.innerHTML = publisher;
-            // // J'ajoute l'élément <option> dans son élément <select>.
-            // publisherSelect.appendChild(publisherOption);
+             //*** AUTHORS ***/
+             authorsInput.setAttribute('value', authors);
 
-            // //*** PUBLICATION DATE INPUT ***
-            publicationDateInput.setAttribute('value', publicationDate);
+             //*** PUBLISHER ***/
+            publisherInput.setAttribute('value', publisher);
 
-            // publicationDayInput.setAttribute('disabled', true);
-            // publicationMonthInput.setAttribute('disabled', true);
-            // publicationYearInput.setAttribute('disabled', true);
+             //*** PUBLICATION DATE INPUT ***
+             publicationDateInput.setAttribute('value', publicationDate);
 
-            if(publicationDay !== ""){
-              publicationDayInput.setAttribute('value', publicationDay);
-            }
-            
-            if(publicationMonth !== ""){
-              publicationMonthInput.setAttribute('value', publicationMonth);
-            }
-
-            if( publicationYear !== ""){
-              publicationYearInput.setAttribute('value', publicationYear);
-            }
-            
-         
              //*** ISBN INPUT ***/
              isbnInput.setAttribute('value', isbn);
             

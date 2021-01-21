@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Book;
-use App\Form\BookFormType;
+use App\Form\BookType;
 use App\Repository\BookRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("membre/book")
+ * @Route("/book")
  */
 class BookController extends AbstractController
 {
@@ -35,7 +35,7 @@ class BookController extends AbstractController
         $book = new Book();
         
         
-        $form = $this->createForm(BookFormType::class, $book);
+        $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
@@ -49,7 +49,7 @@ class BookController extends AbstractController
 
             dump($publicationDate);
             $book->setPublicationDate($publicationDate);
-            $book->setCreatedAt(new \DateTime);
+            $book->setCreatedAt($book->getCreatedAt);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($book);
             $entityManager->flush();

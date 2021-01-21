@@ -5,7 +5,7 @@
           <img id="book-cover" class="w--100 mr--1" src="" alt="">
         </div>
         <div class="article-header__right w--65">
-
+             {{form_label(bookForm.title, 'Titre')}}
               {{
                   form_widget(
                     bookForm.title,
@@ -15,7 +15,7 @@
                     }
                   )
               }}
-
+            {{form_label(bookForm.author, 'Auteur(s)')}}
               {{
                 form_widget(
                   bookForm.author,
@@ -25,9 +25,9 @@
                 )
               }}
 
-              <div class="article-subheader d--flex jc--sb ai--c">
+              <div class="article-subheader d--flex jc--sb">
                   <div class="article-subheader__left w--50">
-                  {# {{form_label(bookForm.publisher, 'Editeur')}}
+                  {{form_label(bookForm.publisher, 'Editeur')}}
                       {{
                         form_widget(
                           bookForm.publisher,
@@ -35,7 +35,7 @@
                             'attr': {'toto': 'false'} 
                           }
                         )
-                      }} #}
+                      }}
                 
                       {{form_label(bookForm.publication_date, 'Publié le')}}
                       {{

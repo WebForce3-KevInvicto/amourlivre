@@ -28,6 +28,10 @@
                 <td>{{ book.language }}</td>
             </tr>
             <tr>
+                <th>genre</th>
+                <td>{{ book.genre }}</td>
+            </tr>
+            <tr>
                 <th>Isbn</th>
                 <td>{{ book.isbn }}</td>
             </tr>
@@ -42,6 +46,14 @@
             <tr>
                 <th>Updated_at</th>
                 <td>{{ book.updatedAt ? book.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Publisher</th>
+                <td>{{ book.publisher }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ book.author }}</td>
             </tr>
         </tbody>
     </table>

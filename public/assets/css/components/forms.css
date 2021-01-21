@@ -64,59 +64,43 @@ form small a:hover{
     background-color: var(--color--theme--light);
     border: none;
 }
-#book_form_title,
-#book_form_author,
-#book_form_synopsis,
-#book_form_publication_date_day,
-#book_form_publication_date_month,
-#book_form_publication_date_year,
-#book_form_isbn,
-#book_form_genre,
-#book_form_language,
-#book_form_publisher{
+
+
+#book_title,
+#book_author,
+#book_synopsis,
+#book_publication_date,
+#book_isbn,
+#book_genre,
+#book_language,
+#book_publisher{
     background-color: var(--color--theme--light);
     border: none;
 }
 
-/* #book_form_isbn,
-#book_form_genre,
-#book_form_language,
-#book_form_publisher,
-#book_form_synopsis,
-#book_form_publication_date_day,
-#book_form_publication_date_month,
-#book_form_publication_date_year{
-    margin-bottom: 1rem;
-} */
 
 
-#book_form_isbn,
-#book_form_genre,
-#book_form_language,
-#book_form_publisher{
+#book_isbn,
+#book_genre,
+#book_publication_date,
+#book_language,
+#book_publisher{
     max-width: 250px;
 }
 
-#book_form_title{
+
+#book_title{
     word-break: break-all;
 }
 
-#book_form_publisher{
+#book_publisher{
     margin-right : 1rem;
 }
 
-#book_form_author{
-    margin-top: 2rem;
-    overflow : hidden;
-}
 
-#book_form_publication_date_day,
-#book_form_publication_date_month,
-#book_form_publication_date_year{
-    max-width: 60px;
-}
 
-#book_form_synopsis{
+
+#book_synopsis{
     min-height: 200px;
 }
 .article-header__right{
@@ -126,9 +110,10 @@ form small a:hover{
     margin-top: 1rem;
 }
 
-.article-bottom .required,
-.article-subheader__left .required,
-.article-subheader__right .required{
+.article-header__right label,
+.article-bottom label,
+.article-subheader__left label,
+.article-subheader__right label{
     margin-top: 1rem;
 }
 

@@ -27,21 +27,26 @@ class Genre
     /**
      * @ORM\Column(type="datetime")
      */
-    private $created_at;
+    private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime")
      */
-    private $updated_at;
+    private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity=Book::class, mappedBy="genre", orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity=Book::class, mappedBy="genre")
      */
     private $books;
 
     public function __construct()
     {
         $this->books = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): ?int
@@ -63,24 +68,24 @@ class Genre
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     public function getUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->updated_at;
+        return $this->updatedAt;
     }
 
-    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
-        $this->updated_at = $updated_at;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
@@ -97,7 +102,7 @@ class Genre
     {
         if (!$this->books->contains($book)) {
             $this->books[] = $book;
-            $book->setGenre($this);
+            $book->addGenre($this);
         }
 
         return $this;
@@ -106,10 +111,7 @@ class Genre
     public function removeBook(Book $book): self
     {
         if ($this->books->removeElement($book)) {
-            // set the owning side to null (unless already changed)
-            if ($book->getGenre() === $this) {
-                $book->setGenre(null);
-            }
+            $book->removeGenre($this);
         }
 
         return $this;
