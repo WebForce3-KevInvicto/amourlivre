@@ -1,19 +1,17 @@
-
-
     <article class="article-book w--900 p--2 m--1">
+    {{ form_start(bookForm)}}
       <div class="article-header d--flex jc--sb">
         <div class="article-header__left w--30">
           <img id="book-cover" class="w--100 mr--1" src="" alt="">
         </div>
         <div class="article-header__right w--65">
-            {{ form_start(bookForm)}}
 
               {{
                   form_widget(
                     bookForm.title,
                     {
 
-                      'attr': {'disabled': 'true'} 
+                      'attr': {'toto': 'false'} 
                     }
                   )
               }}
@@ -22,29 +20,29 @@
                 form_widget(
                   bookForm.author,
                   {
-                    'attr': {'disabled': 'true'} 
+                    'attr': {'toto': 'false'} 
                   }
                 )
               }}
 
               <div class="article-subheader d--flex jc--sb ai--c">
                   <div class="article-subheader__left w--50">
-                  {{form_label(bookForm.publisher, 'Editeur')}}
+                  {# {{form_label(bookForm.publisher, 'Editeur')}}
                       {{
                         form_widget(
                           bookForm.publisher,
                           {
-                            'attr': {'disabled': 'true'} 
+                            'attr': {'toto': 'false'} 
                           }
                         )
-                      }}
+                      }} #}
                 
                       {{form_label(bookForm.publication_date, 'Publié le')}}
                       {{
                         form_widget(
                           bookForm.publication_date,
                           {
-                            'attr': {'disabled': 'true'} 
+                            'attr': {'toto': 'false'} 
                           }
                         )
                       }}
@@ -55,7 +53,7 @@
                         form_widget(
                           bookForm.language,
                           {
-                            'attr': {'disabled': 'true'} 
+                            'attr': {'toto': 'false'} 
                           }
                         )
                       }}
@@ -64,7 +62,7 @@
                         form_widget(
                           bookForm.genre,
                           {
-                            'attr': {'disabled': 'true'} 
+                            'attr': {'toto': 'false'} 
                           }
                         )
                       }}
@@ -88,7 +86,7 @@
             form_widget(
               bookForm.synopsis,
               {
-                'attr': {'disabled': 'true'} 
+                'attr': {'toto': 'false'} 
               }
             )
         }}
@@ -97,7 +95,7 @@
           form_widget(
             bookForm.isbn,
             {
-              'attr': {'disabled': 'true'} 
+              'attr': {'toto': 'false'} 
             }
           )
         }}
@@ -109,16 +107,17 @@
           form_widget(
             bookForm.thumbnail,
             {
-              'attr': {'disabled': 'true'} 
+              'attr': {'toto': 'false'} 
             }
           )
         }}
 
         <button id="searchBookButton" type="submit"
           class="btn btn-primary w--300">
-          Ajouter
+          Ajouter toto
         </button>
-        {{ form_end(bookForm) }}
       </div>
+      {{ form_end(bookForm) }}
     </article>
+
   

@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class BookFormType extends AbstractType
 {
@@ -19,14 +20,17 @@ class BookFormType extends AbstractType
             ->add('thumbnail', HiddenType::class)
             ->add('language')
             ->add('isbn')
-            ->add('publication_date', DateType::class, [
-                'format' => 'yyyy-MM-dd',
-                'widget' => 'text'
-                ])
+            ->add('publication_date', TextType::class, [
+                'mapped' => false
+            ])
 
-            ->add('publisher')
-            ->add('author')
-            ->add('genre')
+            // ->add('publisher')
+            ->add('author', TextType::class, [
+                'mapped' => false
+            ])
+            ->add('genre', TextType::class, [
+                'mapped' => false
+            ])
         ;
     }
 

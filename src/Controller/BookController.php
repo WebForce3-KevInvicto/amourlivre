@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/book")
+ * @Route("membre/book")
  */
 class BookController extends AbstractController
 {
     /**
-     * @Route("/membre", name="book_index", methods={"GET"})
+     * @Route("/", name="book_index", methods={"GET"})
      */
     public function index(BookRepository $bookRepository): Response
     {
@@ -35,6 +35,7 @@ class BookController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $book->setCreatedAt(new \DateTime);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($book);
             $entityManager->flush();

@@ -30,7 +30,7 @@ class Book
     private $synopsis;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $thumbnail;
 
@@ -66,7 +66,7 @@ class Book
 
     /**
      * @ORM\ManyToOne(targetEntity=Publisher::class, inversedBy="books")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $publisher;
 
@@ -77,7 +77,7 @@ class Book
 
     /**
      * @ORM\ManyToOne(targetEntity=Genre::class, inversedBy="books")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $genre;
 

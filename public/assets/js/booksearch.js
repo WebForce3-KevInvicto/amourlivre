@@ -49,17 +49,17 @@ $(document).ready(function(){
 
             let imgElement = cloneTemplate.querySelector('#book-cover');
             let titleInput =  cloneTemplate.querySelector('#book_form_title');
-            let authorSelect = cloneTemplate.querySelector('#book_form_author');
+            // let authorSelect = cloneTemplate.querySelector('#book_form_author');
             let thumbnailInput =  cloneTemplate.querySelector('#book_form_thumbnail');
             let synopsisTextarea = cloneTemplate.querySelector('#book_form_synopsis'); 
             let publicationDayInput =  cloneTemplate.querySelector('#book_form_publication_date_day');
             let publicationMonthInput =  cloneTemplate.querySelector('#book_form_publication_date_month');
             let publicationYearInput =  cloneTemplate.querySelector('#book_form_publication_date_year');
-            let publisherSelect = cloneTemplate.querySelector('#book_form_publisher');
+            // let publisherSelect = cloneTemplate.querySelector('#book_form_publisher');
             let languageInput = cloneTemplate.querySelector('#book_form_language');
             let isbnInput = cloneTemplate.querySelector('#book_form_isbn');
-            let publisherOption = document.createElement('option');
-            let genreSelect = cloneTemplate.querySelector('#book_form_genre');
+            // let publisherOption = document.createElement('option');
+            // let genreSelect = cloneTemplate.querySelector('#book_form_genre');
  
             // On stocke les infos dans les variables initialisées plus haut
             
@@ -70,55 +70,54 @@ $(document).ready(function(){
             authors =response.items[i].volumeInfo.authors;
 
             // Boucle foreach jQuery sur authors
-            $.each(authors, function(index){
-                // A chaque itération,
+            // $.each(authors, function(index){
+            //     // A chaque itération,
 
-                // Je créé un élément <option> 
-                let authorOption = document.createElement('option');
+            //     // Je créé un élément <option> 
+            //     let authorOption = document.createElement('option');
 
-                // J'ajoute les info (de l'itération courantes) dans l'attribut adéquat de l'élément (partie 1)
-                authorOption.setAttribute('value', authors[index]);
-                //J'ajoute le innerHTML dans l'élément option
-                authorOption.innerHTML = authors[index];
-                // J'ajoute l'élément <option> dans son <select>.
-                authorSelect.appendChild(authorOption);
+            //     // J'ajoute les info (de l'itération courantes) dans l'attribut adéquat de l'élément (partie 1)
+            //     authorOption.setAttribute('value', authors[index]);
+            //     //J'ajoute le innerHTML dans l'élément option
+            //     authorOption.innerHTML = authors[index];
+            //     // J'ajoute l'élément <option> dans son <select>.
+            //     authorSelect.appendChild(authorOption);
 
-            })
+            // })
 
             // *** GENRE(S) ***
             
             genres = response.items[i].volumeInfo.categories;
 
-            $.each(genres, function(index){
+          //   $.each(genres, function(index){
 
-              let genreOption = document.createElement('option');
+          //     let genreOption = document.createElement('option');
 
-              // J'ajoute les infos dans l'attribut adéquat de l'élément (partie 2)
-              //*** GENRE ***/
-              genreOption.setAttribute('value', genres[index]);
-              genreOption.innerHTML = genres[index];
-              genreSelect.appendChild(genreOption);
+          //     // J'ajoute les infos dans l'attribut adéquat de l'élément (partie 2)
+          //     //*** GENRE ***/
+          //     genreOption.setAttribute('value', genres[index]);
+          //     genreOption.innerHTML = genres[index];
+          //     genreSelect.appendChild(genreOption);
 
-          })
+          // })
 
           // *** DATE DE PUBLICATION ***
 
             publicationDate = response.items[i].volumeInfo.publishedDate;
 
-            let dateArray = publicationDate.split("-");
+            // let dateArray = publicationDate.split("-");
 
-            if(dateArray[0] !== ""){
-              publicationYear = dateArray[0];
-            }
+            // if(dateArray[0] !== ""){
+            //   publicationYear = dateArray[0];
+            // }
 
-            if(dateArray[1] !== ""){
-              publicationMonth = dateArray[1];
-            }
+            // if(dateArray[1] !== ""){
+            //   publicationMonth = dateArray[1];
+            // }
 
-            if(dateArray[2] !== ""){
-              publicationDay = dateArray[2];
-            }
-
+            // if(dateArray[2] !== ""){
+            //   publicationDay = dateArray[2];
+            // }
 
             // *** SYNOPSIS ***
             synopsis = response.items[i].volumeInfo.description;
@@ -158,10 +157,10 @@ $(document).ready(function(){
              languageInput.setAttribute('value', language);
 
             //*** PUBLISHER OPTION***/
-            publisherOption.setAttribute('value', publisher);
-            publisherOption.innerHTML = publisher;
-            // J'ajoute l'élément <option> dans son élément <select>.
-            publisherSelect.appendChild(publisherOption);
+            // publisherOption.setAttribute('value', publisher);
+            // publisherOption.innerHTML = publisher;
+            // // J'ajoute l'élément <option> dans son élément <select>.
+            // publisherSelect.appendChild(publisherOption);
 
             // //*** PUBLICATION DATE INPUT ***
             publicationDayInput.setAttribute('disabled', true);
