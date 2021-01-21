@@ -4,70 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<section id="section-transparent" class="d--flex jc--c w--1500">
-		<article class="article-matching w--100 d--flex mx--5">
-			<h1 class="text-center section-transparent__h1 mb--1 w--100">
-				Vous avez des matchs !</h1>
-			<div class="d--flex ai--c jc--c w--100">
-				<p class="mtrl--1">
-					Filtrer :
-				</p>
-				<div>
-					<input type="checkbox" name="age">
-					<label for="age" class="mtrl--1">
-						Age
-					</label>
-				</div>
-				<div>
-					<input type="checkbox" name="localisation">
-					<label for="localisation" class="mtrl--1">
-						Localisation
-					</label>
-				</div>
-			</div>
-		</article>
-
-		<article class="article-matching w--600 d--flex fd--c m--left">
-			<h2 class="w--100 text-center">Matching :</h2>
-			<div class="d--flex m--top-2 m--height">
-				<img src="{{asset('assets/img/profil/silhouette-amour-livre.jpg')}}" alt="silhouette">
-				<ul class="w--50 ml--1">
-					<li>Pseudo :
-					</li>
-					<li>Age :
-					</li>
-					<li>Ville :
-					</li>
-					<li>Description :
-					</li>
-				</ul>
-			</div>
-			<div class="d--flex jc--se">
-				<button class="btn btn-matching w--200 p--1">Contacter</button>
-				<button class="btn btn-primary w--200 p--1">Ignorer</button>
-			</div>
-		</article>
-
-		<article class="article-matching w--600 d--flex fd--c m--right">
-			<h2 class="w--100 text-center">Matching :</h2>
-			<div class="d--flex m--top-2 m--height">
-				<img src="{{asset('assets/img/profil/silhouette-amour-livre.jpg')}}" alt="silhouette">
-				<ul class="w--50 ml--1">
-					<li>Pseudo :
-					</li>
-					<li>Age :
-					</li>
-					<li>Ville :
-					</li>
-					<li>Description :
-					</li>
-				</ul>
-
-			</div>
-			<div class="d--flex jc--se">
-				<button class="btn btn-matching w--200 p--1">Contacter</button>
-				<button class="btn btn-primary w--200 p--1">Ignorer</button>
-			</div>
-		</article>
-	</section>
+	
+		{{ include('matching/index.html.twig') }}
+	
 {% endblock %}
