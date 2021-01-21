@@ -38,6 +38,10 @@
   .jc--c{
     justify-content: center;
   }
+
+  .jc--sa{
+    justify-content: space-around;
+  }
   
   /***Align-Items***/
   .ai--c{

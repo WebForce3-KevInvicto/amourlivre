@@ -55,3 +55,60 @@ form small a:hover{
 /* .form-part-bottom .form-control{
     width: 50%;
 } */
+
+
+
+/******** Farmulaire ajout de livre **********/
+
+#book_form_title,
+#book_form_author,
+#book_form_synopsis,
+#book_form_publication_date_day,
+#book_form_publication_date_month,
+#book_form_publication_date_year,
+#book_form_isbn,
+#book_form_genre,
+#book_form_language,
+#book_form_publisher{
+    background-color: var(--color--theme--light);
+    border: none;
+}
+
+#book_form_isbn,
+#book_form_genre,
+#book_form_language,
+#book_form_publisher,
+#book_form_synopsis,
+#book_form_publication_date_day,
+#book_form_publication_date_month,
+#book_form_publication_date_year{
+    margin-bottom: 1rem;
+}
+
+#book_form_title,
+#book_form_author,
+#book_form_isbn,
+#book_form_genre,
+#book_form_language,
+#book_form_publisher{
+    max-width: 350px;
+}
+
+#book_form_title{
+    word-break: break-all;
+}
+
+#book_form_publisher{
+    margin-right : 1rem;
+}
+
+#book_form_author{
+    margin-top: 1rem;
+    overflow : hidden;
+}
+
+#book_form_publication_date_day,
+#book_form_publication_date_month,
+#book_form_publication_date_year{
+    max-width: 80px;
+}

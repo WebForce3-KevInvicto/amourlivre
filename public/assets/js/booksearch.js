@@ -30,13 +30,8 @@ $(document).ready(function(){
            resultElement.removeChild(resultElement.firstChild);
          }
 
-       
-
-
          let template = document.querySelector('#cardResult');
-
-      
-                 
+           
          // On envoie la requête à l'API
           $.get("https://www.googleapis.com/books/v1/volumes?q=" + search,function(response){
            
@@ -47,15 +42,9 @@ $(document).ready(function(){
  
             let cloneTemplate = document.importNode(template.content, true);
  
-            let cardElement = cloneTemplate.querySelector('.card');
+            let cardElement = cloneTemplate.querySelector('.article-book');
 
-            
-              
-            
-            // let haschildnodes = resultElement.hasChildNodes();
-            // console.log(haschildnodes);break;
 
- 
             let imgElement = cloneTemplate.querySelector('#book-cover');
             let titleInput =  cloneTemplate.querySelector('#book_form_title');
             let authorSelect = cloneTemplate.querySelector('#book_form_author');
@@ -69,7 +58,6 @@ $(document).ready(function(){
             let isbnInput = cloneTemplate.querySelector('#book_form_isbn');
             let publisherOption = document.createElement('option');
             let genreSelect = cloneTemplate.querySelector('#book_form_genre');
-
  
             // On stocke les infos dans les variables initialisées plus haut
             
@@ -200,8 +188,7 @@ $(document).ready(function(){
             // J'ajoute TOUS les éléments dans le DOM.
             resultElement.appendChild(cardElement);
             resultSection.appendChild(resultElement);
-           
-            
+                       
           
            }
           });
