@@ -1,4 +1,4 @@
-<section class="section-matching w--900 d--flex mx--5">
+<section class="section-matching w--900 d--flex m--1">
 	<h1 class="text-center section-transparent__h1 mb--1 w--100">
 		Vous avez des matchs !</h1>
 	<div class="d--flex ai--c jc--c w--100">
@@ -19,7 +19,7 @@
 		</div>
 	</div>
 </section>
-<section id="section-transparent" class="d--flex jc--c w--1500">
+<section id="section-transparent" class="d--flex jc--c w--100 m--1">
 	{% for matching in matchings %}
 		<article class="article-matching w--600 d--flex fd--c m--left">
 			<h2 class="w--100 text-center">Matching :
@@ -27,13 +27,13 @@
 			<div class="d--flex m--top-2 m--height">
 				<img src="{{asset('assets/img/profil/silhouette-amour-livre.jpg')}}" alt="silhouette">
 				<ul class="w--50 ml--1">
-					<li>Pseudo :
+					<li>Pseudo : {{ matching.userB.nickname }}
 					</li>
-					<li>Age :
+					<li>Age : {{ matching.userB.getAge() }}
 					</li>
-					<li>Ville :
+					<li>Ville : {{ matching.userB.city }}
 					</li>
-					<li>Description :
+					<li>Description : {{ matching.userB.description }}
 					</li>
 				</ul>
 			</div>
@@ -42,10 +42,10 @@
 				<button class="btn btn-primary w--200 p--1">Ignorer</button>
 			</div>
 		</article>
-		{#{% else %}
-				<tr>
-					<td colspan="5">no records found</td>
-				</tr>#}
+		{% else %}
+				<article class="article-matching w--600 d--flex fd--c m--left">
+			<h2 class="w--100 text-center">Désolé, il n'y a aucun match...</h2>
+		</article>
 	{% endfor %}
 </section>
 <a href="{{ path('matching_new') }}">Create new</a>

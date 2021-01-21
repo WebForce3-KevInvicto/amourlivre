@@ -19,6 +19,16 @@ class MatchingRepository extends ServiceEntityRepository
         parent::__construct($registry, Matching::class);
     }
 
+    public function findByUserAId ($userA)
+    {
+        return $this->createQueryBuilder('m')
+        ->andWhere('m.userA = :val')
+        ->setParameter('val', $userA)
+        ->setMaxResults(10)
+        ->getQuery()
+        ->getResult()
+    ;
+    }
     // /**
     //  * @return Matching[] Returns an array of Matching objects
     //  */

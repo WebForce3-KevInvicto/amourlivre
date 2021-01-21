@@ -7,9 +7,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Contact;
+use App\Entity\User;
 use App\Form\ContactType;
 use App\Repository\MatchingRepository;
-
+use App\Repository\UserRepository;
 
 class MainController extends AbstractController
 {
@@ -38,12 +39,15 @@ class MainController extends AbstractController
     /**
      * @Route("/matching", name="matching")
      */
-    public function matching(MatchingRepository $matchingRepository): Response
+    public function matching(MatchingRepository $matchingRepository, UserRepository $userRepository): Response
     {
-
+        $userA_id = 4;
+        //$user->getId()
+        $matchingsList = $matchingRepository->findByUserAId(4);
+        dump($matchingsList);
         return $this->render('main/matching.html.twig', [
             'controller_name' => 'MainController',
-            'matchings' => $matchingRepository->findAll(),
+            'matchings' => $matchingsList,
         ]);
     }
 

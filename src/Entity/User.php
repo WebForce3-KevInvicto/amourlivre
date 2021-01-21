@@ -89,17 +89,17 @@ class User implements UserInterface
     private $updated_at;
 
     /**
-     * @ORM\OneToOne(targetEntity=Ranking::class, mappedBy="user_id", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Ranking::class, mappedBy="user", cascade={"persist", "remove"})
      */
     private $ranking;
 
     /**
-     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="user_id", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="user", orphanRemoval=true)
      */
     private $photos;
 
     /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="user_id", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="user", orphanRemoval=true)
      */
     private $comments;
 
@@ -127,6 +127,11 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity=Message::class, mappedBy="user", orphanRemoval=true)
      */
     private $messages;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
 
     public function __construct()
     {
@@ -178,6 +183,16 @@ class User implements UserInterface
         $this->birthdate = $birthdate;
 
         return $this;
+    }
+
+   public function getAge(): ?int
+    {
+        $now = new \DateTime;
+        $interval = $now->diff($this->birthdate);
+        $age = $interval->format("%y");
+        
+        return intval($age);
+        
     }
 
     public function getEmail(): ?string
@@ -562,5 +577,17 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
     }
 }
