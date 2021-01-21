@@ -8,6 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Repository\MatchingRepository;
+
 
 class MainController extends AbstractController
 {
@@ -36,11 +38,12 @@ class MainController extends AbstractController
     /**
      * @Route("/matching", name="matching")
      */
-    public function matching(): Response
+    public function matching(MatchingRepository $matchingRepository): Response
     {
-        
+
         return $this->render('main/matching.html.twig', [
             'controller_name' => 'MainController',
+            'matchings' => $matchingRepository->findAll(),
         ]);
     }
 

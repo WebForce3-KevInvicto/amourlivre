@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matching{% endblock %}
+
+{% block body %}
+    <h1>Matching</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ matching.id }}</td>
+            </tr>
+            <tr>
+                <th>Rate</th>
+                <td>{{ matching.rate }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ matching.createdAt ? matching.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ matching.updatedAt ? matching.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('matching_index') }}">back to list</a>
+
+    <a href="{{ path('matching_edit', {'id': matching.id}) }}">edit</a>
+
+    {{ include('matching/_delete_form.html.twig') }}
+{% endblock %}
