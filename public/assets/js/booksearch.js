@@ -52,9 +52,10 @@ $(document).ready(function(){
             // let authorSelect = cloneTemplate.querySelector('#book_form_author');
             let thumbnailInput =  cloneTemplate.querySelector('#book_form_thumbnail');
             let synopsisTextarea = cloneTemplate.querySelector('#book_form_synopsis'); 
-            let publicationDayInput =  cloneTemplate.querySelector('#book_form_publication_date_day');
-            let publicationMonthInput =  cloneTemplate.querySelector('#book_form_publication_date_month');
-            let publicationYearInput =  cloneTemplate.querySelector('#book_form_publication_date_year');
+            let publicationDateInput = cloneTemplate.querySelector('#book_form_publication_date');
+            // let publicationDayInput =  cloneTemplate.querySelector('#book_form_publication_date_day');
+            // let publicationMonthInput =  cloneTemplate.querySelector('#book_form_publication_date_month');
+            // let publicationYearInput =  cloneTemplate.querySelector('#book_form_publication_date_year');
             // let publisherSelect = cloneTemplate.querySelector('#book_form_publisher');
             let languageInput = cloneTemplate.querySelector('#book_form_language');
             let isbnInput = cloneTemplate.querySelector('#book_form_isbn');
@@ -163,9 +164,11 @@ $(document).ready(function(){
             // publisherSelect.appendChild(publisherOption);
 
             // //*** PUBLICATION DATE INPUT ***
-            publicationDayInput.setAttribute('disabled', true);
-            publicationMonthInput.setAttribute('disabled', true);
-            publicationYearInput.setAttribute('disabled', true);
+            publicationDateInput.setAttribute('value', publicationDate);
+
+            // publicationDayInput.setAttribute('disabled', true);
+            // publicationMonthInput.setAttribute('disabled', true);
+            // publicationYearInput.setAttribute('disabled', true);
 
             if(publicationDay !== ""){
               publicationDayInput.setAttribute('value', publicationDay);

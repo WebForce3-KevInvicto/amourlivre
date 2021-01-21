@@ -30,17 +30,31 @@ class BookController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        
+
         $book = new Book();
+        
+        
         $form = $this->createForm(BookFormType::class, $book);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
+            $requestParams = $request->request->all();
+            dump($requestParams);
+
+            $publicationDateString= $requestParams['book_form']['publication_date'];
+            dump($publicationDateString);
+
+            $publicationDate = \DateTime::createFromFormat('Y-m-d', $publicationDateString, null);
+
+            dump($publicationDate);
+            $book->setPublicationDate($publicationDate);
             $book->setCreatedAt(new \DateTime);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($book);
             $entityManager->flush();
 
-            return $this->redirectToRoute('book_index');
+            // return $this->redirectToRoute('book_index');
         }
 
         return $this->render('book/new.html.twig', [
