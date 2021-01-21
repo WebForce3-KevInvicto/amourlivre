@@ -1,14 +1,14 @@
 {{ form_start(bookForm) }}
 
-    <article class="card">
-      <div class="card-header">
+    <article class="article-book w--600">
+      <div class="article-header">
 
       <img id="book-cover" src="" alt="">
       
 
       </div>
 
-      <div class="card-body">
+      <div class="article-body">
       {{
           form_widget(
             bookForm.title,
@@ -78,7 +78,7 @@
           )
         }}
 
-        <div class="card-footer">
+        <div class="article-footer">
 
         {{
           form_widget(
