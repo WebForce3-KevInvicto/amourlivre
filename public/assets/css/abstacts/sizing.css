@@ -25,9 +25,14 @@
     width: 900px;
   }
 
+  .w--1500{
+    width: 1500px;
+  }
+
   .w--150{
     width: 150px;
   }
+
   
   .m--width{
     max-width: 1200px;
