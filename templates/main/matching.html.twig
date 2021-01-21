@@ -4,30 +4,30 @@
 {% endblock %}
 
 {% block body %}
-	<section id="section-transparent" class="d--flex jc--c">
-		<article class="article-matching w--900 d--flex fd--c">
-			<h1 class="text-center section-transparent__h1 mb--1">
+	<section id="section-transparent" class="d--flex jc--c w--1500">
+		<article class="article-matching w--100 d--flex mx--5">
+			<h1 class="text-center section-transparent__h1 mb--1 w--100">
 				Vous avez des matchs !</h1>
-			<div>
-				<p>
+			<div class="d--flex ai--c jc--c w--100">
+				<p class="mtrl--1">
 					Filtrer :
 				</p>
 				<div>
 					<input type="checkbox" name="age">
-					<label for="age">
+					<label for="age" class="mtrl--1">
 						Age
 					</label>
 				</div>
 				<div>
 					<input type="checkbox" name="localisation">
-					<label for="localisation">
+					<label for="localisation" class="mtrl--1">
 						Localisation
 					</label>
 				</div>
 			</div>
 		</article>
 
-		<article class="article-matching w--600 d--flex fd--c">
+		<article class="article-matching w--600 d--flex fd--c m--left">
 			<h2 class="w--100 text-center">Matching :</h2>
 			<div class="d--flex m--top-2 m--height">
 				<img src="{{asset('assets/img/profil/silhouette-amour-livre.jpg')}}" alt="silhouette">
@@ -48,7 +48,7 @@
 			</div>
 		</article>
 
-		<article class="article-matching w--600 d--flex">
+		<article class="article-matching w--600 d--flex fd--c m--right">
 			<h2 class="w--100 text-center">Matching :</h2>
 			<div class="d--flex m--top-2 m--height">
 				<img src="{{asset('assets/img/profil/silhouette-amour-livre.jpg')}}" alt="silhouette">

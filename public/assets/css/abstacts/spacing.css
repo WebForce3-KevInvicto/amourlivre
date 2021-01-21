@@ -67,6 +67,10 @@
     margin : 0 auto;
   }
 
+  .mx--5{
+    margin: 0 5rem;
+  }
+
   .mtrl--1{
     margin: 1rem 1rem 0 1rem;
   }
@@ -74,6 +78,19 @@
   .mb--1{
     margin-bottom: 1rem;
   }
+
+  .mb--0{
+    margin-bottom: 0;
+  }
+
+  .m--left{
+    margin: 2rem 2.5rem 0 1rem;
+  }
+
+  .m--right{
+    margin: 2rem 1rem 0 2.5rem;
+  }
+
   
   .m--3-auto{
     margin: 3rem auto 0 auto;
