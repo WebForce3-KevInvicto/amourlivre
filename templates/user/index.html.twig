@@ -1,59 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}Amour Livre - adminUser
+{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
+	<section class="section-admin w--100">
+		<h1 class="text-center pb--4">Admin User</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nickname</th>
-                <th>Gender</th>
-                <th>Birthdate</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Postal_code</th>
-                <th>City</th>
-                <th>Preference</th>
-                <th>Roles</th>
-                <th>Password</th>
-                <th>Last_connection</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.nickname }}</td>
-                <td>{{ user.gender }}</td>
-                <td>{{ user.birthdate ? user.birthdate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.address }}</td>
-                <td>{{ user.postalCode }}</td>
-                <td>{{ user.city }}</td>
-                <td>{{ user.preference }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.lastConnection ? user.lastConnection|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="15">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="text-color-dark">Id</th>
+					<th class="text-color-dark">Nickname</th>
+					<th class="text-color-dark">Gender</th>
+					<th class="text-color-dark">Birthdate</th>
+					<th class="text-color-dark">Email</th>
+					<th class="text-color-dark">Address</th>
+					<th class="text-color-dark">Postal_code</th>
+					<th class="text-color-dark">City</th>
+					<th class="text-color-dark">Preference</th>
+					<th class="text-color-dark">Roles</th>
+					<th class="text-color-dark">Password</th>
+					<th class="text-color-dark">Last_connection</th>
+					<th class="text-color-dark">Created_at</th>
+					<th class="text-color-dark">Updated_at</th>
+					<th class="text-color-dark">actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for user in users %}
+					<tr>
+						<td>{{ user.id }}</td>
+						<td>{{ user.nickname }}</td>
+						<td>{{ user.gender }}</td>
+						<td>{{ user.birthdate ? user.birthdate|date('Y-m-d H:i:s') : '' }}</td>
+						<td>{{ user.email }}</td>
+						<td>{{ user.address }}</td>
+						<td>{{ user.postalCode }}</td>
+						<td>{{ user.city }}</td>
+						<td>{{ user.preference }}</td>
+						<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+						<td>{{ user.password }}</td>
+						<td>{{ user.lastConnection ? user.lastConnection|date('Y-m-d H:i:s') : '' }}</td>
+						<td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+						<td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+						<td>
+							<a href="{{ path('user_show', {'id': user.id}) }}">montrer</a>
+							<a href="{{ path('user_edit', {'id': user.id}) }}">éditer</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="15" class="text-color-dark">Pas d'entrée</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 
-    <a href="{{ path('user_new') }}">Create new</a>
+		<a href="{{ path('user_new') }}" class="text-color-dark fw--b">Créer nouvelle entrée</a>
+	</section>
 {% endblock %}
