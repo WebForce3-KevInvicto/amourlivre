@@ -26,6 +26,8 @@ $(document).ready(function(){
          let resultSection = document.querySelector('.searchbook-result-section');
          let resultElement = document.querySelector('#result');
 
+         resultSection.classList.remove('d--none');
+
          while(resultElement.firstChild){
            resultElement.removeChild(resultElement.firstChild);
          }

@@ -1,21 +1,21 @@
 
 
     <article class="article-book w--900 p--2 m--1">
-      <div class="article-header d--flex">
+      <div class="article-header d--flex jc--sb">
         <div class="article-header__left w--30">
-          <img id="book-cover" src="" alt="">
+          <img id="book-cover" class="w--100 mr--1" src="" alt="">
         </div>
-        <div class="article-header__right w--70">
+        <div class="article-header__right w--65">
             {{ form_start(bookForm)}}
 
-            {{
-                form_widget(
-                  bookForm.title,
-                  {
+              {{
+                  form_widget(
+                    bookForm.title,
+                    {
 
-                    'attr': {'disabled': 'true'} 
-                  }
-                )
+                      'attr': {'disabled': 'true'} 
+                    }
+                  )
               }}
 
               {{
@@ -26,54 +26,59 @@
                   }
                 )
               }}
-              
-              
+
+              <div class="article-subheader d--flex jc--sb ai--c">
+                  <div class="article-subheader__left w--50">
+                  {{form_label(bookForm.publisher, 'Editeur')}}
+                      {{
+                        form_widget(
+                          bookForm.publisher,
+                          {
+                            'attr': {'disabled': 'true'} 
+                          }
+                        )
+                      }}
+                
+                      {{form_label(bookForm.publication_date, 'Publié le')}}
+                      {{
+                        form_widget(
+                          bookForm.publication_date,
+                          {
+                            'attr': {'disabled': 'true'} 
+                          }
+                        )
+                      }}
+                  </div>
+                  <div class="article-subheader__right w--50">
+                    {{form_label(bookForm.language, 'Langue')}}
+                      {{
+                        form_widget(
+                          bookForm.language,
+                          {
+                            'attr': {'disabled': 'true'} 
+                          }
+                        )
+                      }}
+                      {{form_label(bookForm.genre, 'Genre(s)')}}
+                      {{
+                        form_widget(
+                          bookForm.genre,
+                          {
+                            'attr': {'disabled': 'true'} 
+                          }
+                        )
+                      }}
+                  </div> 
+              </div>
+            
+                              
         </div>
     
       </div>
 
-      <div class="article-body d--flex jc--sb w--100">
-      <div class="article-body__left w--50">
-      {{form_label(bookForm.publisher, 'Editeur')}}
-        {{
-          form_widget(
-            bookForm.publisher,
-            {
-              'attr': {'disabled': 'true'} 
-            }
-          )
-        }}
-     
-        {{form_label(bookForm.publication_date, 'Publié le')}}
-        {{
-          form_widget(
-            bookForm.publication_date,
-            {
-              'attr': {'disabled': 'true'} 
-            }
-          )
-        }}
-      
-      </div>
+      <div class="article-body d--flex jc--se ai--se m--top-1 w--100">
       <div class="article-body__right w--50">
-        {{form_label(bookForm.language, 'Langue')}}
-        {{
-          form_widget(
-            bookForm.language,
-            {
-              'attr': {'disabled': 'true'} 
-            }
-          )
-        }}
-        {{form_label(bookForm.genre, 'Genre(s)')}}
-        {{
-          form_widget(
-            bookForm.genre,
-            {
-              'attr': {'disabled': 'true'} 
-            }
-          )
-        }}
+        
       </div>      
         
       </div>
@@ -98,7 +103,7 @@
         }}
       </div>
       
-      <div class="article-footer w--100">
+      <div class="article-footer d--flex jc--c m--top-2 w--100">
 
         {{
           form_widget(
@@ -110,7 +115,7 @@
         }}
 
         <button id="searchBookButton" type="submit"
-          class="btn btn-primary m--top-1 w--300">
+          class="btn btn-primary w--300">
           Ajouter
         </button>
         {{ form_end(bookForm) }}
