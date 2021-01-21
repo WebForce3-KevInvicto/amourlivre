@@ -42,4 +42,5 @@ section{
 
 #section-transparent{
     background-color: transparent;
+    max-width: 1200px;
 }
