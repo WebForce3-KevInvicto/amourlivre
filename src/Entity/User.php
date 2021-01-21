@@ -63,7 +63,7 @@ class User implements UserInterface
     private $preference;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="json_array")
      */
     private $roles = [];
 

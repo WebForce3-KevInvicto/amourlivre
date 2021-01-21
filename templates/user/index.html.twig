@@ -21,6 +21,7 @@
 					<th class="text-color-dark">Preference</th>
 					<th class="text-color-dark">Roles</th>
 					<th class="text-color-dark">Password</th>
+					<th class="text-color-dark">Description</th>
 					<th class="text-color-dark">Last_connection</th>
 					<th class="text-color-dark">Created_at</th>
 					<th class="text-color-dark">Updated_at</th>
@@ -41,6 +42,7 @@
 						<td>{{ user.preference }}</td>
 						<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 						<td>{{ user.password }}</td>
+						<td>{{ user.description }}</td>
 						<td>{{ user.lastConnection ? user.lastConnection|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '' }}</td>

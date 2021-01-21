@@ -48,3 +48,6 @@ section{
     border-collapse: separate;
     border-spacing: 0 1rem;
 }
+.section-admin td{
+    border: solid var(--color--theme--dark) 1px;
+}
