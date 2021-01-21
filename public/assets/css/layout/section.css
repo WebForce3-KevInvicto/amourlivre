@@ -27,11 +27,11 @@ section{
     background-color: var(--color--theme--secondary);
 }
 
-.section-admin-contact a{
+.section-admin a{
     text-decoration: none;
 }
 
-.section-admin-contact a:hover{
+.section-admin a:hover{
     text-decoration: underline;
     color: var(--color--text--dark);
 }
@@ -44,3 +44,10 @@ section{
     background-color: transparent;
 }
 
+.section-admin .table{
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+}
+.section-admin td{
+    border: solid var(--color--theme--dark) 1px;
+}
