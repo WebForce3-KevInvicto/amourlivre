@@ -1,33 +1,41 @@
-{{ form_start(bookForm) }}
 
-    <article class="article-book w--600">
-      <div class="article-header">
 
-      <img id="book-cover" src="" alt="">
-      
+    <article class="article-book w--900 p--2 m--1">
+      <div class="article-header d--flex">
+        <div class="article-header__left w--30">
+          <img id="book-cover" src="" alt="">
+        </div>
+        <div class="article-header__right w--70">
+            {{ form_start(bookForm)}}
 
+            {{
+                form_widget(
+                  bookForm.title,
+                  {
+
+                    'attr': {'disabled': 'true'} 
+                  }
+                )
+              }}
+
+              {{
+                form_widget(
+                  bookForm.author,
+                  {
+                    'attr': {'disabled': 'true'} 
+                  }
+                )
+              }}
+              
+              
+        </div>
+    
       </div>
 
-      <div class="article-body">
-      {{
-          form_widget(
-            bookForm.title,
-            {
-
-              'attr': {'disabled': 'true'} 
-            }
-          )
-        }}
-
+      <div class="article-body d--flex jc--sb w--100">
+      <div class="article-body__left w--50">
+      {{form_label(bookForm.publisher, 'Editeur')}}
         {{
-          form_widget(
-            bookForm.author,
-            {
-              'attr': {'disabled': 'true'} 
-            }
-          )
-        }}
-       {{
           form_widget(
             bookForm.publisher,
             {
@@ -35,7 +43,8 @@
             }
           )
         }}
-
+     
+        {{form_label(bookForm.publication_date, 'Publié le')}}
         {{
           form_widget(
             bookForm.publication_date,
@@ -44,14 +53,10 @@
             }
           )
         }}
-        {{
-          form_widget(
-            bookForm.isbn,
-            {
-              'attr': {'disabled': 'true'} 
-            }
-          )
-        }}
+      
+      </div>
+      <div class="article-body__right w--50">
+        {{form_label(bookForm.language, 'Langue')}}
         {{
           form_widget(
             bookForm.language,
@@ -60,7 +65,7 @@
             }
           )
         }}
-
+        {{form_label(bookForm.genre, 'Genre(s)')}}
         {{
           form_widget(
             bookForm.genre,
@@ -69,16 +74,31 @@
             }
           )
         }}
+      </div>      
+        
+      </div>
+      <div class="article-bottom w--100">
+       {{form_label(bookForm.synopsis, 'Résumé')}}
+        {{
+            form_widget(
+              bookForm.synopsis,
+              {
+                'attr': {'disabled': 'true'} 
+              }
+            )
+        }}
+        {{form_label(bookForm.isbn, 'ISBN')}}
         {{
           form_widget(
-            bookForm.synopsis,
+            bookForm.isbn,
             {
               'attr': {'disabled': 'true'} 
             }
           )
         }}
-
-        <div class="article-footer">
+      </div>
+      
+      <div class="article-footer w--100">
 
         {{
           form_widget(
@@ -94,7 +114,6 @@
           Ajouter
         </button>
         {{ form_end(bookForm) }}
-      </div>
       </div>
     </article>
   
