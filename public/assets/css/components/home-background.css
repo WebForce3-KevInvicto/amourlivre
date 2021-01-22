@@ -36,3 +36,22 @@ video#bgvid {
   background-color: rgba(0, 0, 0, 0.3);
   z-index: -1;
 }
+
+.card{
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.card img{
+    border-radius: 15px 15px 0 0 ;
+}
+.card-title{
+    color: var(--color--text--dark);
+    font-weight: bold;
+    padding: 0;
+}
+.card-body p{
+    padding: 1rem 0;
+    text-align: center;
+    line-height: 1.2rem;
+}
