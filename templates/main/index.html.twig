@@ -5,19 +5,40 @@
 
 {% block body %}
 
+	<section id="section-accueil" class="jumbotron jumbotron-one text-color-white">
+		<div>
+			<h1 class="jumbotron__subtitle">
+				Ecrivez votre plus belle histoire d’amour !
+			</h1>
 
-	<div class="jumbotron jumbotron-one text-color-white">
-		<h1 class="jumbotron__subtitle">
-			Ecrivez votre plus belle histoire d’amour !
-		</h1>
+			<p class="text-center">Amour Livre vous trouve les célibataires qui partagent votre passion.</p>
 
-		<p class="text-center">Amour Livre vous trouve les célibataires qui partagent votre passion.</p>
+			<div class="text-center">
+				<a class="btn btn-secondary btn-signin m--1" href="{{path('app_login')}}">Connexion</a>
+				<a class="btn btn-primary btn-signup m--1" href="{{path('app_register')}}">Inscription</a>
+			</div>
 
-		<div class="text-center">
-		<a class="btn btn-secondary btn-signin m--1" href="{{path('app_login')}}">Connexion</a>
-		<a class="btn btn-primary btn-signup m--1" href="{{path('app_register')}}">Inscription</a></div>
+		</div>
+	</section>
+	<section id="section-pourquoi-nous">
+		<h2></h2>
+		<div>
+			<img src="" alt="">
+			<h3></h3>
+			<p></p>
+		</div>
+		<div>
+			<img src="" alt="">
+			<h3></h3>
+			<p></p>
+		</div>
+		<div>
+			<img src="" alt="">
+			<h3></h3>
+			<p></p>
+		</div>
 
-	</div>
+	</section>
 
 	{# ferme jumbotron #}
 

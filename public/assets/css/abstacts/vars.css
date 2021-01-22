@@ -68,6 +68,7 @@
 
     /* BACKGROUND */
     --color--background--dark: var(--color--theme--dark70);
+    --color--background--white: var(--color--white);
 
     /* TEXT */
     --color--text--light: var(--color--periglacial-blue);
