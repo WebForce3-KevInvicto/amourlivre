@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Book;
 use App\Entity\User;
+use App\Entity\Genre;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -27,7 +28,11 @@ class BookType extends AbstractType
             ])
             ->add('publisher')
             ->add('author', TextType::class)
-            ->add('genre')
+            ->add('genre', EntityType::class, [
+                'class' => Genre::class,
+                'choice_label' => 'name',
+                'multiple' => true
+            ])
         ;
     }
 

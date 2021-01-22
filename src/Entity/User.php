@@ -136,6 +136,7 @@ class User implements UserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity=Book::class, inversedBy="users")
+     * 
      */
     private $books;
 

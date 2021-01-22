@@ -12,6 +12,7 @@ use App\Form\ContactType;
 use App\Repository\BookRepository;
 use App\Repository\MatchingRepository;
 use App\Repository\UserRepository;
+use Doctrine\ORM\Mapping\Entity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class MainController extends AbstractController
@@ -28,19 +29,13 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/profil{id}", name="profil")
+     * @Route("/profil/{id}", name="profil")
      */
-    public function profil($id): Response
+    public function profil(User $user): Response
     {
-        // $userId = $user->getID
-
-        $id= 1;
-
-        $books => $this->getDoctrine()
-            ->getRepository
-        
-        return $this->render('book/index.html.twig', [
-            'controller_name' => 'BookController',
+        return $this->render('user/show.html.twig', [
+            'user' => $user,
+            'books' => $user->getBooks()
         ]);
     }
 
