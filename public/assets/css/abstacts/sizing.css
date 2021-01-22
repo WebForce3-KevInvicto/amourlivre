@@ -56,3 +56,7 @@
   .m--height{
     max-height: 350px;
   }
+
+  .height-L {
+    height: 70vh;
+}

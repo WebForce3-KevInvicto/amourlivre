@@ -18,11 +18,14 @@
 		{% endblock %}
 	</head>
 	<body>
-		<div id="video-overlay">
+
+		<div id="video">
 			<video autoplay loop id="bgvid">
 				<source src="{{asset('assets/video/home.mp4')}}" type="video/mp4">
 			</video>
+
 		</div>
+		<div id="overlay"></div>
 		<div class="home-background">
 			<header>
 				<nav class="navbar main-homemenu navbar-expand-lg">
