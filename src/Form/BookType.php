@@ -20,7 +20,9 @@ class BookType extends AbstractType
             ->add('thumbnail', HiddenType::class)
             ->add('language')
             ->add('isbn')
-            ->add('publication_date', TextType::class)
+            ->add('publication_date', TextType::class, [
+                'mapped' => false
+            ])
             ->add('publisher')
             ->add('author', TextType::class)
             ->add('genre')
