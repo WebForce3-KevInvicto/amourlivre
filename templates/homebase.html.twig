@@ -27,11 +27,13 @@
 		</div>
 		<div id="overlay"></div>
 		<div class="home-background">
-			<header>
+			<header class="p--fixed w--100">
 				<nav class="navbar main-homemenu navbar-expand-lg">
 					<div class="container-fluid">
 						<a class="navbar-brand main-homemenu__brand" href="#"><img src="{{ asset('assets/img/logo/logo-light.png')}}" alt=""></a>
 					</div>
+					<a class="btn btn-secondary btn-signin-nav m--1 p--1" href="{{path('app_login')}}">Connexion</a>
+					<a class="btn btn-primary btn-signup-nav m--1 p--1" href="{{path('app_register')}}">Inscription</a>
 				</nav>
 			</header>
 		</div>
