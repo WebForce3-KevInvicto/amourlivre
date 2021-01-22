@@ -9,8 +9,10 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Contact;
 use App\Entity\User;
 use App\Form\ContactType;
+use App\Repository\BookRepository;
 use App\Repository\MatchingRepository;
 use App\Repository\UserRepository;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class MainController extends AbstractController
 {
@@ -26,10 +28,16 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/profil", name="profil")
+     * @Route("/profil{id}", name="profil")
      */
-    public function profil(): Response
+    public function profil($id): Response
     {
+        // $userId = $user->getID
+
+        $id= 1;
+
+        $books => $this->getDoctrine()
+            ->getRepository
         
         return $this->render('book/index.html.twig', [
             'controller_name' => 'BookController',

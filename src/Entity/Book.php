@@ -81,6 +81,11 @@ class Book
      */
     private $genre;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="books")
+     */
+    private $users;
+
     
 
     
@@ -92,6 +97,7 @@ class Book
         $this->created_at = new DateTime();
         $this->updated_at = new DateTime();
         $this->genre = new ArrayCollection();
+        $this->users = new ArrayCollection();
        
     }
 
@@ -286,6 +292,33 @@ class Book
     public function removeGenre(Genre $genre): self
     {
         $this->genre->removeElement($genre);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addBook($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeBook($this);
+        }
 
         return $this;
     }

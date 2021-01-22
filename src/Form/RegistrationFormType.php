@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use DateTime;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -30,7 +31,7 @@ class RegistrationFormType extends AbstractType
                     'Homme' => 'homme',
                 ],
             ])
-            ->add('birthdate', DateType::class, [
+            ->add('birthdate', BirthdayType::class, [
                 'format' => 'yyyy-MM-dd',
                 'placeholder' => [
                     'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
@@ -61,7 +62,6 @@ class RegistrationFormType extends AbstractType
                     'Selectionnez' => null,
                     'Les Femmes' => 'femmes',
                     'Les Hommes' => 'hommes',
-                    'Les Deux'   => 'both'
                 ],
             ])
            
