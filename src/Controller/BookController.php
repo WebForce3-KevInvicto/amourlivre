@@ -39,17 +39,27 @@ class BookController extends AbstractController
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
+
+
             $requestParams = $request->request->all();
             dump($requestParams);
 
-            $publicationDateString= $requestParams['book_form']['publication_date'];
+            $publicationDateString= $requestParams['book']['publication_date'];
             dump($publicationDateString);
 
-            $publicationDate = \DateTime::createFromFormat('Y-m-d', $publicationDateString, null);
+            if(strlen($publicationDateString) == 10){
+
+                $publicationDate = \DateTime::createFromFormat('Y-m-d', $publicationDateString, null);
+            } elseif(strlen($publicationDateString) == 7){
+                $publicationDate = \DateTime::createFromFormat('Y-m', $publicationDateString, null);
+            } else{
+                $publicationDate = \DateTime::createFromFormat('Y', $publicationDateString, null);
+            }
+
 
             dump($publicationDate);
             $book->setPublicationDate($publicationDate);
-            $book->setCreatedAt($book->getCreatedAt);
+            $book->setCreatedAt($book->getCreatedAt());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($book);
             $entityManager->flush();
