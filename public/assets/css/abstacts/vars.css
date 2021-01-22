@@ -45,6 +45,9 @@
     /* BLACK */
     --color--lite-black: rgb(37, 37, 37);
     --color--black: rgb(0, 0, 0);
+
+    /* WHITE */
+    --color--white: rgb(255, 255, 255);
     
     /* BRIGHT TURQUOISE */
     --color--bright-turquoise: rgb(15, 242, 219);
@@ -71,6 +74,7 @@
     --color--text--dark: var(--color--cocoa-bean);
     --color--text--alt: var(--color--mikado-yellow);
     --color--text--alt2: var(--color--bright-turquoise);
+    --color--text--white: var(--color--white);
 
     /* SUCCESS */
     --color--success : var(--color--genoa-green);

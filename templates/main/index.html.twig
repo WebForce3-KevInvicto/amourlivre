@@ -4,38 +4,24 @@
 {% endblock %}
 
 {% block body %}
-	
-		
-
-			<div class="jumbotron jumbotron-one">
-				<h1 class="jumbotron__subtitle">
-					Rejoignez la communauté Amour Livre et écrivez votre plus belle histoire d’amour !
-				</h1>
-
-				<p>Amour Livre est à la fois un site pour les célibataires et une communauté dédiée aux amoureux de la lecture.</p>
-
-				<p>En tant que membre, vous pourrez créer votre propre profil, afficher le top 5 de vos goûts littéraires et parcourir les profils disponibles.</p>
-
-				<p>Que vous soyez férus de polars ou d’heroic fantasy, vous y trouverez des personnes partageant votre passion.</p>
-
-				<p>Car ici, les membres se définissent plus par leurs goûts en matière de lecture que du point de vue de leur apparence.</p>
-
-				<p>Soyez-en sûrs, tous les profils sont validés par notre équipe.</p>
-
-				<p>Belle romance sur Amour Livre !</p>
 
 
-			</div>
+	<div class="jumbotron jumbotron-one text-color-white">
+		<h1 class="jumbotron__subtitle">
+			Ecrivez votre plus belle histoire d’amour !
+		</h1>
 
-			{# ferme jumbotron #}
+		<p class="text-center">Amour Livre vous trouve les célibataires qui partagent votre passion.</p>
 
-			<div class="jumbotron__buttons mt-4">
-				<a class="btn btn-secondary btn-signin" href="{{path('app_login')}}">Connexion</a>
-				<a class="btn btn-primary btn-signup" href="{{path('app_register')}}">Inscription</a>
-			</div>
+		<div class="text-center">
+		<a class="btn btn-secondary btn-signin m--1" href="{{path('app_login')}}">Connexion</a>
+		<a class="btn btn-primary btn-signup m--1" href="{{path('app_register')}}">Inscription</a></div>
 
+	</div>
 
+	{# ferme jumbotron #}
 
+	{#<div class="jumbotron__buttons mt-4"></div> #}
 
 
 {% endblock %}

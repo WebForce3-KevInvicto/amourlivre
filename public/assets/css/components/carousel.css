@@ -11,24 +11,24 @@
 }
 
 .carousel-inner .one {
-    background: linear-gradient(0deg, rgba(94,34,35,0.6979166666666667) 0%, rgba(94,34,35,0.5018382352941176) 50%), url(../../img/home-bg/home-bg_1.jpg);
+    background: linear-gradient(0deg, rgba(0,0,0,0.6979166666666667) 0%, rgba(0,0,0,0.5018382352941176) 50%), url(../../img/home-bg/home-bg_1.jpg);
     background-size: cover;
     -moz-background-size: cover;
 }
 
 .carousel-inner .two {
-    background: linear-gradient(0deg, rgba(94,34,35,0.6979166666666667) 0%, rgba(94,34,35,0.5018382352941176) 50%), url(../../img/home-bg/home-bg_2.jpg);
+    background: linear-gradient(0deg, rgba(0,0,0,0.6979166666666667) 0%, rgba(0,0,0,0.5018382352941176) 50%), url(../../img/home-bg/home-bg_2.jpg);
     background-size: cover;
     -moz-background-size: cover;
 }
 
 .carousel-inner .three {
-    background: linear-gradient(0deg, rgba(94,34,35,0.6979166666666667) 0%, rgba(94,34,35,0.5018382352941176) 50%), url(../../img/home-bg/home-bg_3.jpg);
+    background: linear-gradient(0deg, rgba(0,0,0,0.6979166666666667) 0%, rgba(0,0,0,0.5018382352941176) 50%), url(../../img/home-bg/home-bg_3.jpg);
     background-size: cover;
     -moz-background-size: cover;
 }
 .carousel-inner .four {
-    background: linear-gradient(0deg, rgba(94,34,35,0.6979166666666667) 0%, rgba(94,34,35,0.5018382352941176) 50%), url(../../img/home-bg/home-bg_4.jpg);
+    background: linear-gradient(0deg, rgba(0,0,0,0.6979166666666667) 0%, rgba(0,0,0,0.5018382352941176) 50%), url(../../img/home-bg/home-bg_4.jpg);
     background-size: cover;
     -moz-background-size: cover;
 }

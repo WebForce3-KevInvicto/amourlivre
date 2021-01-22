@@ -23,7 +23,7 @@ body {
   margin: 0;
   min-width: var(--dom--min-width);
   max-height: 100vh;
-  color: var(--color--text--light);
+  /* color: var(--color--text--light); */
   font-family: "Poppins", sans-serif;
   background-color: var(--color--theme--light);
   position: relative;
@@ -41,6 +41,7 @@ h3 {
 
 h1 {
   font-size: var(--font--size--up-scaled-6);
+  color: var(--color--text--white);
 }
 
 h2 {

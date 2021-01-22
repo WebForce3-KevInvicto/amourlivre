@@ -1,6 +1,6 @@
 .btn {
   text-transform: uppercase;
-  border-radius: 25px;
+  border-radius: 15px;
 }
 
 .btn:hover,
@@ -26,9 +26,9 @@
   font-size: 1.3rem;
 }
 
-.btn-signup {
+/* .btn-signup {
   margin-top: 2rem;
-}
+} */
 
 .btn-matching {
   background-color: var(--color--theme--alt2);
