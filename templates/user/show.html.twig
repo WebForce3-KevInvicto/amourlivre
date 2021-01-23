@@ -50,6 +50,7 @@
       </div>
     </article>
   </section>
+  
   <section>
     <h2>
       Mes 5 livres favoris
@@ -59,19 +60,19 @@
       data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-100" alt="..." />
+          <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
         </div>
         <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="..." />
+          <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
         </div>
         <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="..." />
+          <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
         </div>
          <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="..." />
+          <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
         </div>
         <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="..." />
+          <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
         </div>
       </div>
       <a class="carousel-control-prev"
@@ -94,241 +95,14 @@
     <h2>
       Ma Bilbiothèque
     </h2>
-  </section>
-
-  <table class="table">
-    <tbody>
-      <tr>
-        <th>
-          Nickname
-        </th>
-        <td>
-          {{ user.nickname }}
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Gender
-        </th>
-        <td>
-          {{ user.gender }}
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Birthdate
-        </th>
-        <td></td>
-      </tr>
-      <tr>
-        <th>
-          Email
-        </th>
-        <td>
-          {{ user.email }}
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Address
-        </th>
-        <td>
-          {{ user.address }}
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Postal_code
-        </th>
-        <td>
-          {{ user.postalCode }}
-        </td>
-      </tr>
-      <tr>
-        <th>
-          City
-        </th>
-        <td>
-          {{ user.city }}
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Preference
-        </th>
-        <td>
-          {{ user.preference }}
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Roles
-        </th>
-        <td>
-          {{ user.roles ? user.roles|json_encode : '' }}
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Password
-        </th>
-        <td>
-          {{ user.password }}
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Description
-        </th>
-        <td></td>
-      </tr>
-      <tr>
-        <th>
-          Last_connection
-        </th>
-        <td>
-          {{ user.lastConnection
-            ? user.lastConnection|date('Y-m-d H:i:s')
-            : '' }}
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Created_at
-        </th>
-        <td>
-          {{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Updated_at
-        </th>
-        <td>
-          {{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '' }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>
-          Id
-        </th>
-        <th>
-          Title
-        </th>
-        <th>
-          Synopsis
-        </th>
-        <th>
-          Thumbnail
-        </th>
-        <th>
-          Language
-        </th>
-        <th>
-          Genre
-        </th>
-        <th>
-          Isbn
-        </th>
-        <th>
-          Publication_date
-        </th>
-        <th>
-          Created_at
-        </th>
-        <th>
-          Updated_at
-        </th>
-        <th>
-          Publisher
-        </th>
-        <th>
-          Author
-        </th>
-        <th>
-          actions
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for book in books %}
-        <tr>
-          <td>
-            {{ book.id }}
-          </td>
-          <td>
-            {{ book.title }}
-          </td>
-          <td>
-            {{ book.synopsis }}
-          </td>
-          <td>
-            {{ book.thumbnail }}
-          </td>
-          <td>
-            {{ book.language }}
-          </td>
-          {% for genre in book.genre %}
-            <td>
-              {{ genre.name }}
-            </td>
+    <div class="books-container d--flex jc--se">
+          {% for book in books %}
+            <a  href="{{path('book_show', {id: book.id})}}"><img src="{{ book.thumbnail }}" class="d-block w-30 m--auto" alt="..." /></a>
           {% endfor %}
-          <td>
-            {{ book.isbn }}
-          </td>
-          <td>
-            {{ book.publicationDate
-              ? book.publicationDate|date('Y-m-d H:i:s')
-              : '' }}
-          </td>
-          <td>
-            {{ book.createdAt ? book.createdAt|date('Y-m-d H:i:s') : '' }}
-          </td>
-          <td>
-            {{ book.updatedAt ? book.updatedAt|date('Y-m-d H:i:s') : '' }}
-          </td>
-          <td>
-            {{ book.publisher }}
-          </td>
-          <td>
-            {{ book.author }}
-          </td>
-          <td>
-            <a href="{{
-              path(
-                'book_show',
-                {
-                  id: book.id
-                }
-              )
-              }}">
-              show
-            </a>
-            <a href="{{
-              path(
-                'book_edit',
-                {
-                  id: book.id
-                }
-              )
-              }}">
-              edit
-            </a>
-          </td>
-        </tr>
-      {% else %}
-        <tr>
-          <td colspan="12">
-            no records found
-          </td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+    </div>
+
+  </section>
+  
 
   <a href="{{ path('user_index') }}">back to list</a>
 

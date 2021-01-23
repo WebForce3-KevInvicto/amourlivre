@@ -27,10 +27,13 @@
                 <th>Language</th>
                 <td>{{ book.language }}</td>
             </tr>
+
+            {% for genre in book.genre %}
             <tr>
                 <th>genre</th>
-                <td>{{ book.genre }}</td>
+                <td>{{ genre.name }}</td>
             </tr>
+            {% endfor %}
             <tr>
                 <th>Isbn</th>
                 <td>{{ book.isbn }}</td>
