@@ -27,19 +27,17 @@
 			<div class="d--flex m--top-2 m--height">
 				<img src="{{asset('assets/img/profil/silhouette-amour-livre.jpg')}}" alt="silhouette">
 				<ul class="w--50 ml--1">
-					<li>Pseudo : {{ matching.userB.nickname }}
+					<li><span>Pseudo :</span> {{ matching.userB.nickname }}
 					</li>
-					<li>Age : {{ matching.userB.getAge() }}
+					<li><span>Age :</span> {{ matching.userB.getAge() }}
 					</li>
-					<li>Ville : {{ matching.userB.city }}
-					</li>
-					<li>Description : {{ matching.userB.description }}
+					<li><span>Ville :</span> {{ matching.userB.city }}
 					</li>
 				</ul>
 			</div>
 			<div class="d--flex jc--se">
-				<button class="btn btn-matching w--200 p--1">Contacter</button>
-				<button class="btn btn-primary w--200 p--1">Ignorer</button>
+				<button class="btn btn-matching w--200 p--1">Voir Profil</button>
+				<button class="btn btn-nomatching w--200 p--1">Ignorer</button>
 			</div>
 		</article>
 		{% else %}

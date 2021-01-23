@@ -1,10 +1,11 @@
 .background-base{
     width: 100%;
     background-image: url(../../img/home-bg/home-bg_1.jpg);
-    height: 50vh;
+    height: 100vh;
     border-bottom-left-radius: 50px;
     background-color: #0487D9;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    /* position: fixed; */
 }

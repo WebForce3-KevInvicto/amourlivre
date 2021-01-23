@@ -10,12 +10,14 @@
 
 .article-matching li{
     font-size: var(--font--size--up-scaled-2);
+    color: var(--color--text--light);
     margin: 1rem 0;
 }
 
 .article-matching h2{
     font-size: var(--font--size--up-scaled-5);
-    color: var(--color--text--alt2);
+    color: var(--color--text--match);
+    font-weight: bold;
 }
 
 .section-matching__h1{
@@ -23,4 +25,12 @@
     font-weight: bold;
 }
 
+.article-matching{
+    background-color: var(--color--theme--primary);
+    border-radius: 15px;
+}
 
+.article-matching span{
+    font-weight: 900;
+    color: var(--color--text--dark);
+}

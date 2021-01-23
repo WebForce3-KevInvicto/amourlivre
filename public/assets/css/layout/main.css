@@ -1,11 +1,15 @@
 main{
     width: 100%;
     min-height: 56vh;
-    margin-top: -10rem;
+    margin-top: -30rem;
 }
 
 @media(max-width:540px){
     main{
         margin-top: -10rem;
     }
+}
+
+#homebase-main{
+    margin-top: -10rem;
 }

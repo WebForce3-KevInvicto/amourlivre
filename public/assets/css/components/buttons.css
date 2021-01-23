@@ -1,6 +1,7 @@
 .btn {
   text-transform: uppercase;
   border-radius: 15px;
+  box-shadow: 2px 2px 10px var(--color--theme--dark)
 }
 
 /* .btn:hover, */
@@ -11,7 +12,7 @@
 .btn-primary {
   background-color: var(--color--theme--primary);
   border: none;
-  box-shadow: 2px 2px 10px var(--color--theme--dark);
+  /* box-shadow: 2px 2px 10px var(--color--theme--dark); */
 }
 
 .btn-primary:hover {
@@ -21,7 +22,7 @@
 .btn-secondary {
   background-color: var(--color--theme--secondary);
   border: none;
-  box-shadow: 2px 2px 10px var(--color--theme--dark);
+  /* box-shadow: 2px 2px 10px var(--color--theme--dark); */
 }
 .btn-secondary:hover {
   background-color: var(--color--theme--secondary-hover);
@@ -33,16 +34,27 @@
   font-size: 1.3rem;
 }
 
-/* .btn-signup {
-  margin-top: 2rem;
-} */
-
 .btn-matching {
-  background-color: var(--color--theme--alt2);
-  color: var(--color--text--dark);
+  background-color: var(--color--pastel-green);
+  color: var(--color--text--match2);
+  font-weight: 900;
 }
 
-.btn-matching:hover {
-  background-color: var(--color--text--dark);
-  color: var(--color--theme--alt2);
+.btn-nomatching {
+  background-color: var(--color--lochmara);
+  color: var(--color--text--match);
+  font-weight: 900;
+}
+
+.btn-matching:hover, .btn-nomatching:hover {
+  background-color: var(--color--theme--secondary-hover);
+  color: var(--color--text--light);
+}
+
+.btn-logout{
+  border-radius: 8px;
+}
+
+.btn-submit{
+  border-radius: 8px;
 }

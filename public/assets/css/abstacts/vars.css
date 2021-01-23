@@ -74,16 +74,16 @@
 
     /* TEXT */
     --color--text--light: var(--color--white);
-    --color--text--dark: var(--color--bark);
-    /* --color--text--alt: var(--color--mikado-yellow);
-    --color--text--alt2: var(--color--bright-turquoise); */
+    --color--text--dark: var(--color--black);
+    --color--text--match: var(--color--pastel-green);
+    --color--text--match2: var(--color--lochmara);
     --color--text--white: var(--color--white);
 
     /* SUCCESS */
     --color--success : var(--color--genoa-green);
 
     /* DANGER */
-    --color--danger : var(--color--punch--red);
+    --color--danger : var(--color--danger);
 
   }
 
