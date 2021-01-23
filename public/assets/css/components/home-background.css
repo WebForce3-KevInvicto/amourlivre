@@ -55,3 +55,8 @@ video#bgvid {
     text-align: center;
     line-height: 1.2rem;
 }
+.card-body h4{
+  color: var(--color--text--dark);
+  font-style: italic ;
+  font-size: var(--font--size--up-scaled-3);
+}
