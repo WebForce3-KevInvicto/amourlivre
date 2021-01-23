@@ -1,11 +1,22 @@
-.background-base{
-    width: 100%;
-    background-image: url(../../img/home-bg/home-bg_1.jpg);
-    height: 100vh;
-    border-bottom-left-radius: 50px;
-    background-color: #0487D9;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    /* position: fixed; */
+.background-base {
+  width: 100%;
+  background-image: url(../../img/home-bg/home-bg_1.jpg);
+  height: 50vh;
+  border-bottom-left-radius: 50px;
+  background-color: #0487d9;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -3;
+  position: fixed;
+  top: 0;
+}
+#overlay-base {
+  width: 100vw;
+  height: 50vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  border-radius: 0 0 0 50px;
+  z-index: -2;
 }
