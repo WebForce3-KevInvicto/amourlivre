@@ -16,13 +16,14 @@
 
 .article-matching h2{
     font-size: var(--font--size--up-scaled-5);
-    color: var(--color--text--match);
+    color: #05DBF2;
     font-weight: bold;
 }
 
 .section-matching__h1{
     font-size: var(--font--size--up-scaled-8);
     font-weight: bold;
+    color: var(--color--text--dark);
 }
 
 .article-matching{

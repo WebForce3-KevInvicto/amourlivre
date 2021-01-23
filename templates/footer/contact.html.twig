@@ -6,8 +6,9 @@
 {% block body %}
 	<section class="section-contact w--900">
 		<h1 class="text-center">
-			Contact
+			Contactez-nous
 		</h1>
+		<p>{{messageConfirmation ?? ''}}</p>
 		{{include('contact/_form.html.twig')}}
 		
 	</section>

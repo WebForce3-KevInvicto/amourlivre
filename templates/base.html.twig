@@ -3,8 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta
-		name="description" content="blablablablablablablablablablabla">
+		<meta name="description" content="blablablablablablablablablablabla">
 		<link rel="icon" type="image/png" href="{{asset('assets/img/favicon-196x196.png')}}">
 		<title>
 			{% block title %}Amour Livre
@@ -12,74 +11,75 @@
 		</title>
 		{% block stylesheets %}
 			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-            <link rel="stylesheet" href="{{ asset('assets/css/reset.css') }} ">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous"/>
+			<link rel="stylesheet" href="{{ asset('assets/css/reset.css') }} ">
 			<link rel="stylesheet" href="{{ asset('assets/css/style.css') }} ">
 
 		{% endblock %}
 	</head>
 	<body>
-		<div class="background-base">
-			<header>
-				<nav class="navbar main-menu navbar-expand-lg">
-					<div class="container-fluid">
-						<a class="navbar-brand main-menu__brand" href="#"><img src="{{ asset('assets/img/logo/logo-light.png')}}" alt=""></a>
-						<button class="navbar-toggler main-menu__toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon main-menu__toggler-icon"><i class="fas fa-bars"></i></span>
-						</button>
-						<div class="collapse navbar-collapse main-menu__collapse" id="navbarSupportedContent">
-							<ul class="navbar-nav main-menu__nav me-auto mb-2 mb-lg-0">
-								<li class="nav-item main-menu__item">
-									<a class="nav-link main-menu__link" href="#">Profil</a>
-								</li>
-								<li class="nav-item main-menu__item">
-									<a class="nav-link main-menu__link" href="{{path('matching')}}">Matching</a>
-								</li>
-								<li class="nav-item main-menu__item">
-									<a class="nav-link main-menu__link" href="{{path('messagerie')}}">Messagerie</a>
-								</li>
-							</ul>
-						</div>
-						<a class="btn btn-primary btn-logout" href="{{path('app_logout')}}" role="button"> Déconnexion</a>
+
+		<header>
+			<nav class="navbar main-menu navbar-expand-lg">
+				<div class="container-fluid">
+					<a class="navbar-brand main-menu__brand" href="#"><img src="{{ asset('assets/img/logo/logo-light.png')}}" alt=""></a>
+					<button class="navbar-toggler main-menu__toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon main-menu__toggler-icon">
+							<i class="fas fa-bars"></i>
+						</span>
+					</button>
+					<div class="collapse navbar-collapse main-menu__collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav main-menu__nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item main-menu__item">
+								<a class="nav-link main-menu__link" href="#">Profil</a>
+							</li>
+							<li class="nav-item main-menu__item">
+								<a class="nav-link main-menu__link" href="{{path('matching')}}">Matching</a>
+							</li>
+							<li class="nav-item main-menu__item">
+								<a class="nav-link main-menu__link" href="{{path('messagerie')}}">Messagerie</a>
+							</li>
+						</ul>
 					</div>
-				</nav>
-			</header>
-		</div>
-        <main>
-			<div class="container-fluid">
-				<div class="row">
-		{% block body %}{% endblock %}
+					<a class="btn btn-primary btn-logout" href="{{path('app_logout')}}" role="button">
+						Déconnexion</a>
 				</div>
-			</div>
-        </main>
-		<footer>
-			<nav class="footer-menu">
-				<ul class="nav footer-menu__nav">
-					<li class="nav-item footer-menu__item">
-						<a class="nav-link footer-menu__link active" aria-current="page" href="{{path('contact')}}">Contact</a>
-					</li>
-					<li class="nav-item footer-menu__item">
-						<a class="nav-link footer-menu__link" href="{{path('cgu')}}">CGU</a>
-					</li>
-					<li class="nav-item footer-menu__item">
-						<a class="nav-link footer-menu__link" href="{{path('cgv')}}">CGV</a>
-					</li>
-                    <li class="nav-item footer-menu__item">
-						<a class="nav-link footer-menu__link" href="{{path('about')}}">Qui sommes-nous ?</a>
-					</li>
-                    <li class="nav-item footer-menu__item">
-						<a class="nav-link footer-menu__link" href="{{path('mentions')}}">Mentions Légales</a>
-					</li>
-				</ul>
 			</nav>
-            <p class="footer-text">Tous droits réservés - &copy;Team CHECK - 2021</p>
-		</footer>
+		</header>
+		<div id="overlay-base"></div>
+		<div class="background-base"></div>
+		<main>
+			<div class="container-fluid">
+				<div class="row"> {% block body %}{% endblock %}
+					</div>
+				</div>
+			</main>
+			<footer>
+				<nav class="footer-menu">
+					<ul class="nav footer-menu__nav">
+						<li class="nav-item footer-menu__item">
+							<a class="nav-link footer-menu__link active" aria-current="page" href="{{path('contact')}}">Contact</a>
+						</li>
+						<li class="nav-item footer-menu__item">
+							<a class="nav-link footer-menu__link" href="{{path('cgu')}}">CGU</a>
+						</li>
+						<li class="nav-item footer-menu__item">
+							<a class="nav-link footer-menu__link" href="{{path('cgv')}}">CGV</a>
+						</li>
+						<li class="nav-item footer-menu__item">
+							<a class="nav-link footer-menu__link" href="{{path('about')}}">Qui sommes-nous ?</a>
+						</li>
+						<li class="nav-item footer-menu__item">
+							<a class="nav-link footer-menu__link" href="{{path('mentions')}}">Mentions Légales</a>
+						</li>
+					</ul>
+				</nav>
+				<p class="footer-text">Tous droits réservés - &copy;Team CHECK - 2021</p>
+			</footer>
 
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
-		{% block javascripts %}
-			
-		{% endblock %}
-	</body>
-</html>
+			{% block javascripts %}{% endblock %}
+		</body>
+	</html>

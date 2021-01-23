@@ -75,7 +75,7 @@ class MainController extends AbstractController
         $form->handleRequest($request);
 
         // ON VALIDE LES INFOS DU FORMULAIRE
-        $messageConfirmation = "merci de remplir le formulaire";
+        $messageConfirmation = "Merci de remplir le formulaire";
         if ($form->isSubmitted() && $form->isValid()) {
             // IL FAUT COMPLETER LES INFOS MANQUANTES
             $contact->setDateMessage(new \DateTime());

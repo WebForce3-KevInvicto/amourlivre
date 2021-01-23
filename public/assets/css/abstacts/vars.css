@@ -36,10 +36,10 @@
     --color--lochmara70: rgba(4,135,217, 0.7);
     --color--lochmara50: rgba(4,135,217, 0.5);
 
-    /* PASTEL GREEN */
-    --color--pastel-green : rgb(79,227,116);
-    --color--pastel-green70 : rgb(79,227,116, 0.7);
-    --color--pastel-green50 : rgb(79,227,116, 0.5);
+    /* BRIGHT TURQUOISE*/
+    --color--bright-turquoise : rgb(5, 219, 242);
+    --color--bright-turquoise70 : rgb(5, 219, 242, 0.7);
+    --color--bright-turquoise50 : rgb(5, 219, 242, 0.5);
 
     /* PUNCH RED */
     --color--punch--red : rgb(220, 53, 69);
@@ -67,6 +67,7 @@
     --color--theme--primary-hover: var(--color--navy-blue);
     --color--theme--secondary-hover: var(--color--navy-blue);
     --color--theme--alt: var(--color--vanilla70);
+    --color--theme--matching: var(--color--navy-blue);
 
     /* BACKGROUND */
     /* --color--background--dark: var(--color--theme--dark70); */
@@ -75,7 +76,7 @@
     /* TEXT */
     --color--text--light: var(--color--white);
     --color--text--dark: var(--color--black);
-    --color--text--match: var(--color--pastel-green);
+    --color--text--match: var(--color--bright-turquoise);
     --color--text--match2: var(--color--lochmara);
     --color--text--white: var(--color--white);
 
