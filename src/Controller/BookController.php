@@ -3,12 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Book;
+use App\Entity\User;
 use App\Form\BookType;
 use App\Repository\BookRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @Route("/book")
@@ -28,25 +30,25 @@ class BookController extends AbstractController
     /**
      * @Route("/new", name="book_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, UserInterface $user): Response
     {
         
+        dump($user);
 
         $book = new Book();
-        
-        
+               
         $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
             
-            $userId = 1;
+           
 
             $requestParams = $request->request->all();
-            dump($requestParams);
+         
 
             $publicationDateString= $requestParams['book']['publication_date'];
-            dump($publicationDateString);
+         
 
             if(strlen($publicationDateString) == 10){
 
@@ -58,9 +60,9 @@ class BookController extends AbstractController
             }
 
 
-            dump($publicationDate);
             $book->setPublicationDate($publicationDate);
             $book->setCreatedAt($book->getCreatedAt());
+            $book->addUser($user);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($book);
             $entityManager->flush();

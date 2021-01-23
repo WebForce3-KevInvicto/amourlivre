@@ -1,4 +1,106 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{% block body %}
+  {% for flashError in app.flashes('verify_email_error') %}
+    <div class="alert alert-danger" role="alert">
+      {{ flashError }}
+    </div>
+  {% endfor %}
+  <section class="w--900 p--2" id="registration">
+    <h1 class="text-center">
+      Inscription
+    </h1>
+
+    <p class="text-color-dark fw--b">
+      *Obligatoire
+    </p>
+
+    {{ form_start(userEditForm) }}
+
+    <div class="form-container d--flex">
+        <div class="form-left w--50">
+            {{
+                form_row(
+                userEditForm.nickname,
+                {
+                    label: 'Pseudonyme*'
+                }
+                )
+            }}
+            <small class="ml--1 text-color-dark">Ex: John Doe</small>
+            {{
+                form_row(
+                userEditForm.email,
+                {
+                    label: 'Email*'
+                }
+                )
+            }}
+            <small class="ml--1 text-color-dark">Ex: johndoe@mailer.com</small>
+            {{
+                form_row(
+                userEditForm.plainPassword,
+                {
+                    label: 'Mot de Passe*'
+                }
+                )
+            }}
+                <small class="d--inlblc ml--1 m--top-05 text-color-dark ">Force:</small>
+            <meter  max="5" id="password-strength-meter"></meter>
+            <span class="d--inlblc strength-text m--top-05 text-color-dark"></span>
+            <ul class="ml--1 m--top-05 text-color-dark" id="password-strength-text"></ul>
+        </div>
+
+        <div class="form-right w--50">
+            {{
+            form_row(
+                userEditForm.address,
+                {
+                label: 'Adresse*'
+                }
+            )
+            }}
+            <small class="ml--1 text-color-dark">Ex: 8 Allée Léon Gambetta</small>
+            {{
+            form_row(
+                userEditForm.postal_code,
+                {
+                label: 'Code Postal*'
+                }
+            )
+            }}
+            <small class="ml--1 text-color-dark">Ex: 13001</small>
+            {{
+            form_row(
+                userEditForm.city,
+                {
+                label: 'Ville*'
+                }
+            )
+            }}
+            <small class="ml--1 text-color-dark">Ex: Marseille</small>
+        </div>
+        <div class="form-part-bottom d--flex-nowrap w--100">
+    
+       {{
+          form_row(
+            userEditForm.description,
+            {
+              label: 'Description'
+            }
+          )
+        }}
+      </div>
+      
+      <div class="form-footer d--flex jc--c m--top-1 w--100">
+        <button type="submit"
+          class="btn btn-primary btn-signin m--top-1 w--300">
+          Inscription
+        </button>
+      </div>
+    </div>
+    {{ form_end(userEditForm) }}
+  </section>
+
+{% endblock %}
+    {% block javascripts %}
+			<script src="{{asset('assets/js/registration.js')}}"></script>
+		{% endblock %}

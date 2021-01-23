@@ -5,8 +5,11 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class UserType extends AbstractType
@@ -15,29 +18,25 @@ class UserType extends AbstractType
     {
         $builder
             ->add('nickname')
-            ->add('gender')
-            ->add('birthdate')
-            ->add('email')
+            ->add('email', EmailType::class)
             ->add('address')
             ->add('postal_code')
             ->add('city')
-            ->add('preference')
-            ->add('roles', CollectionType::class, [
-                'entry_type'   => ChoiceType::class,
-                'entry_options'  => [
-                    'label' => false,
-                    'choices' => [
-                        'Admin' => 'ROLE_ADMIN',
-                        'user' => 'ROLE_USER',
-                    ],
+            ->add('plainPassword', PasswordType::class, [
+                // instead of being set onto the object directly,
+                // this is read and encoded in the controller
+                'mapped' => false,
+                'constraints' => [
+                    new Length([
+                        'min' => 8,
+                        'minMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} caractères',
+                        // max length allowed by Symfony for security reasons
+                        'max' => 4096,
+                    ]),
                 ],
             ])
-            ->add('password')
             ->add('description')
-            ->add('last_connection')
-            ->add('created_at')
-            ->add('updated_at')
-            ->add('ranking');
+            ->add('photos');
     }
 
     public function configureOptions(OptionsResolver $resolver)

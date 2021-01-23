@@ -12,7 +12,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @UniqueEntity(fields={"email"}, message="L'email saisi est déjà utilisé !")
+ * @UniqueEntity(fields={"nickname"}, message="Le pseudonyme saisi est déjà utilisé !")
  */
 class User implements UserInterface
 {
@@ -139,6 +140,11 @@ class User implements UserInterface
      * 
      */
     private $books;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $avatar;
 
     public function __construct()
     {
@@ -622,6 +628,18 @@ class User implements UserInterface
     public function removeBook(Book $book): self
     {
         $this->books->removeElement($book);
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(string $avatar): self
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }

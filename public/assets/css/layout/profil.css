@@ -1,0 +1,28 @@
+.article-profil img{
+    height: 300px;
+    width: 250px;
+    object-fit: cover;
+}
+
+.article-profil{
+    padding: 2rem;
+    box-shadow: 2px 2px 10px var(--color--theme--dark);
+}
+
+.article-profil li{
+    font-size: var(--font--size--up-scaled-2);
+    margin: 1rem 0;
+}
+
+.article-profil h2{
+    font-size: var(--font--size--up-scaled-5);
+    color: var(--color--text--alt2);
+}
+
+.section-profil {
+    padding: 2rem;
+}
+
+.w--820{
+    width: 820px;
+  }
