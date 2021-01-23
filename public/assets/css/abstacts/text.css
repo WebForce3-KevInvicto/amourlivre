@@ -13,6 +13,9 @@
     color : var(--color--text--alt);
   }
 
+  .text-color-white{
+    color : var(--color--text--white);
+  }
 
 /* WEIGHT
  * ------------------------------------------------------------------------- */
