@@ -1,7 +1,7 @@
 main{
     width: 100%;
     min-height: 56vh;
-    margin-top: -15rem;
+    margin-top: -10rem;
 }
 
 @media(max-width:540px){

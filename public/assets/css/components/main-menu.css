@@ -1,7 +1,6 @@
 .main-menu{
-    background-color: var(--color--theme--dark);
-    border-bottom-left-radius: 50px;
-    
+    background-color: transparent;
+    border-bottom-left-radius: 50px; 
 }
 
 .main-menu__brand img{
