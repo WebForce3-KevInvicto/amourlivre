@@ -90,6 +90,10 @@
     margin: auto;
   }
   
+  .m1--auto{
+    margin: 1rem auto;
+  }
+  
   .mx--auto{
     margin : 0 auto;
   }

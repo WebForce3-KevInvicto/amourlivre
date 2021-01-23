@@ -3,7 +3,7 @@
   border-radius: 15px;
 }
 
-.btn:hover,
+/* .btn:hover, */
 .btn:focus {
   background-color: var(--color--theme--dark);
 }
@@ -14,10 +14,17 @@
   box-shadow: 2px 2px 10px var(--color--theme--dark);
 }
 
+.btn-primary:hover {
+  background-color: var(--color--theme--primary-hover) ;
+}
+
 .btn-secondary {
   background-color: var(--color--theme--secondary);
   border: none;
   box-shadow: 2px 2px 10px var(--color--theme--dark);
+}
+.btn-secondary:hover {
+  background-color: var(--color--theme--secondary-hover);
 }
 
 .btn-signin,
@@ -37,5 +44,5 @@
 
 .btn-matching:hover {
   background-color: var(--color--text--dark);
-  color: var(--color--theme--alt2); 
+  color: var(--color--theme--alt2);
 }
