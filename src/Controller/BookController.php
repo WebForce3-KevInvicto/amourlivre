@@ -13,12 +13,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @Route("/book")
+ * @Route("/")
  */
 class BookController extends AbstractController
 {
     /**
-     * @Route("/", name="book_index", methods={"GET"})
+     * @Route("admin/books", name="book_index", methods={"GET"})
      */
     public function index(BookRepository $bookRepository): Response
     {
@@ -28,7 +28,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="book_new", methods={"GET","POST"})
+     * @Route("membre/book/new", name="book_new", methods={"GET","POST"})
      */
     public function new(Request $request, UserInterface $user): Response
     {
@@ -77,7 +77,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="book_show", methods={"GET"})
+     * @Route("membre/book/{id}", name="book_show", methods={"GET"})
      */
     public function show(Book $book): Response
     {
@@ -87,7 +87,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="book_edit", methods={"GET","POST"})
+     * @Route("admin/book/edit/{id}", name="book_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Book $book): Response
     {
@@ -107,7 +107,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="book_delete", methods={"DELETE"})
+     * @Route("admin/book/delete/{id}", name="book_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Book $book): Response
     {
