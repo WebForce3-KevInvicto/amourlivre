@@ -5,12 +5,13 @@
 {% endblock %}
 
 {% block body %}
-  <section>
+<div class="d--flex ai--c">
+<section class="w--30">
     <h1>
       Mon Profil
     </h1>
-    <article class="card mb--2" style="width: 20rem;">
-      <a href="{{
+    <article class="card mb--2 w--300 m--auto">
+      <a class="p--absolute top--1 right--1 fsize-2" href="{{
         path(
           'user_edit',
           {
@@ -51,47 +52,29 @@
     </article>
   </section>
   
-  <section>
+  <section class="w--70"> 
     <h2>
       Mes 5 livres favoris
     </h2>
-    <div id="carouselExampleControls"
-      class="carousel slide"
-      data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
-        </div>
-        <div class="carousel-item">
-          <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
-        </div>
-        <div class="carousel-item">
-          <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
-        </div>
-         <div class="carousel-item">
-          <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
-        </div>
-        <div class="carousel-item">
-          <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
-        </div>
-      </div>
-      <a class="carousel-control-prev"
-        href="#carouselExampleControls"
-        role="button"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </a>
-      <a class="carousel-control-next"
-        href="#carouselExampleControls"
-        role="button"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </a>
+    <div class="top5-containrer d--flex">
+        <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
+   
+    
+         <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
+    
+     
+         <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
+    
+  
+         <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
+    
+   
+         <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
     </div>
+        
+  
   </section>
-  <section>
+  <section class="w--100">
     <h2>
       Ma Bilbiothèque
     </h2>
@@ -102,20 +85,8 @@
     </div>
 
   </section>
+</div>
+  
   
 
-  <a href="{{ path('user_index') }}">back to list</a>
-
-  <a href="{{
-    path(
-      'user_edit',
-      {
-        id: user.id
-      }
-    )
-    }}">
-    edit
-  </a>
-
-  {{ include('user/_delete_form.html.twig') }}
 {% endblock %}

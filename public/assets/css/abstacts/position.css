@@ -1,6 +1,17 @@
 .p--fixed{
     position: fixed;
 }
+.p--absolute{
+    position: absolute;
+}
+
+.top--1{
+    top:1rem;
+}
+
+.right--1{
+    right: 1rem;
+}
 
 .zi--50{
     z-index: 150;
