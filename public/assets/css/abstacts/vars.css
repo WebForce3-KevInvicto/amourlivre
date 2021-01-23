@@ -76,9 +76,10 @@
     /* TEXT */
     --color--text--light: var(--color--white);
     --color--text--dark: var(--color--black);
+    --color--text--flash: var(--color--bright-turquoise);
     --color--text--match: var(--color--bright-turquoise);
     --color--text--match2: var(--color--lochmara);
-    --color--text--white: var(--color--white);
+    
 
     /* SUCCESS */
     --color--success : var(--color--genoa-green);
@@ -148,6 +149,7 @@
   --font--size--up-scaled-7: 2.2rem;
   --font--size--up-scaled-8: 2.6rem;
   --font--size--up-scaled-9: 3rem;
+  --font--size--up-scaled-10: 4rem;
 }
 
 

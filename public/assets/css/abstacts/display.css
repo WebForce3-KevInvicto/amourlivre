@@ -42,6 +42,10 @@
   .jc--sa{
     justify-content: space-around;
   }
+
+  .jc--fe{
+    justify-content: flex-end;
+  }
   
   /***Align-Items***/
   .ai--c{
@@ -62,3 +66,24 @@
   .fd--c{
     flex-direction: column;
   }
+
+  @media (max-width: 992px){
+    .d--mob--flex{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .d--mob-none{
+      display: none;
+      
+    }  
+  
+    .ai--mob-c{
+      align-items: center;
+    }
+
+    .fd--mob-c{
+      flex-direction: column;
+    }
+}
+
+

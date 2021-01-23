@@ -5,12 +5,14 @@
 @import url('abstacts/spacing.css');
 @import url('abstacts/sizing.css');
 @import url('abstacts/position.css');
+@import url('abstacts/background.css');
+@import url('abstacts/border.css');
 
 /* BASE */
 @import url('base/base.css');
 
 /* LAYOUT */
-@import url('layout/footer-home.css');
+
 @import url('layout/landing-page.css');
 @import url('layout/login-form.css');
 @import url('layout/main.css');

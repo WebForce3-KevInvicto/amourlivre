@@ -1,0 +1,17 @@
+/* COLOR
+ * ------------------------------------------------------------------------- */
+
+ .bck--primary{
+     background-color: var(--color--theme--primary);
+ }
+
+ .bck--alt{
+     background-color: var(--color--theme--alt);
+ }
+
+
+ /*** BOX-SHADOW ***/
+
+ .box-shadow{
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+ }

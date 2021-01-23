@@ -28,6 +28,27 @@
 /* SIZE
  * ------------------------------------------------------------------------- */
 
+
+
+ .fsize-1d2{
+  font-size: var( --font--size--up-scaled-2);
+}
+
  .fsize-2{
    font-size: var(--font--size--up-scaled-6);
+ }
+
+ .fsize-4{
+   font-size: var(--font--size--up-scaled-10);
+  }
+
+   /* LINE-HEIGHT
+ * ------------------------------------------------------------------------- */
+
+ .lh--1d5{
+   line-height: 1.5rem;
+ }
+
+ .lh--5{
+   line-height: 5rem;
  }

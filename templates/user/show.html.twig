@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  User
+    Amour Livre - Mon Profil
 {% endblock %}
 
 {% block body %}
 <div class="d--flex ai--c">
-<section class="w--30">
-    <h1>
+<section class="w--30 w--mob-100">
+    <h1 class="fw--b text-center text-color-light">
       Mon Profil
     </h1>
-    <article class="card mb--2 w--300 m--auto">
+    <article class="card mb--2 w--300 m--auto bck--primary px--3">
       <a class="p--absolute top--1 right--1 fsize-2" href="{{
         path(
           'user_edit',
@@ -21,7 +21,7 @@
         }}">
         <i class="far fa-edit text-color-dark"></i>
       </a>
-      <div class="card-header">
+      <div class="article-header">
         {% if user.avatar %}
           <img src="{{ asset("upload/ #{user.avatar} ") }}"
             class="card-img-top"
@@ -37,23 +37,23 @@
               alt="..." />
           {% endif %}
         {% endif %}
-        <h3 class="card-title text-center">
+        <h3 class="text-center text-color-light fw--b py--1">
           {{ user.nickname }}
         </h3>
         <p class="card-text text-center p--0">
           {{ user.getAge() }} ans - {{ user.city }}
         </p>
       </div>
-      <div class="card-body">
-        <p class="card-text">
+      <div class="card-body b--top m--top-1">
+        <p class="card-text text-color-light">
           {{ user.description }}
         </p>
       </div>
     </article>
   </section>
   
-  <section class="w--70"> 
-    <h2>
+  <section class="w--70 w--mob-100"> 
+    <h2 class="text-color-light mb--2 text-center">
       Mes 5 livres favoris
     </h2>
     <div class="top5-containrer d--flex">
@@ -74,10 +74,15 @@
         
   
   </section>
-  <section class="w--100">
-    <h2>
-      Ma Bilbiothèque
-    </h2>
+  <section class="w--100 bck--alt br--15 m--top-5 p--2 p--relative">
+    
+     <a class="btn btn-primary btn-logout p--absolute" href="{{path('book_new')}}" role="button">
+                                Ajouter un livre</a>
+
+        <h2 class="text-center mb--2">
+            Ma Bibliothèque
+            </h2>
+    
     <div class="books-container d--flex jc--se">
           {% for book in books %}
             <a  href="{{path('book_show', {id: book.id})}}"><img src="{{ book.thumbnail }}" class="d-block w-30 m--auto" alt="..." /></a>

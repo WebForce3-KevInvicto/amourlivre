@@ -4,7 +4,7 @@
   border-bottom-left-radius: 50px;
 }
 
-video#bgvid {
+video.bgvid {
   object-fit: cover;
   position: fixed;
   right: 0;
@@ -59,3 +59,19 @@ video#bgvid {
   font-style: italic ;
   font-size: var(--font--size--up-scaled-3);
 }
+
+.bgvid--mob{
+  display: none;
+}
+
+@media (max-width: 992px){
+ .bgvid--mob{
+   display: block;
+   max-width: 115%
+ }
+
+  video.bgvid {
+    display:none
+  }
+}
+

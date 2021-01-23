@@ -28,27 +28,28 @@
 							<i class="fas fa-bars"></i>
 						</span>
 					</button>
-					<div class="collapse navbar-collapse main-menu__collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav main-menu__nav me-auto mb-2 mb-lg-0">
-							<li class="nav-item main-menu__item">
+					<div class="collapse navbar-collapse main-menu__collapse d--mob--flex fd--mob-c ai--mob-c" id="navbarSupportedContent">
+						<ul class="navbar-nav main-menu__nav">
+							<li class="nav-item main-menu__item text-center">
 								<a class="nav-link main-menu__link" href="#">Profil</a>
 							</li>
-							<li class="nav-item main-menu__item">
+							<li class="nav-item main-menu__item text-center">
 								<a class="nav-link main-menu__link" href="{{path('matching')}}">Matching</a>
 							</li>
-							<li class="nav-item main-menu__item">
+							<li class="nav-item main-menu__item text-center">
 								<a class="nav-link main-menu__link" href="{{path('messagerie')}}">Messagerie</a>
 							</li>
 						</ul>
+						<a class="btn btn-primary btn-logout ml--mob-1d8 m--mob--top-1" href="{{path('app_logout')}}" role="button">
+									Déconnexion</a>
 					</div>
-					<a class="btn btn-primary btn-logout" href="{{path('app_logout')}}" role="button">
-						Déconnexion</a>
+					
 				</div>
 			</nav>
 		</header>
 		<div id="overlay-base"></div>
 		<div class="background-base"></div>
-		<main>
+		<main class="m--top-13">
 			<div class="container-fluid">
 				<div class="row"> {% block body %}{% endblock %}
 					</div>

@@ -29,6 +29,7 @@ body {
   position: relative;
 }
 
+
 header{
   width: 100%;
   position: fixed;
@@ -67,9 +68,6 @@ a {
   color: var(--color--text--light);
 }
 
-p {
-  padding: 1rem;
-}
 
 strong {
   font-weight: bold;
