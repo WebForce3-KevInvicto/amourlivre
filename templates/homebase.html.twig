@@ -3,8 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta
-		name="description" content="blablablablablablablablablablabla">
+		<meta name="description" content="blablablablablablablablablablabla">
 		<link rel="icon" type="image/png" href="{{asset('assets/img/favicon-196x196.png')}}">
 		<title>
 			{% block title %}Amour Livre
@@ -15,24 +14,26 @@
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous"/>
 			<link rel="stylesheet" href="{{ asset('assets/css/reset.css') }} ">
 			<link rel="stylesheet" href="{{ asset('assets/css/style.css') }} ">
-	
+
 		{% endblock %}
 	</head>
 	<body>
-		<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-			<div class="carousel-inner">
-				<div class="carousel-item one active"></div>
-				<div class="carousel-item two"></div>
-				<div class="carousel-item three"></div>
-				<div class="carousel-item four"></div>
-			</div>
+
+		<div id="video">
+			<video autoplay loop id="bgvid">
+				<source src="{{asset('assets/video/home.mp4')}}" type="video/mp4">
+			</video>
+
 		</div>
-		<div class="home-background">
-			<header>
+		<div id="overlay"></div>
+		<div class="homebase-background">
+			<header class="p--fixed w--100 zi--50">
 				<nav class="navbar main-homemenu navbar-expand-lg">
 					<div class="container-fluid">
 						<a class="navbar-brand main-homemenu__brand" href="#"><img src="{{ asset('assets/img/logo/logo-light.png')}}" alt=""></a>
 					</div>
+					<a class="btn btn-secondary btn-signin-nav m--1 p--1" href="{{path('app_login')}}">Connexion</a>
+					<a class="btn btn-primary btn-signup-nav m--1 p--1" href="{{path('app_register')}}">Inscription</a>
 				</nav>
 			</header>
 		</div>
@@ -40,39 +41,36 @@
 
 		<main>
 			<div class="container-fluid">
-				<div class="row">
-			{% block body %}{% endblock %}
+				<div class="row"> {% block body %}{% endblock %}
+					</div>
 				</div>
-			</div>
-		</main>
-		<footer>
-			<nav class="footer-homemenu">
-				<ul class="nav footer-homemenu__nav">
-					<li class="nav-item footer-homemenu__item">
-						<a class="nav-link footer-homemenu__link active" aria-current="page" href="{{path('contact')}}">Contact</a>
-					</li>
-					<li class="nav-item footer-homemenu__item">
-						<a class="nav-link footer-homemenu__link" href="{{path('cgu')}}">CGU</a>
-					</li>
-					<li class="nav-item footer-homemenu__item">
-						<a class="nav-link footer-homemenu__link" href="{{path('cgv')}}">CGV</a>
-					</li>
-					<li class="nav-item footer-homemenu__item">
-						<a class="nav-link footer-homemenu__link" href="{{path('about')}}">Qui sommes-nous ?</a>
-					</li>
-					<li class="nav-item footer-homemenu__item">
-						<a class="nav-link footer-homemenu__link" href="{{path('mentions')}}">Mentions Légales</a>
-					</li>
-				</ul>
-			</nav>
-			<p class="footer-hometext">Tous droits réservés - &copy;Team CHECK - 2021</p>
-		</footer>
+			</main>
+			<footer>
+				<nav class="footer-homemenu">
+					<ul class="nav footer-homemenu__nav">
+						<li class="nav-item footer-homemenu__item">
+							<a class="nav-link footer-homemenu__link active" aria-current="page" href="{{path('contact')}}">Contact</a>
+						</li>
+						<li class="nav-item footer-homemenu__item">
+							<a class="nav-link footer-homemenu__link" href="{{path('cgu')}}">CGU</a>
+						</li>
+						<li class="nav-item footer-homemenu__item">
+							<a class="nav-link footer-homemenu__link" href="{{path('cgv')}}">CGV</a>
+						</li>
+						<li class="nav-item footer-homemenu__item">
+							<a class="nav-link footer-homemenu__link" href="{{path('about')}}">Qui sommes-nous ?</a>
+						</li>
+						<li class="nav-item footer-homemenu__item">
+							<a class="nav-link footer-homemenu__link" href="{{path('mentions')}}">Mentions Légales</a>
+						</li>
+					</ul>
+				</nav>
+				<p class="footer-hometext">Tous droits réservés - &copy;Team CHECK - 2021</p>
+			</footer>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
-		{% block javascripts %}
-		
-		{% endblock %}
-	</body>
-</html>
+			{% block javascripts %}{% endblock %}
+		</body>
+	</html>

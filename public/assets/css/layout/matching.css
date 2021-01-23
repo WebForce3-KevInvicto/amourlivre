@@ -18,8 +18,9 @@
     color: var(--color--text--alt2);
 }
 
-.section-transparent__h1{
+.section-matching__h1{
     font-size: var(--font--size--up-scaled-8);
+    font-weight: bold;
 }
 
 

@@ -6,38 +6,40 @@
  * ------------------------------------------------------------------------- */
 
  :root {
-    /* PERIGLACIAL BLUE */
-    --color--periglacial-blue: rgb(227,229,211);
-    --color--periglacial-blue70:rgba(227,229,211, 0.7);
-    --color--periglacial-blue50:rgba(227,229,211, 0.5);
-  
-    /* CORAL TREE */
-    --color--coral-tree: rgb(166,115,113);
-    --color--coral-tree70: rgba(166,115,113, 0.7);
-    --color--coral-tree50: rgba(166,115,113, 0.5);
+    /* VANILLA */
+    --color--vanilla: rgb(217,199,184);
+    --color--vanilla70: rgba(217,199,184, 0.7);
+    --color--vanilla50: rgba(217,199,184, 0.5);
 
     /* MANDY */
     --color--mandy: rgb(228,79,89);
     --color--mandy70:rgba(228,79,89, 0.7);
     --color--mandy50: rgba(228,79,89, 0.5);
 
-    /* ORIENTAL PINK */
-    --color--oriental-pink: rgb(196,153,136);
-    --color--oriental-pink70: rgba(196,153,136, 0.7);
-    --color--oriental-pink50: rgba(196,153,136, 0.5);
+     /* CABARET */
+     --color--cabaret: rgb(217,78,90);
+     --color--cabaret70:rgba(217,78,90, 0.7);
+     --color--cabaret50: rgba(217,78,90, 0.5);
 
-     /* COCOA BEAN */
-     --color--cocoa-bean: rgb(94,34,35);
-     --color--cocoa-bean70: rgba(94,34,35, 0.7);
-     --color--cocoa-bean50: rgba(94,34,35, 0.5);
+    /* QUICKSAND */
+    --color--quicksand: rgb(191,151,136);
+    --color--quicksand70: rgba(191,151,136, 0.7);
+    --color--quicksand50: rgba(191,151,136, 0.5);
 
-    /* MIKADO YELLOW */
-    --color--mikado-yellow: rgb(255, 196, 12);
-    --color--mikado-yellow70: rgba(255, 196, 12, 0.7);
-    --color--mikado-yellow50: rgba(255, 196, 12, 0.5);
+     /* NAVY BLUE */
+     --color--navy-blue: rgb(7,3,140);
+     --color--navy-blue70: rgba(7,3,140, 0.7);
+     --color--navy-blue50: rgba(7,3,140, 0.5);
 
-    /* GENOA GREEN */
-    --color--genoa-green : rgb(25, 135, 84);
+    /* LOCHMARA */
+    --color--lochmara: rgb(4,135,217);
+    --color--lochmara70: rgba(4,135,217, 0.7);
+    --color--lochmara50: rgba(4,135,217, 0.5);
+
+    /* PASTEL GREEN */
+    --color--pastel-green : rgb(79,227,116);
+    --color--pastel-green70 : rgb(79,227,116, 0.7);
+    --color--pastel-green50 : rgb(79,227,116, 0.5);
 
     /* PUNCH RED */
     --color--punch--red : rgb(220, 53, 69);
@@ -45,9 +47,12 @@
     /* BLACK */
     --color--lite-black: rgb(37, 37, 37);
     --color--black: rgb(0, 0, 0);
+
+    /* WHITE */
+    --color--white: rgb(255, 255, 255);
     
-    /* BRIGHT TURQUOISE */
-    --color--bright-turquoise: rgb(15, 242, 219);
+    /* DANGER*/
+    --color--danger: rgb(255,0,0);
   }
   
   /* APP COLORS
@@ -56,21 +61,23 @@
   :root {
     /* THEME */
     --color--theme--primary: var(--color--mandy);
-    --color--theme--secondary: var(--color--oriental-pink);
-    --color--theme--light: var(--color--periglacial-blue);
-    --color--theme--dark: var(--color--cocoa-bean);
-    --color--theme--dark70: var(--color--cocoa-bean70);
-    --color--theme--alt: var(--color--coral-tree);
-    --color--theme--alt2: var(--color--bright-turquoise);
+    --color--theme--secondary: var(--color--quicksand);
+    --color--theme--light: var(--color--white);
+    --color--theme--dark: var(--color--black);
+    --color--theme--primary-hover: var(--color--navy-blue);
+    --color--theme--secondary-hover: var(--color--navy-blue);
+    --color--theme--alt: var(--color--vanilla70);
 
     /* BACKGROUND */
-    --color--background--dark: var(--color--theme--dark70);
+    /* --color--background--dark: var(--color--theme--dark70); */
+    --color--background--white: var(--color--white);
 
     /* TEXT */
-    --color--text--light: var(--color--periglacial-blue);
-    --color--text--dark: var(--color--cocoa-bean);
-    --color--text--alt: var(--color--mikado-yellow);
-    --color--text--alt2: var(--color--bright-turquoise);
+    --color--text--light: var(--color--white);
+    --color--text--dark: var(--color--bark);
+    /* --color--text--alt: var(--color--mikado-yellow);
+    --color--text--alt2: var(--color--bright-turquoise); */
+    --color--text--white: var(--color--white);
 
     /* SUCCESS */
     --color--success : var(--color--genoa-green);

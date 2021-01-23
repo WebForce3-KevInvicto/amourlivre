@@ -4,38 +4,75 @@
 {% endblock %}
 
 {% block body %}
-	
-		
 
-			<div class="jumbotron jumbotron-one">
-				<h1 class="jumbotron__subtitle">
-					Rejoignez la communauté Amour Livre et écrivez votre plus belle histoire d’amour !
-				</h1>
+	<section id="section-accueil" class="jumbotron jumbotron-one text-color-white">
+		<div>
+			<h1 class="jumbotron__subtitle">
+				Ecrivez votre plus belle histoire d’amour !
+			</h1>
 
-				<p>Amour Livre est à la fois un site pour les célibataires et une communauté dédiée aux amoureux de la lecture.</p>
+			<p class="text-center">Avec Amour Livre, rencontrez des célibataires qui partagent votre passion.</p>
 
-				<p>En tant que membre, vous pourrez créer votre propre profil, afficher le top 5 de vos goûts littéraires et parcourir les profils disponibles.</p>
-
-				<p>Que vous soyez férus de polars ou d’heroic fantasy, vous y trouverez des personnes partageant votre passion.</p>
-
-				<p>Car ici, les membres se définissent plus par leurs goûts en matière de lecture que du point de vue de leur apparence.</p>
-
-				<p>Soyez-en sûrs, tous les profils sont validés par notre équipe.</p>
-
-				<p>Belle romance sur Amour Livre !</p>
-
-
+			<div class="text-center">
+				<a class="btn btn-secondary btn-signin m--1" href="{{path('app_login')}}">Connexion</a>
+				<a class="btn btn-primary btn-signup m--1" href="{{path('app_register')}}">Inscription</a>
 			</div>
 
-			{# ferme jumbotron #}
-
-			<div class="jumbotron__buttons mt-4">
-				<a class="btn btn-secondary btn-signin" href="{{path('app_login')}}">Connexion</a>
-				<a class="btn btn-primary btn-signup" href="{{path('app_register')}}">Inscription</a>
+		</div>
+	</section>
+	<section id="section-pourquoi-nous" class="d--flex mb--50 m--top-5 jc--se ">
+		<h2 class="w--100 text-center">Pourquoi nous ?</h2>
+		<div class="card mb--2" style="width: 20rem;">
+			<img src="{{ asset('assets/img/home-bg/chap1.jpg')}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h3 class="card-title text-center">Chapitre 1</h3>
+				<h4 class="text-center m--top-1">Votre histoire commence</h4>
+				<p class="card-text">Devenez membre, créez votre profil et vous aurez accès à une bibliothèque. 
+																														Vous pourrez y ajouter tous vos livres et créer le top 5 de vos œuvres préférées.
+				</p>
 			</div>
+		</div>
+		<div class="card mb--2" style="width: 20rem;">
+			<img src="{{ asset('assets/img/home-bg/chap2.jpg')}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h3 class="card-title text-center">Chapitre 2</h3>
+				<h4 class="text-center m--top-1">Matching par genre littéraire</h4>
+				<p class="card-text">Grâce à son algorithme de compatibilité, Amour Livre vous présente les profils qui matchent en fonction de vos goûts littéraires en plus des critères habituels.
+																									Que vous soyez férus de polars ou d’heroic fantasy, vous y trouverez des personnes qui vous correspondent vraiment.
+				</p>
+			</div>
+		</div>
+		<div class="card mb--2" style="width: 20rem;">
+			<img src="{{ asset('assets/img/home-bg/chap3bis.jpg')}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h3 class="card-title text-center">Chapitre 3</h3>
+				<h4 class="text-center m--top-1">Vivre d'Amour et de Livres</h4>
+				<p class="card-text">Un profil vous intéresse? Contactez-le, faites connaissance et vivez votre romance!
+				</p>
+			</div>
+		</div>
+		<div class="card mb--2" style="width: 20rem;">
+			<img src="{{ asset('assets/img/home-bg/chap4bis.jpg')}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h3 class="card-title text-center">Chapitre 4</h3>
+				<h4 class="text-center m--top-1">A vous d’écrire la suite de l’histoire</h4>
+				<p class="card-text">...
+				</p>
+			</div>
+		</div>
 
 
-
+	</section>
+	<section id="section-hesitation" class="d--flex jc--c">
+		<div class="card m--1">
+			<div class="card-body d--flex fd--c pb--3">
+				<h2 class="card-title w--100 text-center">Vous hésitez encore ?</h2>
+				<p class="card-text">Amour Livre est un site de rencontre sérieux qui facilite les relations.</p> 
+				<p class="mb--1">Grâce à notre plateforme sécurisée et aux profils vérifiés régulièrement par notre équipe, vous pouvez naviguer en toute sérénité.</p>
+				<a class="btn btn-primary btn-signup-nav m1--auto p--1 w--20" href="{{path('app_register')}}">Inscription</a>
+			</div>
+		</div>
+	</section>
 
 
 {% endblock %}

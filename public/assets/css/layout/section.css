@@ -1,53 +1,104 @@
-section{
+/* section{
     margin: auto;
     border-radius: 50px;
     padding: 5rem;
     background-color: var(--color--theme--secondary);
     box-shadow: 2px 2px 10px var(--color--theme--dark);
     position: relative;
+} */
+
+.section-footer {
+  width: 80%;
+  margin: auto;
+  border-radius: 50px;
+  padding: 5rem;
+  background-color: var(--color--theme--secondary);
+
+  margin: auto;
+  border-radius: 50px;
+  padding: 5rem;
+  background-color: var(--color--theme--secondary);
+  box-shadow: 2px 2px 10px var(--color--theme--dark);
+  position: relative;
 }
 
-.section-footer{
-    width: 80%;
-    margin: auto;
-    border-radius: 50px;
-    padding: 5rem;
-    background-color: var(--color--theme--secondary);
+.section-footer::-webkit-scrollbar {
+  display: none;
 }
 
-.section-footer::-webkit-scrollbar{
-    display: none;
+.section-connexion {
+  width: 80%;
+  margin: auto;
+  border-radius: 50px;
+  padding: 5rem;
+  background-color: var(--color--theme--secondary);
+
+  margin: auto;
+  border-radius: 50px;
+  padding: 5rem;
+  background-color: var(--color--theme--secondary);
+  box-shadow: 2px 2px 10px var(--color--theme--dark);
+  position: relative;
 }
 
-.section-connexion{
-    width: 80%;
-    margin: auto;
-    border-radius: 50px;
-    padding: 5rem;
-    background-color: var(--color--theme--secondary);
+.section-admin a {
+  text-decoration: none;
 }
 
-.section-admin a{
-    text-decoration: none;
+.section-admin a:hover {
+  text-decoration: underline;
+  color: var(--color--text--dark);
 }
 
-.section-admin a:hover{
-    text-decoration: underline;
-    color: var(--color--text--dark);
+.section-contact, .section-matching{
+  margin: auto;
+  border-radius: 50px;
+  padding: 5rem;
+  background-color: var(--color--theme--alt);
+  box-shadow: 0 0 10px var(--color--theme--dark);
+  position: relative;
 }
 
-.section-contact fieldset{
-    display: none;
+.section-contact fieldset {
+  display: none;
 }
 
-#section-transparent{
-    background-color: transparent;
+#section-transparent {
+  background-color: transparent;
+  margin: auto;
+  border-radius: 50px;
+  padding: 5rem;
+  box-shadow: 2px 2px 10px var(--color--theme--black);
+  position: relative;
 }
 
-.section-admin .table{
-    border-collapse: separate;
-    border-spacing: 0 1rem;
+.section-admin .table {
+  border-collapse: separate;
+  border-spacing: 0 1rem;
 }
-.section-admin td{
-    border: solid var(--color--theme--dark) 1px;
+.section-admin td {
+  border: solid var(--color--theme--dark) 1px;
+}
+#section-accueil {
+  background-color: transparent;
+}
+#section-pourquoi-nous,
+#section-hesitation {
+  background-color: var(--color--background--white);
+}
+
+#section-pourquoi-nous h2 {
+  padding: 2rem 0;
+  color: var(--color--text--dark);
+  font-size: var(--font--size--up-scaled-6);
+}
+
+#section-hesitation h2 {
+  padding: 2rem 0;
+  color: var(--color--text--dark);
+  font-size: var(--font--size--up-scaled-6);
+}
+
+#section-hesitation p{
+    font-size: var(--font--size--up-scaled-3);
 }
