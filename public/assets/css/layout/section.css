@@ -31,7 +31,7 @@
   color: var(--color--text--dark);
 }
 
-.section-contact, .section-matching{
+.section-contact, .section-matching, {
   margin: auto;
   border-radius: 15px;
   padding: 5rem;
@@ -87,4 +87,10 @@
 
 #section-hesitation p{
     font-size: var(--font--size--up-scaled-3);
+}
+
+.section-footer2 {
+  border-radius: 15px;
+  padding: 5rem;
+  text-align: justify;
 }
