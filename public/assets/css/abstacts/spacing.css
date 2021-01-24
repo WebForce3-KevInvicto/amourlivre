@@ -54,6 +54,10 @@
   .px--05{
     padding: 0 0.5rem;
   }
+
+  .px--5-top-1{
+    padding: 1rem 5rem
+  }
   
   .p--yx{
     padding: 1rem 2.5rem;
@@ -98,9 +102,7 @@
     margin: 1rem;
   }
 
-  .m--y-2-x-auto{
-    margin: 2rem auto;
-  }
+ 
   
   .m--auto{
     margin: auto;
@@ -116,6 +118,14 @@
 
   .mx--5{
     margin: 0 5rem;
+  }
+
+  .mx--auto-top-1{
+    margin: 1rem auto;
+  }
+  
+  .mx--auto-top-2{
+    margin: 2rem auto;
   }
 
   .mtrl--1{
@@ -165,5 +175,9 @@
 
     .m--mob-auto{
       margin: auto;
+    }
+
+    .p--mob-top-1{
+      padding: 1rem 0;
     }
 }

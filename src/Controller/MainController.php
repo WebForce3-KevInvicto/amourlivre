@@ -42,11 +42,11 @@ class MainController extends AbstractController
     /**
      * @Route("/matching", name="matching")
      */
-    public function matching(MatchingRepository $matchingRepository, UserRepository $userRepository): Response
+    public function matching(MatchingRepository $matchingRepository, UserInterface $user): Response
     {
-        $userA_id = 4;
-        //$user->getId()
-        $matchingsList = $matchingRepository->findByUserAId(4);
+        $userAId = $user->getId();
+        
+        $matchingsList = $matchingRepository->findByUserAId($userAId);
         dump($matchingsList);
         return $this->render('main/matching.html.twig', [
             'controller_name' => 'MainController',

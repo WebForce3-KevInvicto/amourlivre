@@ -1,3 +1,12 @@
+
+
+{% if matchings is empty  %}
+
+	<article class="article-matching w--600 d--flex fd--c m--left">
+			<h2 class="w--100 text-center">Votre histoire ne fait que commencer !</h2>
+			<p class="m--1 text-center">Très bientôt des personnes correspondant à votre recherche arriveront.</p>
+	</article>
+{% else %}
 <section class="section-matching w--900 d--flex m--1">
 	<h1 class="text-center section-matching__h1 mb--1 w--100">
 		Vous avez des matchs !</h1>
@@ -19,11 +28,51 @@
 		</div>
 	</div>
 </section>
-<section id="section-transparent" class="d--flex jc--c w--100 m--1">
-	{% for matching in matchings %}
-		<article class="article-matching w--600 d--flex fd--c m--left">
+{% for matching in matchings %}
+
+<section  class="d--flex jc--c w--100 m--1">
+<article class="card w--mob-min90 mb--2 w--600 m--auto bck--primary d--flex fd--c m--left">
+<h2 class="w--100 text-center text-color-flash p--1">MATCHING :
+				{{ matching.rate }} %</h2>
+      <div class="article-header  d--flex ai--c">
+	  <div class="article-header__left w--mob-100 w--50">
+	   {% if matching.userB.avatar %}
+          <img src="{{ asset("upload/ #{user.avatar} ") }}"
+            class="card-img-top w--mob-100 w--30"
+            alt="Avatar de  {{ matching.userB.nickname }}" />
+        {% else %}
+          {% if matching.userB.gender == 'homme' %}
+            <img src="{{ asset('assets/img/profil/avatar-homme.png') }}"
+              class="card-img-top d--block m--auto"
+              alt="Avatar par défaut: silhouette {{ matching.userB.gender }}" />
+          {% else %}
+            <img src="{{ asset('assets/img/profil/avatar-femme.png') }}"
+              class="card-img-top"
+              alt="..." />
+          {% endif %}
+        {% endif %}
+	  </div>
+       <div class="article-header__right w--50">
+	    <h3 class="text-center text-color-light fw--b py--1">
+          {{ matching.userB.nickname }}
+        </h3>
+        <p class="card-text text-center p--0">
+          {{ matching.userB.getAge() }} ans - {{ matching.userB.city }}
+        </p>
+	   </div> 
+      </div>
+	  <div class="card-footer d--flex jc--se">
+	  <button class="btn btn-matching w--mob-70 w--200 p--1">Voir Profil</button>
+				<button class="btn btn-nomatching w--mob-70 w--200 p--1">Ignorer</button>
+	  </div>
+    </article>
+
+
+
+
+		{# <article class="article-matching w--600 d--flex fd--c m--left">
 			<h2 class="w--100 text-center">MATCHING :
-				{{ matching.rate }}</h2>
+				{{ matching.rate }} %</h2>
 			<div class="d--flex m--top-2 h--max-350">
 				<img src="{{asset('assets/img/profil/silhouette-amour-livre.jpg')}}" alt="silhouette">
 				<ul class="w--50 ml--1">
@@ -39,11 +88,9 @@
 				<button class="btn btn-matching w--200 p--1">Voir Profil</button>
 				<button class="btn btn-nomatching w--200 p--1">Ignorer</button>
 			</div>
-		</article>
-		{% else %}
-				<article class="article-matching w--600 d--flex fd--c m--left">
-			<h2 class="w--100 text-center">Désolé, il n'y a aucun match...</h2>
-		</article>
+		</article> #}
 	{% endfor %}
+{% endif %}
+	
 </section>
 {# <a href="{{ path('matching_new') }}">Create new</a> #}

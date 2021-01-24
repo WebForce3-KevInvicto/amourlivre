@@ -78,8 +78,12 @@
     width: 70%;
   }
 
-  .w--mob-min70{
-    width: 70%;
+  .w--mob-min80{
+    width: 80%;
+  }
+
+  .w--mob-min90{
+    width: 90%;
   }
 
 

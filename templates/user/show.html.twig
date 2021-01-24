@@ -57,35 +57,35 @@
       Mes 5 livres favoris
     </h2>
     <div class="top5-containrer d--flex">
-        <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
+        <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..." />
    
     
-         <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
+         <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..." />
     
      
-         <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
+         <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..." />
     
   
-         <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
+         <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..." />
     
    
-         <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 m--auto" alt="..." />
+         <img src="{{asset('assets/img/book/book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..." />
     </div>
         
   
   </section>
   <section class="w--100 bck--alt br--15 m--top-5 p--2 p--relative">
-    
-     <a class="btn btn-primary btn-logout p--absolute" href="{{path('book_new')}}" role="button">
-                                Ajouter un livre</a>
-
-        <h2 class="text-center mb--2">
+  <div class="section-header d--flex fd--c ai--c mb--2">
+   <h2 class="text-center mb--2">
             Ma Bibliothèque
             </h2>
+         <a class="btn btn-primary w--mob-70 w--300 text-center" href="{{path('book_new')}}" role="button">Ajouter un livre</a>
+  </div>
+       
     
     <div class="books-container d--flex jc--se">
           {% for book in books %}
-            <a  href="{{path('book_show', {id: book.id})}}"><img src="{{ book.thumbnail }}" class="d-block w-30 m--auto" alt="..." /></a>
+            <a class="d-block" href="{{path('book_show', {id: book.id})}}"><img src="{{ book.thumbnail }}" class="d-block w-30 mx--auto-top-1" alt="..." /></a>
           {% endfor %}
     </div>
 

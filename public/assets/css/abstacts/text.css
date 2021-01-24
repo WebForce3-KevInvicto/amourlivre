@@ -13,6 +13,10 @@
     color : var(--color--text--alt);
   }
 
+  .text-color-flash{
+    color: var(--color--text--flash);
+  }
+
   .text-color-white{
     color : var(--color--text--white);
   }
@@ -28,7 +32,9 @@
 /* SIZE
  * ------------------------------------------------------------------------- */
 
-
+ .fsize-1{
+   font-size: var(--font--size--standard);
+ }
 
  .fsize-1d2{
   font-size: var( --font--size--up-scaled-2);

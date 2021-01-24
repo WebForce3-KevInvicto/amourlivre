@@ -3,7 +3,7 @@
 {% block title %}New Book{% endblock %}
 
 {% block body %}
-    <section class="w--900 m--1">
+    <section class="w--900 m--1 bck--alt br--15">
 
     <h1> Rechercher un livre</h1>
 
@@ -19,7 +19,7 @@
                 <input id="books" type="text">
                 </input>
 
-                <button class="btn btn-primary w--300 m--y-2-x-auto"> Rechercher
+                <button class="btn btn-primary w--300 mx--auto-top-2"> Rechercher
                 </button>
             </form>
         </div>
@@ -35,11 +35,6 @@
 
 </section>
 
-{# <section>
-
-{{ include('book/_form.html.twig') }}
-
-</section>  #}
 
 <template id="cardResult">
 
@@ -47,7 +42,6 @@
 
 </template>
 
-    <a href="{{ path('book_index') }}">back to list</a>
 {% endblock %}
 
 {% block javascripts %}

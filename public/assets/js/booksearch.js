@@ -106,7 +106,7 @@ $(document).ready(function(){
             if(response.items[i].volumeInfo.hasOwnProperty('imageLinks')){
                img =  response.items[i].volumeInfo.imageLinks['thumbnail'];
             } else {
-             img = "book.png";
+             img = "../../assets/img/book/book.png";
             }
               
             let altImg = "Converture du livre " + title;

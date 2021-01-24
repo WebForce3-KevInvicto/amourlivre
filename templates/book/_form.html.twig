@@ -1,17 +1,21 @@
-    <article class="article-book w--900 p--2 m--1">
+    <article class="article-book  w--900 p--2 m--1">
+     
     {{ form_start(bookForm)}}
       <div class="article-header d--flex jc--sb">
         <div class="article-header__left w--30">
           <img id="book-cover" class="w--100 mr--1" src="" alt="">
         </div>
         <div class="article-header__right w--65">
+         <p class="text-color-dark fw--b">
+      *Obligatoire
+    </p>
              {{form_label(bookForm.title, 'Titre')}}
               {{
                   form_widget(
                     bookForm.title,
                     {
 
-                      'attr': {'toto': 'false'} 
+                      'attr': {'disabled': 'true'} 
                     }
                   )
               }}
@@ -20,7 +24,7 @@
                 form_widget(
                   bookForm.author,
                   {
-                    'attr': {'toto': 'false'} 
+                    'attr': {'disabled': 'true'} 
                   }
                 )
               }}
@@ -32,7 +36,7 @@
                         form_widget(
                           bookForm.publisher,
                           {
-                            'attr': {'toto': 'false'} 
+                            'attr': {'disabled': 'true'} 
                           }
                         )
                       }}
@@ -42,7 +46,7 @@
                         form_widget(
                           bookForm.publication_date,
                           {
-                            'attr': {'toto': 'false'} 
+                            'attr': {'disabled': 'true'} 
                           }
                         )
                       }}
@@ -53,19 +57,18 @@
                         form_widget(
                           bookForm.language,
                           {
-                            'attr': {'toto': 'false'} 
+                            'attr': {'disabled': 'true'} 
                           }
                         )
                       }}
-                      {{form_label(bookForm.genre, 'Genre(s)')}}
+                      {{form_label(bookForm.genre, 'Genre(s)*')}}
                       {{
                         form_widget(
                           bookForm.genre,
-                          {
-                            'attr': {'toto': 'false'} 
-                          }
+            
                         )
                       }}
+                     <small>Sélectionnez le genre auquel correspond le livre</small>
                   </div> 
               </div>
             
@@ -86,7 +89,7 @@
             form_widget(
               bookForm.synopsis,
               {
-                'attr': {'toto': 'false'} 
+                'attr': {'disabled': 'true'} 
               }
             )
         }}
@@ -95,7 +98,7 @@
           form_widget(
             bookForm.isbn,
             {
-              'attr': {'toto': 'false'} 
+              'attr': {'disabled': 'true'} 
             }
           )
         }}
@@ -106,15 +109,13 @@
         {{
           form_widget(
             bookForm.thumbnail,
-            {
-              'attr': {'toto': 'false'} 
-            }
+
           )
         }}
 
         <button id="searchBookButton" type="submit"
           class="btn btn-primary w--300">
-          Ajouter toto
+          Ajouter
         </button>
       </div>
       {{ form_end(bookForm) }}

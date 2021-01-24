@@ -19,19 +19,19 @@
 	</head>
 	<body>
 
-		<header>
+		<header class="bck--mob-dark br--mob-15">
 			<nav class="navbar main-menu navbar-expand-lg">
 				<div class="container-fluid">
-					<a class="navbar-brand main-menu__brand" href="#"><img src="{{ asset('assets/img/logo/logo-light.png')}}" alt=""></a>
+					<a class="navbar-brand main-menu__brand" href="{{path('profil', {id: app.user.id})}}"><img src="{{ asset('assets/img/logo/logo-light.png')}}" alt=""></a>
 					<button class="navbar-toggler main-menu__toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon main-menu__toggler-icon">
 							<i class="fas fa-bars"></i>
 						</span>
 					</button>
-					<div class="collapse navbar-collapse main-menu__collapse d--mob--flex fd--mob-c ai--mob-c" id="navbarSupportedContent">
+					<div class="collapse navbar-collapse main-menu__collapse d--mob--flex fd--mob-c ai--mob-c  p--mob-top-1 jc--sb" id="navbarSupportedContent">
 						<ul class="navbar-nav main-menu__nav">
 							<li class="nav-item main-menu__item text-center">
-								<a class="nav-link main-menu__link" href="#">Profil</a>
+								<a class="nav-link main-menu__link" href="{{path('profil', {id: app.user.id})}}">Profil</a>
 							</li>
 							<li class="nav-item main-menu__item text-center">
 								<a class="nav-link main-menu__link" href="{{path('matching')}}">Matching</a>
@@ -40,7 +40,7 @@
 								<a class="nav-link main-menu__link" href="{{path('messagerie')}}">Messagerie</a>
 							</li>
 						</ul>
-						<a class="btn btn-primary btn-logout ml--mob-1d8 m--mob--top-1" href="{{path('app_logout')}}" role="button">
+						<a class="btn btn-secondary btn-logout w--mob-70 w--200 m--1  text-center" href="{{path('app_logout')}}" role="button">
 									Déconnexion</a>
 					</div>
 					

@@ -25,6 +25,10 @@
   .f--600{
     flex: 2 2 600px;
   }
+
+  .fd--row-reverse{
+    flex-direction: row-reverse;
+  }
   
   /***Justify Content***/
   .jc--sb{
@@ -83,6 +87,10 @@
 
     .fd--mob-c{
       flex-direction: column;
+    }
+
+    .jc--mob-c{
+      justify-content: center;
     }
 }
 

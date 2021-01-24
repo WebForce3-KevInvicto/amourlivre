@@ -11,3 +11,10 @@
  .br--15{
      border-radius: 15px;
 }
+
+
+@media (max-width: 992px){
+    .br--mob-15{
+        border-radius: 15px;
+   }
+ }

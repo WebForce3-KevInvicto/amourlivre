@@ -71,10 +71,9 @@ form small a:hover{
 #book_synopsis,
 #book_publication_date,
 #book_isbn,
-#book_genre,
 #book_language,
 #book_publisher{
-    background-color: var(--color--theme--light);
+    background-color: var(--color--theme--alt);
     border: none;
 }
 
