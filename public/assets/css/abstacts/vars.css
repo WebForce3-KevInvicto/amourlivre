@@ -79,7 +79,7 @@
     --color--text--flash: var(--color--bright-turquoise);
     --color--text--match: var(--color--bright-turquoise);
     --color--text--match2: var(--color--lochmara);
-    
+    --color--text--primary: var(--color--mandy);
 
     /* SUCCESS */
     --color--success : var(--color--genoa-green);

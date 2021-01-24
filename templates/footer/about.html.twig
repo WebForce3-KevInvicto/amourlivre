@@ -5,25 +5,59 @@
 {% endblock %}
 
 {% block body %}
-	<section class="section-footer2 w--900 bck--alt lh--1d5 br--15">
-		<h1 class="text-center">
+	<section class="section-about w--900 bck--alt lh--1d5 br--15 d--flex mb--60 m--top-5 jc--se">
+		<h1 class="text-center w--100">
 			Qui sommes-nous ?
 		</h1>
-			<h2 class="text-center lh--5">L’équipe CHECK et Amour Livre</h2>
-            <div class="">
-			<p>Il était une fois quatre personnes qui partageaient ensemble l’Amour du Livre. Un jour, l’une d’entre elles dit aux autres : “Et si on créait un site web qui va permettre aux gens de se rencontrer en fonction de leurs goûts littéraires ?”. C’est ainsi que commença l’histoire d’Amour Livre.
-			</p>
-            <h3 class="lh--5">Christel : </h3>
-		    <p>
-			</p>
-            <h3 class="lh--5">Elphège : Le Hobbit. </h3>
-			<p>Attiré par un nouveau monde où seulement une minorité de personnes comprennent les langages utilisés, il s’embarque dans un long voyage où le parcours ne sera pas sans difficulté. C’est de cette façon qu’il croise la route de nouvelles personnes qui vont l’aider à mieux réussir sa mission : s’intégrer dans le nouveau monde.</p>
-            <h3 class="lh--5">Céline : Le Grand Meaulnes. </h3> 
-            <p>Happée par ce parcours initiatique et onirique, elle a eu les yeux fiévreux et le cœur froissé. C’est ainsi qu’elle a développé son goût pour les textes et l’écriture. Elle s’est lancée sur des routes qu’elle ne connaissait pas et a trouvé des amis. Loin des désillusions, elle se projette vers une autre aventure où tout est possible.
-			</p>
-            <h3 class="lh--5">Kévin : Harry Potter. </h3> 
-            <p>Le courage d’un Gryffondor, l’ambition d’un Serpentard, la curiosité d’un Serdaigle, la persévérance d’un Pouffsoufle. Ainsi se définit Kevin alias KevInvicto qui, après des années d’errance, a décidé de démarrer une nouvelle quête afin d’atteindre le titre de Sorcier du Web.
-			</p>
-            </div>
+		<h2 class="text-center lh--5 w--100">L’équipe <span class="text-color-primary">CHECK</span> et Amour Livre</h2>
+		<p class="mb--1"><span class="fsize-2">I</span>l était une fois quatre personnes qui partageaient ensemble l’Amour du Livre. Un jour, l’une d’entre elles dit aux autres : “Et si on créait un site web qui va permettre aux gens de se rencontrer en fonction de leurs goûts littéraires ?”. C’est ainsi que commença l’histoire d’Amour Livre.
+		</p>
+
+		<article class="card mb--2" style="width: 20rem;">
+			<img src="{{ asset('assets/img/home-bg/chap1.jpg')}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h3 class="card-title text-center">
+					<span class="fsize-2 text-color-primary">Ch</span>ristel :</h3>
+				<h4 class="text-center m--top-1">Votre histoire commence</h4>
+				<p class="card-text">
+					Devenez membre, créez votre profil et vous aurez accès à une bibliothèque. 
+										Vous pourrez y ajouter tous vos livres et créer le top 5 de vos œuvres préférées.
+				</p>
+			</div>
+		</article>
+		<article class="card mb--2" style="width: 20rem;">
+			<img src="{{ asset('assets/img/home-bg/chap1.jpg')}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h3 class="card-title text-center">
+					<span class="fsize-2 text-color-primary">E</span>lphège :</h3>
+				<h4 class="text-center m--top-1">Le Hobbit</h4>
+				<p class="card-text">
+					Attiré par un nouveau monde où seulement une minorité de personnes comprennent les langages utilisés, il s’embarque dans un long voyage où le parcours ne sera pas sans difficulté. C’est de cette façon qu’il croise la route de nouvelles personnes qui vont l’aider à mieux réussir sa mission : s’intégrer dans le nouveau monde.
+				</p>
+			</div>
+		</article>
+		<article class="card mb--2" style="width: 20rem;">
+			<img src="{{ asset('assets/img/home-bg/chap1.jpg')}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h3 class="card-title text-center">
+					<span class="fsize-2 text-color-primary">C</span>éline :</h3>
+				<h4 class="text-center m--top-1">Le Grand Meaulnes</h4>
+				<p class="card-text">
+					Happée par ce parcours initiatique et onirique, elle a eu les yeux fiévreux et le cœur froissé. C’est ainsi qu’elle a développé son goût pour les textes et l’écriture. Elle s’est lancée sur des routes qu’elle ne connaissait pas et a trouvé des amis. Loin des désillusions, elle se projette vers une autre aventure où tout est possible.
+				</p>
+			</div>
+		</article>
+		<article class="card mb--2" style="width: 20rem;">
+			<img src="{{ asset('assets/img/home-bg/chap1.jpg')}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h3 class="card-title text-center">
+					<span class="fsize-2 text-color-primary">K</span>evin :</h3>
+				<h4 class="text-center m--top-1">Harry Potter</h4>
+				<p class="card-text">
+					Le courage d’un Gryffondor, l’ambition d’un Serpentard, la curiosité d’un Serdaigle, la persévérance d’un Pouffsoufle. Ainsi se définit Kevin alias KevInvicto qui, après des années d’errance, a décidé de démarrer une nouvelle quête afin d’atteindre le titre de Sorcier du Web.
+				</p>
+			</div>
+		</article>
+
 	</section>
 {% endblock %}
