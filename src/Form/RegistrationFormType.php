@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -57,6 +58,8 @@ class RegistrationFormType extends AbstractType
             ->add('address')
             ->add('postal_code')
             ->add('city')
+            ->add('lat', HiddenType::class)
+            ->add('lng',  HiddenType::class)
             ->add('preference', ChoiceType::class, [
                 'choices'  => [
                     'Selectionnez' => null,

@@ -2,18 +2,20 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\User;
+use App\Entity\Contact;
+use App\Form\ContactType;
+use App\Entity\UserSearch;
+use App\Form\UserSearchType;
+use Doctrine\ORM\Mapping\Entity;
+use App\Repository\BookRepository;
+use App\Repository\UserRepository;
+use App\Repository\MatchingRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
-use App\Entity\Contact;
-use App\Entity\User;
-use App\Form\ContactType;
-use App\Repository\BookRepository;
-use App\Repository\MatchingRepository;
-use App\Repository\UserRepository;
-use Doctrine\ORM\Mapping\Entity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
 {
@@ -42,15 +44,29 @@ class MainController extends AbstractController
     /**
      * @Route("/matching", name="matching")
      */
-    public function matching(MatchingRepository $matchingRepository, UserInterface $user): Response
+    public function matching(MatchingRepository $matchingRepository, UserRepository $userRepository, UserInterface $user, Request $request): Response
     {
         $userAId = $user->getId();
+        $userSearch = new UserSearch();
+        $form = $this->createForm(UserSearchType::class, $userSearch);
+        $form->handleRequest($request);
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($userSearch);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('matching_index');
+        }
         
         $matchingsList = $matchingRepository->findByUserAId($userAId);
         dump($matchingsList);
         return $this->render('main/matching.html.twig', [
+            'usersFilter' => $userRepository->findAllVisibleQuery($userSearch),
             'controller_name' => 'MainController',
             'matchings' => $matchingsList,
+            'form' => $form->createView(),
         ]);
     }
 

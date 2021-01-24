@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit UserSearch{% endblock %}
+
+{% block body %}
+    <h1>Edit UserSearch</h1>
+
+    {{ include('user_search/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('user_search_index') }}">back to list</a>
+
+    {{ include('user_search/_delete_form.html.twig') }}
+{% endblock %}

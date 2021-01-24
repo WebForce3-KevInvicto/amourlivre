@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserSearch{% endblock %}
+
+{% block body %}
+    <h1>UserSearch</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user_search.id }}</td>
+            </tr>
+            <tr>
+                <th>AgeMax</th>
+                <td>{{ user_search.ageMax }}</td>
+            </tr>
+            <tr>
+                <th>Distance</th>
+                <td>{{ user_search.distance }}</td>
+            </tr>
+            <tr>
+                <th>Lat</th>
+                <td>{{ user_search.lat }}</td>
+            </tr>
+            <tr>
+                <th>Lng</th>
+                <td>{{ user_search.lng }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_search_index') }}">back to list</a>
+
+    <a href="{{ path('user_search_edit', {'id': user_search.id}) }}">edit</a>
+
+    {{ include('user_search/_delete_form.html.twig') }}
+{% endblock %}

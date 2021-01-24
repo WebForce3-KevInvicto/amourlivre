@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Matching;
+use App\Entity\UserSearch;
 use App\Form\MatchingType;
+use App\Form\UserSearchType;
 use App\Repository\MatchingRepository;
+use App\Repository\UserSearchRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,7 +23,9 @@ class MatchingController extends AbstractController
      */
     public function index(MatchingRepository $matchingRepository): Response
     {
+       
         return $this->render('matching/index.html.twig', [
+        
             'matchings' => $matchingRepository->findAll(),
         ]);
     }

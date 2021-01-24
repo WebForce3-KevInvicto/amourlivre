@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserSearch index{% endblock %}
+
+{% block body %}
+    <h1>UserSearch index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>AgeMax</th>
+                <th>Distance</th>
+                <th>Lat</th>
+                <th>Lng</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user_search in user_searches %}
+            <tr>
+                <td>{{ user_search.id }}</td>
+                <td>{{ user_search.ageMax }}</td>
+                <td>{{ user_search.distance }}</td>
+                <td>{{ user_search.lat }}</td>
+                <td>{{ user_search.lng }}</td>
+                <td>
+                    <a href="{{ path('user_search_show', {'id': user_search.id}) }}">show</a>
+                    <a href="{{ path('user_search_edit', {'id': user_search.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_search_new') }}">Create new</a>
+{% endblock %}
