@@ -1,9 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Book{% endblock %}
+{% block title %}{{ book.title }}{% endblock %}
 
 {% block body %}
-    <h1>Book</h1>
+
+<section id="section-transparent" class="d--flex jc--c w--100 m--1">
+    <article class="card mb--2 w-600 d--flex fd--c m--left" style="width: 20rem;">
+        <div class="card-header">
+            <img src="{{ book.thumbnail }}" class="card-img-top" alt="" />
+        </div>
+    </article>
+
+    <article class="article-bookpage w--900 d--flex fd--c m--left">
+        <div class="d--flex fd--c ai--c">
+            <div class="article-header d--flex jc--sb">
+                <h1><span>Titre :  </span> {{book.title}}</h1>
+                    <div class="article-subheader d--flex jc--sb">
+                        <p><span>Auteur(s) :  </span> {{book.author}}<p>
+                    </div>
+                   
+            </div>
+
+            <div class="article-bottom w--100">
+                <p><span>Editeur :  </span> {{book.publisher}}</p>
+                <p><span>Publié le :  </span> {{ book.publicationDate ? book.publicationDate|date('Y-m-d') : '' }}</p>
+                {% for genre in book.genre %}
+                    <p><span>Genre(s) :  </span> {{genre.name}}</p>
+                {% endfor %}
+                <p><span>Résumé :  </span> {{book.synopsis}}</p>
+                <p><span>ISBN :  </span> {{book.isbn}}</p>
+            </div>
+
+        </div>
+    </article>
+
+    <article class="article-bookpage w--1300 d--flex fd--c m--left">
+        <button class="btn btn-bookpage w--300 p--1">Ajouter un commentaire</button>
+        <h1 class="text-center mb--1 w--100">Commentaires</h1>
+    </article>
+</section>
+
+{# <h1>Book</h1>
 
     <table class="table">
         <tbody>
@@ -59,11 +96,5 @@
                 <td>{{ book.author }}</td>
             </tr>
         </tbody>
-    </table>
-
-    <a href="{{ path('book_index') }}">back to list</a>
-
-    <a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
-
-    {{ include('book/_delete_form.html.twig') }}
-{% endblock %}
+    </table> #}
+    {% endblock %}

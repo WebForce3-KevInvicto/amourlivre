@@ -20,6 +20,7 @@
 @import url('layout/container-fluid.css');
 @import url('layout/matching.css');
 @import url('layout/profil.css');
+@import url('layout/bookpage.css');
 
 /* COMPONENTS */
 @import url('components/background.css');
