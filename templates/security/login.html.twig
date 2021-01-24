@@ -7,11 +7,15 @@
 {% block body %}
   	<section class="w--900 p--2">
 		<form method="post">
-			{% if error %}
-				<div class="alert alert-danger">
-				{{ error.messageKey|trans(error.messageData, 'security') }}
+		
+
+			{% for message in app.flashes('success') %}
+				<div class="alert alert-success">
+				{{ message }}
 				</div>
-			{% endif %}
+			{% endfor %}
+
+
 
 			{% if app.user %}
 				<div class="mb-3">
@@ -29,7 +33,7 @@
 
 			<div class="form-group"><label class="text-color-light" for="inputEmail">Email*</label>
 			<input type="email"
-			value="{{ last_username }}"
+			value=""
 			name="email"
 			id="inputEmail"
 			class="form-control"

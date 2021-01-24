@@ -10,8 +10,8 @@
       {{ flashError }}
     </div>
   {% endfor %}
-  <section class="w--900 p--2" id="registration">
-    <h1 class="text-center">
+  <section class="w--900 p--2 bck--alt br--15" id="registration">
+    <h1 class="text-center text-color-dark">
       Inscription
     </h1>
 
@@ -21,8 +21,8 @@
 
     {{ form_start(registrationForm) }}
 
-    <div class="form-container d--flex">
-      <div class="form-left w--50">
+    <div class="form-container fd--mob-c d--flex">
+      <div class="form-left w--mob-100 w--50 text-color-light">
         {{
           form_row(
             registrationForm.nickname,
@@ -65,7 +65,7 @@
         <ul class="ml--1 m--top-05 text-color-dark" id="password-strength-text"></ul>
       </div>
 
-      <div class="form-right w--50">
+      <div class="form-right w--mob-100 w--50">
         {{
           form_row(
             registrationForm.address,
@@ -93,7 +93,7 @@
           )
         }}
         <small class="ml--1 text-color-dark">Ex: Marseille</small>
-        <div class="form-part-bottom d--flex-nowrap w--100">
+        <div class="form-part-bottom  fd--mob-c d--flex-nowrap w--100">
         {{
           form_row(
             registrationForm.gender,
