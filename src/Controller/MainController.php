@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping\Entity;
 use App\Repository\BookRepository;
 use App\Repository\UserRepository;
 use App\Repository\MatchingRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -44,26 +45,23 @@ class MainController extends AbstractController
     /**
      * @Route("/matching", name="matching")
      */
-    public function matching(MatchingRepository $matchingRepository, UserRepository $userRepository, UserInterface $user, Request $request): Response
+    public function matching(MatchingRepository $matchingRepository, UserInterface $user, PaginatorInterface $paginator, Request $request): Response
     {
         $userAId = $user->getId();
-        $userSearch = new UserSearch();
-        $form = $this->createForm(UserSearchType::class, $userSearch);
+        $search = new UserSearch();
+        $form = $this->createForm(UserSearchType::class, $search);
         $form->handleRequest($request);
 
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($userSearch);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('matching_index');
-        }
+        // $matchingRepository->findByUserAId($userAId)
+        $matchingsList = $paginator->paginate(
+            $matchingRepository->findByUserAId($userAId),
+            $request->query->getInt('page', 1),
+            10
         
-        $matchingsList = $matchingRepository->findByUserAId($userAId);
-        dump($matchingsList);
+        );
+        
         return $this->render('main/matching.html.twig', [
-            'usersFilter' => $userRepository->findAllVisibleQuery($userSearch),
+  
             'controller_name' => 'MainController',
             'matchings' => $matchingsList,
             'form' => $form->createView(),

@@ -44,21 +44,21 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     {
         $query = $this->findVisibleQuery();
 
-        if ($search->getAgeMax()) {
+        if ($search->getMaxAge()) {
             $query = $query
                 ->select('u')
                 ->andWhere(' u.age<= :agemax')
-                ->setParameter('agemax', $search->getAgeMax());
+                ->setParameter('agemax', $search->getMaxAge());
         }
 
-        if ($search->getLat() && $search->getLng() && $search->getDistance()) {
-            $query = $query
-                ->select('u')
-                ->andWhere('(6353 * 2 * ASIN(SQRT( POWER(SIN((u.lat - :lat) *  pi()/180 / 2), 2) +COS(u.lat * pi()/180) * COS(:lat * pi()/180) * POWER(SIN((u.lng - :lng) * pi()/180 / 2), 2) ))) <= :distance')
-                ->setParameter('lng', $search->getLng())
-                ->setParameter('lat', $search->getLat())
-                ->setParameter('distance', $search->getDistance());
-        }
+        // if ($search->getLat() && $search->getLng() && $search->getDistance()) {
+        //     $query = $query
+        //         ->select('u')
+        //         ->andWhere('(6353 * 2 * ASIN(SQRT( POWER(SIN((u.lat - :lat) *  pi()/180 / 2), 2) +COS(u.lat * pi()/180) * COS(:lat * pi()/180) * POWER(SIN((u.lng - :lng) * pi()/180 / 2), 2) ))) <= :distance')
+        //         ->setParameter('lng', $search->getLng())
+        //         ->setParameter('lat', $search->getLat())
+        //         ->setParameter('distance', $search->getDistance());
+        // }
 
 
         return $query->getQuery();

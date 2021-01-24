@@ -2,90 +2,62 @@
 
 namespace App\Entity;
 
-use App\Repository\UserSearchRepository;
-use Doctrine\ORM\Mapping as ORM;
-
-/**
- * @ORM\Entity(repositoryClass=UserSearchRepository::class)
- */
-class UserSearch
-{
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+class UserSearch {
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @var int|null
      */
-    private $ageMax;
+    private $minAge;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @var int|null
      */
-    private $distance;
+    private $maxAge;
 
     /**
-     * @ORM\Column(type="float",  scale=4, precision=6, nullable=true)
-     */
-    private $lat;
-
-    /**
-     * @ORM\Column(type="float", scale=4, precision=7, nullable=true)
-     */
-    private $lng;
-
-    public function getId(): ?int
+     * Get the value of minAge
+     *
+     * @return  int|null
+     */ 
+    public function getMinAge()
     {
-        return $this->id;
+        return $this->minAge;
     }
 
-    public function getAgeMax(): ?int
+    /**
+     * Set the value of minAge
+     *
+     * @param  int|null  $minAge
+     *
+     * @return  self
+     */ 
+    public function setMinAge($minAge)
     {
-        return $this->ageMax;
-    }
-
-    public function setAgeMax(?int $ageMax): self
-    {
-        $this->ageMax = $ageMax;
+        $this->minAge = $minAge;
 
         return $this;
     }
 
-    public function getDistance(): ?int
+    /**
+     * Get the value of maxAge
+     *
+     * @return  int|null
+     */ 
+    public function getMaxAge()
     {
-        return $this->distance;
+        return $this->maxAge;
     }
 
-    public function setDistance(?int $distance): self
+    /**
+     * Set the value of maxAge
+     *
+     * @param  int|null  $maxAge
+     *
+     * @return  self
+     */ 
+    public function setMaxAge($maxAge)
     {
-        $this->distance = $distance;
-
-        return $this;
-    }
-
-    public function getLat(): ?float
-    {
-        return $this->lat;
-    }
-
-    public function setLat(?float $lat): self
-    {
-        $this->lat = $lat;
-
-        return $this;
-    }
-
-    public function getLng(): ?float
-    {
-        return $this->lng;
-    }
-
-    public function setLng(?float $lng): self
-    {
-        $this->lng = $lng;
+        $this->maxAge = $maxAge;
 
         return $this;
     }

@@ -24,7 +24,7 @@ class MatchingRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('m')
         ->andWhere('m.userA = :val')
         ->setParameter('val', $userA)
-        ->setMaxResults(10)
+        ->setMaxResults(20)
         ->getQuery()
         ->getResult()
     ;
