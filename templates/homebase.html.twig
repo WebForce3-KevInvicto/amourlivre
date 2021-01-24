@@ -32,6 +32,7 @@
 
 		<header class="p--mob--relative p--fixed w--100 zi--50">
 			<nav class="navbar main-homemenu navbar-expand-lg w--mob-100">
+			{% if app.user is empty  %}
 				<div class="container-fluid">
 					<a class="navbar-brand d--mob--flex m--mob-auto" href="#"><img class="w--50 m--auto" src="{{ asset('assets/img/logo/logo-light.png')}}" alt=""></a>
 				</div>
@@ -39,6 +40,32 @@
 					<a class="btn btn-secondary w--150 m--1 text-center" href="{{path('app_login')}}">Connexion</a>
 					<a class="btn btn-primary w--150 m--1 text-center" href="{{path('app_register')}}">Inscription</a>
 				</div>
+			{% else  %}
+				<div class="container-fluid">
+					<a class="navbar-brand main-menu__brand" href="{{path('profil', {id: app.user.id})}}"><img src="{{ asset('assets/img/logo/logo-light.png')}}" alt=""></a>
+					<button class="navbar-toggler main-menu__toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon main-menu__toggler-icon">
+							<i class="fas fa-bars"></i>
+						</span>
+					</button>
+					<div class="collapse navbar-collapse main-menu__collapse d--mob--flex fd--mob-c ai--mob-c  p--mob-top-1 jc--sb" id="navbarSupportedContent">
+						<ul class="navbar-nav main-menu__nav">
+							<li class="nav-item main-menu__item text-center">
+								<a class="nav-link main-menu__link" href="{{path('profil', {id: app.user.id})}}">Profil</a>
+							</li>
+							<li class="nav-item main-menu__item text-center">
+								<a class="nav-link main-menu__link" href="{{path('matching')}}">Matching</a>
+							</li>
+							<li class="nav-item main-menu__item text-center">
+								<a class="nav-link main-menu__link" href="{{path('messagerie')}}">Messagerie</a>
+							</li>
+						</ul>
+						<a class="btn btn-secondary btn-logout w--mob-70 w--200 m--1  text-center" href="{{path('app_logout')}}" role="button">
+									Déconnexion</a>
+					</div>
+					
+				</div>
+			{% endif  %}
 				
 			</nav>
 		</header>	
