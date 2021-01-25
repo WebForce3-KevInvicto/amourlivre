@@ -59,10 +59,11 @@
             }
           )
         }}
-         <small class="d--inlblc ml--1 m--top-05 text-color-dark ">Force:</small>
+        <small class="ml--1 text-color-dark">8 caractères minimum</small>
+         <!-- <small class="d--inlblc ml--1 m--top-05 text-color-dark ">Force:</small>
         <meter  max="5" id="password-strength-meter"></meter>
         <span class="d--inlblc strength-text m--top-05 text-color-dark"></span>
-        <ul class="ml--1 m--top-05 text-color-dark" id="password-strength-text"></ul>
+        <ul class="ml--1 m--top-05 text-color-dark" id="password-strength-text"></ul> -->      
       </div>
 
       <div class="form-right w--mob-100 w--50">
@@ -136,5 +137,6 @@
 
 {% endblock %}
     {% block javascripts %}
-			<script src="{{asset('assets/js/registration.js')}}"></script>
+      <!-- <script src="{{asset('assets/js/registration.js')}}"></script> -->
+      <script src="{{asset('assets/js/algolia.js')}}"></script>
 		{% endblock %}

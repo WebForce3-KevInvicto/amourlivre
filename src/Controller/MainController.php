@@ -32,7 +32,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/profil/{id}", name="profil")
+     * @Route("membre/profil/{id}", name="profil")
      */
     public function profil(User $user): Response
     {
@@ -54,7 +54,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/matching", name="matching")
+     * @Route("membre/matching", name="matching")
      */
     public function matching(MatchingRepository $matchingRepository, PaginatorInterface $paginator, UserInterface $user, Request $request): Response
     {
@@ -75,7 +75,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/messagerie", name="messagerie")
+     * @Route("membre/messagerie", name="messagerie")
      */
     public function messagerie(): Response
     {

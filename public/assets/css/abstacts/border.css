@@ -12,6 +12,10 @@
      border-radius: 15px;
 }
 
+.br--blr--15{
+    border-bottom-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
 
 @media (max-width: 992px){
     .br--mob-15{
