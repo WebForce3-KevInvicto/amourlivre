@@ -31,7 +31,7 @@
   color: var(--color--text--dark);
 }
 
-.section-contact, .section-matching, {
+.section-contact, .section-matching,{
   margin: auto;
   border-radius: 15px;
   padding: 5rem;
@@ -39,9 +39,10 @@
   box-shadow: 0 0 10px var(--color--theme--dark);
   position: relative;
 }
+
 .section-contact h1{
   font-weight: bold;
-  font-size: var(--font--size--up-scaled-9);
+  font-size: var(--font--size--up-scaled-8);
   color: var(--color--text--dark);
 }
 

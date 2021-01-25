@@ -1,3 +1,5 @@
+/* MISE EN FORME ARTICLE */
+
 .article-bookpage{
     padding: 2rem;
     background-color: var(--color--theme--primary);
@@ -6,6 +8,8 @@
     color: var(--color--white);
     line-height: 2rem;
 }
+
+/* TITRES */
 
 .article-bookpage h1{
     font-weight: normal;
@@ -23,9 +27,17 @@
     color: var(--color--text--dark);
 }
 
+/* TAILLE */
+
+.w--330{
+    width: 330px;
+}
+
 .w--1300{
     width: 1300px;
   }
+
+  /* BOUTONS */
 
 .btn-bookpage {
     background-color: var(--color--theme--secondary-hover);
@@ -36,4 +48,3 @@
 .btn-bookpage:hover {
     background-color: var(--color--lochmara);
   }
-
