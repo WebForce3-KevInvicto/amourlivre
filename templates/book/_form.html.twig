@@ -36,6 +36,7 @@
         <div class="col-4">
           {{ form_label(bookForm.genre) }}
           {{ form_widget(bookForm.genre) }}
+         <small class="text-color-dark">Veuiller selectionner le genre correspondant.</small>
         </div>
       </div>
     </div>
@@ -47,15 +48,11 @@
       {{ form_widget(bookForm.synopsis) }}
     </div>      
 </div>
-{# <div class="row m--1">
-    <div class="col-12">
-      {{ form_widget(bookForm.thumbnail) }}
-    </div>
-</div> #}
 <div class="row m--1">
     <div class="col-4">
-      {{ form_label(bookForm.isbn) }}
-      {{ form_widget(bookForm.isbn) }}</div>
+      <label for="book_isbn">ISBN</label>
+     {{ form_widget(bookForm.isbn) }}
+    </div>
     <div class="col-8"></div>
 </div>
 <div class="row m--1">

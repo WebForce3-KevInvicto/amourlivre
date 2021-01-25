@@ -1,7 +1,19 @@
+
+
+
 $(document).ready(function(){	
     $(".search-book").submit(function(event){
         event.preventDefault();
          let search = $("#books").val();
+         let formatDate = function(input) {
+          var pattern = /(\d{4})\-(\d{2})\-(\d{2})/;
+          if (!input || !input.match(pattern)) {
+            return null;
+          }
+          return input.replace(pattern, '$3-$2-$1');
+        };
+
+
          // Si l'utilisateur click sur rechercher sans avoir saisis un titre 
           if(search == "")
           {
@@ -75,7 +87,7 @@ $(document).ready(function(){
             // *** DATE DE PUBLICATION ***
 
             publicationDate = response.items[i].volumeInfo.publishedDate;
-
+            
          
             // *** SYNOPSIS ***
             synopsis = response.items[i].volumeInfo.description;
@@ -100,7 +112,14 @@ $(document).ready(function(){
             }
 
             // *** ISBN ***
-            isbn = response.items[i].volumeInfo.industryIdentifiers[0].identifier;
+            
+
+            if(response.items[i].volumeInfo.hasOwnProperty('industryIdentifiers')){
+              isbn = response.items[i].volumeInfo.industryIdentifiers[0].identifier;
+           } else {
+              isbn = "NC";
+           }
+
             
             // *** COUVERTURE *** 
             if(response.items[i].volumeInfo.hasOwnProperty('imageLinks')){
@@ -109,7 +128,7 @@ $(document).ready(function(){
              img = "../../assets/img/book/book.png";
             }
               
-            let altImg = "Converture du livre " + title;
+            let altImg = "Couverture du livre " + title;
 
 
             // Je place les infos dans l'attribut adéquat de chaque élément ciblé (suite)
@@ -133,8 +152,8 @@ $(document).ready(function(){
             publisherInput.setAttribute('value', publisher);
 
              //*** PUBLICATION DATE INPUT ***
-             publicationDateInput.setAttribute('value', publicationDate);
-
+             publicationDateInput.setAttribute('value', formatDate(publicationDate));
+             
              //*** ISBN INPUT ***/
              isbnInput.setAttribute('value', isbn);
             

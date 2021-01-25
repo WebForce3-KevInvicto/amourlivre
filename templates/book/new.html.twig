@@ -3,6 +3,16 @@
 {% block title %}New Book{% endblock %}
 
 {% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success m--2">
+        {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger m--2">
+        {{ message }}
+        </div>
+    {% endfor %}
     <section class="w--900 m--1 bck--alt br--15">
 
     <h1> Rechercher un livre</h1>

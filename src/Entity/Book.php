@@ -43,12 +43,12 @@ class Book
     private $language;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $isbn;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
     private $publication_date;
 
@@ -86,6 +86,7 @@ class Book
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="books")
      */
     private $users;
+
 
     
 
@@ -324,9 +325,6 @@ class Book
         return $this;
     }
 
-    
-
-    
-
+  
    
 }
