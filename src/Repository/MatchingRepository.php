@@ -20,54 +20,72 @@ class MatchingRepository extends ServiceEntityRepository
         parent::__construct($registry, Matching::class);
     }
 
-    // public function findByUserAId ($userA)
-    // {
-    //     return $this->createQueryBuilder('m')
-    //     ->andWhere()
-    //     ->orderBy('m.rate', 'DESC')
-    //     ->setParameter('val', $userA)
-    //     ->setMaxResults(20)
-    //     ->getQuery()
-    //     ->getResult()
-    //     ;
-    // }
-/**
-     * @return Query
-     */
-    public function findAllVisibleQuery(UserSearch $search, $userA)
-    {
-        $query = $this->findVisibleQuery($userA);
-
-        if ($search->getMaxAge()) {
-            $query = $query
-                ->addselect('u.age')
-                ->innerjoin('m.userB', 'u', 'WITH', 'u.id')
-                ->andWhere('u.age <= :maxAge')
-                ->setParameter('maxAge', $search->getMaxAge());
-        }
-
-        
-
-        // if ($search->getLat() && $search->getLng() && $search->getDistance()) {
-        //     $query = $query
-        //         ->select('p')
-        //         ->andWhere('(6353 * 2 * ASIN(SQRT( POWER(SIN((p.lat - :lat) *  pi()/180 / 2), 2) +COS(p.lat * pi()/180) * COS(:lat * pi()/180) * POWER(SIN((p.lng - :lng) * pi()/180 / 2), 2) ))) <= :distance')
-        //         ->setParameter('lng', $search->getLng())
-        //         ->setParameter('lat', $search->getLat())
-        //         ->setParameter('distance', $search->getDistance());
-        // }
-
-        return $query->getQuery();
-    }
-
-
-
-    private function findVisibleQuery($userA)
+    public function findByUserAId ($userA)
     {
         return $this->createQueryBuilder('m')
-            ->where('m.userA = :val')
-            ->setParameter('val', $userA);
+        ->andWhere('m.userA = :val')
+        ->orderBy('m.rate', 'DESC')
+        ->setParameter('val', $userA)
+        ->setMaxResults(20)
+        ->getQuery()
+        ->getResult()
+        ;
     }
+
+
+
+        // public function findAllUserBId(){
+
+        //     return $this->createQueryBuilder('m')
+        //             ->addselect('m.userB');
+
+        // }
+
+
+// /**
+//      * @return Query
+//      */
+//     public function findAllVisibleQuery(UserSearch $search, $userA)
+//     {
+//         $query = $this->findVisibleQuery($userA);
+
+//         $userBIds= $this->findAllUserBId();
+
+//         foreach($userBIds as $key => $userBId){
+//             if ($search->getMaxAge()) {
+//                 $query = $query
+//                     ->addselect('u.age')
+//                     ->from('User', 'u')
+//                     ->innerjoin('m.userB', 'u', 'WITH', 'u.id = :id')
+//                     ->andWhere('u.age <= :maxAge')
+//                     ->setParameter('maxAge', $search->getMaxAge())
+//                     ->setParameter('id', $userBId);
+//             }
+
+//             return $query->getQuery();
+//         }
+        
+
+//         if ($search->getLat() && $search->getLng() && $search->getDistance()) {
+//             $query = $query
+//                 ->select('p')
+//                 ->andWhere('(6353 * 2 * ASIN(SQRT( POWER(SIN((p.lat - :lat) *  pi()/180 / 2), 2) +COS(p.lat * pi()/180) * COS(:lat * pi()/180) * POWER(SIN((p.lng - :lng) * pi()/180 / 2), 2) ))) <= :distance')
+//                 ->setParameter('lng', $search->getLng())
+//                 ->setParameter('lat', $search->getLat())
+//                 ->setParameter('distance', $search->getDistance());
+//         }
+
+        
+//     }
+
+
+
+//     private function findVisibleQuery($userA)
+//     {
+//         return $this->createQueryBuilder('m')
+//             ->where('m.userA = :val')
+//             ->setParameter('val', $userA);
+//     }
 
 
 

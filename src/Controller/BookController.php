@@ -37,7 +37,7 @@ class BookController extends AbstractController
 
         $book = new Book();
                
-        $form = $this->createForm(BookType::class, $book);
+        $form = $this->createForm(BookType::class, $book, ['attr' => ['class' => 'addBookForm w--900 bck--alt br--15 p--2']]);
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {

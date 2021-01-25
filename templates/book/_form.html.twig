@@ -1,124 +1,70 @@
-    <article class="article-book  w--900 p--2 m--1">
-     
-    {{ form_start(bookForm)}}
-      <div class="article-header d--flex jc--sb">
-        <div class="article-header__left w--30">
-          <img id="book-cover" class="w--100 mr--1" src="" alt="">
+{{ form_start(bookForm) }}
+
+<div class="row">
+  <div class="col-3">
+    <img class="w--100" id="book_cover" src="" alt="" />
+  </div>
+  <div class="col-9">
+    <div class="row m--1">
+      <div class="col-12">
+        {{ form_label(bookForm.title) }}
+        {{ form_widget(bookForm.title) }}
+      </div>
+    </div>
+    <div class="row m--1">
+      <div class="col-12">
+        {{ form_label(bookForm.author) }}
+        {{ form_widget(bookForm.author) }}
+      </div>
+    </div>
+    <div class="row m--1">
+      <div class="row">
+        <div class="col-8">
+          {{ form_label(bookForm.publisher) }}
+          {{ form_widget(bookForm.publisher) }}
         </div>
-        <div class="article-header__right w--65">
-         <p class="text-color-dark fw--b">
-      *Obligatoire
-    </p>
-             {{form_label(bookForm.title, 'Titre')}}
-              {{
-                  form_widget(
-                    bookForm.title,
-                    {
-
-                      'attr': {'disabled': 'true'} 
-                    }
-                  )
-              }}
-            {{form_label(bookForm.author, 'Auteur(s)')}}
-              {{
-                form_widget(
-                  bookForm.author,
-                  {
-                    'attr': {'disabled': 'true'} 
-                  }
-                )
-              }}
-
-              <div class="article-subheader d--flex jc--sb">
-                  <div class="article-subheader__left w--50">
-                  {{form_label(bookForm.publisher, 'Editeur')}}
-                      {{
-                        form_widget(
-                          bookForm.publisher,
-                          {
-                            'attr': {'disabled': 'true'} 
-                          }
-                        )
-                      }}
-                
-                      {{form_label(bookForm.publication_date, 'Publié le')}}
-                      {{
-                        form_widget(
-                          bookForm.publication_date,
-                          {
-                            'attr': {'disabled': 'true'} 
-                          }
-                        )
-                      }}
-                  </div>
-                  <div class="article-subheader__right w--50">
-                    {{form_label(bookForm.language, 'Langue')}}
-                      {{
-                        form_widget(
-                          bookForm.language,
-                          {
-                            'attr': {'disabled': 'true'} 
-                          }
-                        )
-                      }}
-                      {{form_label(bookForm.genre, 'Genre(s)*')}}
-                      {{
-                        form_widget(
-                          bookForm.genre,
-            
-                        )
-                      }}
-                     <small>Sélectionnez le genre auquel correspond le livre</small>
-                  </div> 
-              </div>
-            
-                              
+        <div class="col-4">
+          {{ form_label(bookForm.publication_date) }}
+          {{ form_widget(bookForm.publication_date) }}
         </div>
-    
       </div>
-
-      <div class="article-body d--flex jc--se ai--se m--top-1 w--100">
-      <div class="article-body__right w--50">
-        
-      </div>      
-        
+      <div class="row m--1">
+        <div class="col-8">
+          {{ form_label(bookForm.language) }}
+          {{ form_widget(bookForm.language) }}
+        </div>
+        <div class="col-4">
+          {{ form_label(bookForm.genre) }}
+          {{ form_widget(bookForm.genre) }}
+        </div>
       </div>
-      <div class="article-bottom w--100">
-       {{form_label(bookForm.synopsis, 'Résumé')}}
-        {{
-            form_widget(
-              bookForm.synopsis,
-              {
-                'attr': {'disabled': 'true'} 
-              }
-            )
-        }}
-        {{form_label(bookForm.isbn, 'ISBN')}}
-        {{
-          form_widget(
-            bookForm.isbn,
-            {
-              'attr': {'disabled': 'true'} 
-            }
-          )
-        }}
-      </div>
-      
-      <div class="article-footer d--flex jc--c m--top-2 w--100">
-
-        {{
-          form_widget(
-            bookForm.thumbnail,
-
-          )
-        }}
-
-        <button id="searchBookButton" type="submit"
-          class="btn btn-primary w--300">
-          Ajouter
-        </button>
-      </div>
-      {{ form_end(bookForm) }}
-    </article>
+    </div>
+  </div>
+</div>
+<div class="row m--1">
+    <div class="col-12">
+      {{ form_label(bookForm.synopsis) }}
+      {{ form_widget(bookForm.synopsis) }}
+    </div>      
+</div>
+{# <div class="row m--1">
+    <div class="col-12">
+      {{ form_widget(bookForm.thumbnail) }}
+    </div>
+</div> #}
+<div class="row m--1">
+    <div class="col-4">
+      {{ form_label(bookForm.isbn) }}
+      {{ form_widget(bookForm.isbn) }}</div>
+    <div class="col-8"></div>
+</div>
+<div class="row m--1">
+    <div class="col-4">
+     <button type="submit" class="btn btn-primary w--100">Ajouter</button>
+    </div>
+    {{ form_end(bookForm) }}
+</div>
+ 
 
   
+
