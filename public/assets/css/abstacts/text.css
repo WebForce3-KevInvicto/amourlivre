@@ -48,6 +48,10 @@
    font-size: var(--font--size--up-scaled-6);
  }
 
+ .fsize-3{
+  font-size: var(--font--size--up-scaled-8);
+}
+
  .fsize-4{
    font-size: var(--font--size--up-scaled-10);
   }
@@ -78,4 +82,8 @@
   line-height: 80%; 
   margin:-.1em 0px;
   padding-right: .1em
+}
+
+.mdp-forgot:hover{
+  color: var(--color--text--primary);
 }
