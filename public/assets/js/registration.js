@@ -28,7 +28,7 @@ const register = {
         password.addEventListener('input', register.handlePasswordInput);
         // password.addEventListener('keypress', register.handlePasswordInput);
 
-        
+
 
 
     },
@@ -39,7 +39,7 @@ const register = {
 
         //Debug
         console.log(evt.keyCode);
-        
+
         // Je stock dans une variable l'élément cible de l'event
         const passwordInput = evt.target;
 
@@ -63,528 +63,521 @@ const register = {
 
 
 
-    //    if(evt.keyCode !== 8){
-    //        keyboardKey = ""
-           
-    //    } else {
-    //         keyboardKey = evt.keyCode;
-    //    }
-        
+        //    if(evt.keyCode !== 8){
+        //        keyboardKey = ""
+
+        //    } else {
+        //         keyboardKey = evt.keyCode;
+        //    }
+
         // Debug
         console.log(passwordValue);
 
         // Si la valeur du mot de passe(passwordValue) est != de vide
-        if(passwordValue !== "") {
+        if (passwordValue !== "") {
 
             // Alors, si la valeur contient un caractère minuscule.
             if (passwordValue.match(/[a-z]+/)) {
                 // Alors,
 
-                    // Force=1
-                    strengthScore = 1;
+                // Force=1
+                strengthScore = 1;
 
-                    // Liste de contraintes
-                   strengthTextSpan.innerHTML= register.strength[strengthScore];
-                   register.constraints= '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                // Liste de contraintes
+                strengthTextSpan.innerHTML = register.strength[strengthScore];
+                register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
 
                 // Puis, si la valeur contient une minuscule ET une majuscule
-                if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/)){
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/)) {
                     //Alors,
 
                     //Force = 2
                     strengthScore = 2;
 
                     // Liste de contraintes
-                    strengthTextSpan.innerHTML= register.strength[strengthScore];
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
                     register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                     register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
 
                     //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre
-                    if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/)){
-                         //Force = 3
+                    if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/)) {
+                        //Force = 3
                         strengthScore = 3;
 
                         // Liste de contraintes
-                        strengthTextSpan.innerHTML= register.strength[strengthScore];
+                        strengthTextSpan.innerHTML = register.strength[strengthScore];
                         register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                         register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
                         register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
 
                         // Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial
-                        if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/)){
+                        if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
                             //Force = 4
                             strengthScore = 4;
 
                             // Liste de contraintes
-                            strengthTextSpan.innerHTML= register.strength[strengthScore];
+                            strengthTextSpan.innerHTML = register.strength[strengthScore];
                             register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                             register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
                             register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
                             register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
 
                             //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial ET est > à 8 caractères
-                            if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/) && passwordValue.length >= 8){
+                            if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/) && passwordValue.length >= 8) {
                                 //Force = 5
                                 strengthScore = 5;
 
                                 // Liste de contraintes
-                                strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                register.constraints  = '<li><i class="fas fa-check"></i> 8 caractères minimum</li>';
+                                strengthTextSpan.innerHTML = register.strength[strengthScore];
+                                register.constraints = '<li><i class="fas fa-check"></i> 8 caractères minimum</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
                             }
-                        } 
+                        }
 
-                   
+
                     }
-                    
+
                     // Ou si, la valeur contient une minuscule ET une majuscule ET un caractère spécial
-                    if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
+                    if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
                         //Force = 3
                         strengthScore = 3;
 
                         // Liste de contraintes
-                        strengthTextSpan.innerHTML= register.strength[strengthScore];
+                        strengthTextSpan.innerHTML = register.strength[strengthScore];
                         register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                         register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
                         register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
                     }
 
+                }
 
-
-               
-                } 
-                
                 //Si, la valeur contient une minuscule ou un chiffre
-                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[0-9]+/)){
-                     //Force = 2
-                     strengthScore = 2;
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[0-9]+/)) {
+                    //Force = 2
+                    strengthScore = 2;
 
-                    strengthTextSpan.innerHTML= register.strength[strengthScore];
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
                     register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                     register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
 
-               
+
                 }
-                
+
                 //Si, la valeur contient une minuscule et un caractère spécial    
-                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[-+!*$@%_!]/)){
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
                     //Force = 2
                     strengthScore = 2;
-                    strengthTextSpan.innerHTML= register.strength[strengthScore];
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
                     register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                     register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
-                
+
                 }
-            
+
             }
 
-            if(passwordValue.match(/[A-Z]+/)){
-                  // Force=1
-                  strengthScore = 1;
+            if (passwordValue.match(/[A-Z]+/)) {
+                // Force=1
+                strengthScore = 1;
 
-                  // Liste de contraintes
-                 strengthTextSpan.innerHTML= register.strength[strengthScore];
-                 register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
+                // Liste de contraintes
+                strengthTextSpan.innerHTML = register.strength[strengthScore];
+                register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
 
                 // Puis, si la valeur contient une minuscule ET une majuscule
-                if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/)){
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/)) {
                     //Alors,
 
                     //Force = 2
                     strengthScore = 2;
 
                     // Liste de contraintes
-                    strengthTextSpan.innerHTML= register.strength[strengthScore];
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
                     register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                     register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
 
                     //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre
-                    if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/)){
-                         //Force = 3
+                    if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/)) {
+                        //Force = 3
                         strengthScore = 3;
 
                         // Liste de contraintes
-                        strengthTextSpan.innerHTML= register.strength[strengthScore];
+                        strengthTextSpan.innerHTML = register.strength[strengthScore];
                         register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                         register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
                         register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
 
                         // Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial
-                        if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/)){
+                        if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
                             //Force = 4
                             strengthScore = 4;
 
                             // Liste de contraintes
-                            strengthTextSpan.innerHTML= register.strength[strengthScore];
+                            strengthTextSpan.innerHTML = register.strength[strengthScore];
                             register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                             register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
                             register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
                             register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
 
                             //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial ET est > à 8 caractères
-                            if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/) && passwordValue.length >= 8){
+                            if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/) && passwordValue.length >= 8) {
                                 //Force = 5
                                 strengthScore = 5;
 
                                 // Liste de contraintes
-                                strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                register.constraints  = '<li><i class="fas fa-check"></i> 8 caractères minimum</li>';
+                                strengthTextSpan.innerHTML = register.strength[strengthScore];
+                                register.constraints = '<li><i class="fas fa-check"></i> 8 caractères minimum</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
                             }
-                        } 
+                        }
 
-                   
+
                     }
-                    
+
                     // Ou si, la valeur contient une minuscule ET une majuscule ET un caractère spécial
-                    if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
+                    if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
                         //Force = 3
                         strengthScore = 3;
 
                         // Liste de contraintes
-                        strengthTextSpan.innerHTML= register.strength[strengthScore];
+                        strengthTextSpan.innerHTML = register.strength[strengthScore];
                         register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                         register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
                         register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
                     }
+                }
 
-
-
-               
-                } 
-                
                 //Si, la valeur contient une minuscule ou un chiffre
-                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[0-9]+/)){
-                     //Force = 2
-                     strengthScore = 2;
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[0-9]+/)) {
+                    //Force = 2
+                    strengthScore = 2;
 
-                    strengthTextSpan.innerHTML= register.strength[strengthScore];
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
                     register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                     register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
 
-               
+
                 }
-                
+
                 //Si, la valeur contient une minuscule et un caractère spécial    
-                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[-+!*$@%_!]/)){
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
                     //Force = 2
                     strengthScore = 2;
-                    strengthTextSpan.innerHTML= register.strength[strengthScore];
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
                     register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                     register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
-                
+
                 }
             }
 
-            if(passwordValue.match(/[0-9]+/)){
-                 // Force=1
-                 strengthScore = 1;
+            if (passwordValue.match(/[0-9]+/)) {
+                // Force=1
+                strengthScore = 1;
 
-                 // Liste de contraintes
-                strengthTextSpan.innerHTML= register.strength[strengthScore];
+                // Liste de contraintes
+                strengthTextSpan.innerHTML = register.strength[strengthScore];
                 register.constraints = '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
 
-                               // Puis, si la valeur contient une minuscule ET une majuscule
-                               if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/)){
-                                //Alors,
-            
-                                //Force = 2
-                                strengthScore = 2;
-            
+                // Puis, si la valeur contient une minuscule ET une majuscule
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/)) {
+                    //Alors,
+
+                    //Force = 2
+                    strengthScore = 2;
+
+                    // Liste de contraintes
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
+                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                    register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
+
+                    //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre
+                    if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/)) {
+                        //Force = 3
+                        strengthScore = 3;
+
+                        // Liste de contraintes
+                        strengthTextSpan.innerHTML = register.strength[strengthScore];
+                        register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                        register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
+                        register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
+
+                        // Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial
+                        if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
+                            //Force = 4
+                            strengthScore = 4;
+
+                            // Liste de contraintes
+                            strengthTextSpan.innerHTML = register.strength[strengthScore];
+                            register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                            register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
+                            register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
+                            register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
+
+                            //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial ET est > à 8 caractères
+                            if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/) && passwordValue.length >= 8) {
+                                //Force = 5
+                                strengthScore = 5;
+
                                 // Liste de contraintes
-                                strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                                strengthTextSpan.innerHTML = register.strength[strengthScore];
+                                register.constraints = '<li><i class="fas fa-check"></i> 8 caractères minimum</li>';
+                                register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-            
-                                //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre
-                                if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/)){
-                                     //Force = 3
-                                    strengthScore = 3;
-            
-                                    // Liste de contraintes
-                                    strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
-                                    register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-                                    register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
-            
-                                    // Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial
-                                    if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/)){
-                                        //Force = 4
-                                        strengthScore = 4;
-            
-                                        // Liste de contraintes
-                                        strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                        register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
-                                        register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-                                        register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
-                                        register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
-            
-                                        //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial ET est > à 8 caractères
-                                        if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/) && passwordValue.length >= 8){
-                                            //Force = 5
-                                            strengthScore = 5;
-            
-                                            // Liste de contraintes
-                                            strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                            register.constraints  = '<li><i class="fas fa-check"></i> 8 caractères minimum</li>';
-                                            register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
-                                            register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-                                            register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
-                                            register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
-                                        }
-                                    } 
-            
-                               
-                                }
-                                
-                                // Ou si, la valeur contient une minuscule ET une majuscule ET un caractère spécial
-                                if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
-                                    //Force = 3
-                                    strengthScore = 3;
-            
-                                    // Liste de contraintes
-                                    strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
-                                    register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-                                    register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
-                                }
-            
-            
-            
-                           
-                            } 
-                            
-                            //Si, la valeur contient une minuscule ou un chiffre
-                            if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[0-9]+/)){
-                                 //Force = 2
-                                 strengthScore = 2;
-            
-                                strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
-            
-                           
-                            }
-                            
-                            //Si, la valeur contient une minuscule et un caractère spécial    
-                            if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[-+!*$@%_!]/)){
-                                //Force = 2
-                                strengthScore = 2;
-                                strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
-                            
                             }
+                        }
+
+
+                    }
+
+                    // Ou si, la valeur contient une minuscule ET une majuscule ET un caractère spécial
+                    if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
+                        //Force = 3
+                        strengthScore = 3;
+
+                        // Liste de contraintes
+                        strengthTextSpan.innerHTML = register.strength[strengthScore];
+                        register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                        register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
+                        register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
+                    }
+
+
+
+
+                }
+
+                //Si, la valeur contient une minuscule ou un chiffre
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[0-9]+/)) {
+                    //Force = 2
+                    strengthScore = 2;
+
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
+                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                    register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
+
+
+                }
+
+                //Si, la valeur contient une minuscule et un caractère spécial    
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
+                    //Force = 2
+                    strengthScore = 2;
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
+                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                    register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
+
+                }
             }
 
-            if(passwordValue.match(/[-+!*$@%_!]/)){
+            if (passwordValue.match(/[-+!*$@%_!]/)) {
                 // Force=1
                 strengthScore = 1;
 
                 // Liste de contraintes
-               strengthTextSpan.innerHTML= register.strength[strengthScore];
-               register.constraints = '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
+                strengthTextSpan.innerHTML = register.strength[strengthScore];
+                register.constraints = '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
 
-                              // Puis, si la valeur contient une minuscule ET une majuscule
-                              if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/)){
-                                //Alors,
-            
-                                //Force = 2
-                                strengthScore = 2;
-            
+                // Puis, si la valeur contient une minuscule ET une majuscule
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/)) {
+                    //Alors,
+
+                    //Force = 2
+                    strengthScore = 2;
+
+                    // Liste de contraintes
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
+                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                    register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
+
+                    //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre
+                    if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/)) {
+                        //Force = 3
+                        strengthScore = 3;
+
+                        // Liste de contraintes
+                        strengthTextSpan.innerHTML = register.strength[strengthScore];
+                        register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                        register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
+                        register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
+
+                        // Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial
+                        if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
+                            //Force = 4
+                            strengthScore = 4;
+
+                            // Liste de contraintes
+                            strengthTextSpan.innerHTML = register.strength[strengthScore];
+                            register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                            register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
+                            register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
+                            register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
+
+                            //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial ET est > à 8 caractères
+                            if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/) && passwordValue.length >= 8) {
+                                //Force = 5
+                                strengthScore = 5;
+
                                 // Liste de contraintes
-                                strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                                strengthTextSpan.innerHTML = register.strength[strengthScore];
+                                register.constraints = '<li><i class="fas fa-check"></i> 8 caractères minimum</li>';
+                                register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-            
-                                //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre
-                                if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/)){
-                                     //Force = 3
-                                    strengthScore = 3;
-            
-                                    // Liste de contraintes
-                                    strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
-                                    register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-                                    register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
-            
-                                    // Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial
-                                    if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/)){
-                                        //Force = 4
-                                        strengthScore = 4;
-            
-                                        // Liste de contraintes
-                                        strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                        register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
-                                        register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-                                        register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
-                                        register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
-            
-                                        //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial ET est > à 8 caractères
-                                        if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/) && passwordValue.length >= 8){
-                                            //Force = 5
-                                            strengthScore = 5;
-            
-                                            // Liste de contraintes
-                                            strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                            register.constraints  = '<li><i class="fas fa-check"></i> 8 caractères minimum</li>';
-                                            register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
-                                            register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-                                            register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
-                                            register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
-                                        }
-                                    } 
-            
-                               
-                                }
-                                
-                                // Ou si, la valeur contient une minuscule ET une majuscule ET un caractère spécial
-                                if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
-                                    //Force = 3
-                                    strengthScore = 3;
-            
-                                    // Liste de contraintes
-                                    strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
-                                    register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-                                    register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
-                                }
-            
-            
-            
-                           
-                            } 
-                            
-                            //Si, la valeur contient une minuscule ou un chiffre
-                            if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[0-9]+/)){
-                                 //Force = 2
-                                 strengthScore = 2;
-            
-                                strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
-            
-                           
-                            }
-                            
-                            //Si, la valeur contient une minuscule et un caractère spécial    
-                            if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[-+!*$@%_!]/)){
-                                //Force = 2
-                                strengthScore = 2;
-                                strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
-                            
                             }
+                        }
+
+
+                    }
+
+                    // Ou si, la valeur contient une minuscule ET une majuscule ET un caractère spécial
+                    if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
+                        //Force = 3
+                        strengthScore = 3;
+
+                        // Liste de contraintes
+                        strengthTextSpan.innerHTML = register.strength[strengthScore];
+                        register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                        register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
+                        register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
+                    }
+
+
+
+
+                }
+
+                //Si, la valeur contient une minuscule ou un chiffre
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[0-9]+/)) {
+                    //Force = 2
+                    strengthScore = 2;
+
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
+                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                    register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
+
+
+                }
+
+                //Si, la valeur contient une minuscule et un caractère spécial    
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
+                    //Force = 2
+                    strengthScore = 2;
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
+                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                    register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
+
+                }
             }
 
-            if(passwordValue.length >= 8){
+            if (passwordValue.length >= 8) {
                 // Force=1
                 strengthScore = 1;
 
                 // Liste de contraintes
-               strengthTextSpan.innerHTML= register.strength[strengthScore];
-               register.constraints  = '<li><i class="fas fa-check"></i> 8 caractères minimum</li>';
+                strengthTextSpan.innerHTML = register.strength[strengthScore];
+                register.constraints = '<li><i class="fas fa-check"></i> 8 caractères minimum</li>';
 
-                              // Puis, si la valeur contient une minuscule ET une majuscule
-                              if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/)){
-                                //Alors,
-            
-                                //Force = 2
-                                strengthScore = 2;
-            
+                // Puis, si la valeur contient une minuscule ET une majuscule
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/)) {
+                    //Alors,
+
+                    //Force = 2
+                    strengthScore = 2;
+
+                    // Liste de contraintes
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
+                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                    register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
+
+                    //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre
+                    if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/)) {
+                        //Force = 3
+                        strengthScore = 3;
+
+                        // Liste de contraintes
+                        strengthTextSpan.innerHTML = register.strength[strengthScore];
+                        register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                        register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
+                        register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
+
+                        // Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial
+                        if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
+                            //Force = 4
+                            strengthScore = 4;
+
+                            // Liste de contraintes
+                            strengthTextSpan.innerHTML = register.strength[strengthScore];
+                            register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                            register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
+                            register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
+                            register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
+
+                            //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial ET est > à 8 caractères
+                            if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/) && passwordValue.length >= 8) {
+                                //Force = 5
+                                strengthScore = 5;
+
                                 // Liste de contraintes
-                                strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                                strengthTextSpan.innerHTML = register.strength[strengthScore];
+                                register.constraints = '<li><i class="fas fa-check"></i> 8 caractères minimum</li>';
+                                register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-            
-                                //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre
-                                if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/)){
-                                     //Force = 3
-                                    strengthScore = 3;
-            
-                                    // Liste de contraintes
-                                    strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
-                                    register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-                                    register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
-            
-                                    // Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial
-                                    if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/)){
-                                        //Force = 4
-                                        strengthScore = 4;
-            
-                                        // Liste de contraintes
-                                        strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                        register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
-                                        register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-                                        register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
-                                        register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
-            
-                                        //Puis, si la valeur contient une minuscule ET une majuscule ET un chiffre ET un caractère spécial ET est > à 8 caractères
-                                        if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[0-9]+/) && passwordValue.match(/[-+!*$@%_!]/) && passwordValue.length >= 8){
-                                            //Force = 5
-                                            strengthScore = 5;
-            
-                                            // Liste de contraintes
-                                            strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                            register.constraints  = '<li><i class="fas fa-check"></i> 8 caractères minimum</li>';
-                                            register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
-                                            register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-                                            register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
-                                            register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
-                                        }
-                                    } 
-            
-                               
-                                }
-                                
-                                // Ou si, la valeur contient une minuscule ET une majuscule ET un caractère spécial
-                                if(passwordValue.match(/[a-z]+/) &&  passwordValue.match(/[A-Z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
-                                    //Force = 3
-                                    strengthScore = 3;
-            
-                                    // Liste de contraintes
-                                    strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
-                                    register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
-                                    register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
-                                }
-            
-            
-            
-                           
-                            } 
-                            
-                            //Si, la valeur contient une minuscule ou un chiffre
-                            if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[0-9]+/)){
-                                 //Force = 2
-                                 strengthScore = 2;
-            
-                                strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
-            
-                           
-                            }
-                            
-                            //Si, la valeur contient une minuscule et un caractère spécial    
-                            if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[-+!*$@%_!]/)){
-                                //Force = 2
-                                strengthScore = 2;
-                                strengthTextSpan.innerHTML= register.strength[strengthScore];
-                                register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
                                 register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
-                            
                             }
+                        }
+
+
+                    }
+
+                    // Ou si, la valeur contient une minuscule ET une majuscule ET un caractère spécial
+                    if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[A-Z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
+                        //Force = 3
+                        strengthScore = 3;
+
+                        // Liste de contraintes
+                        strengthTextSpan.innerHTML = register.strength[strengthScore];
+                        register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                        register.constraints += '<li><i class="fas fa-check"></i> Au moins une lettre majuscule</li>';
+                        register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
+                    }
+
+
+
+
+                }
+
+                //Si, la valeur contient une minuscule ou un chiffre
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[0-9]+/)) {
+                    //Force = 2
+                    strengthScore = 2;
+
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
+                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                    register.constraints += '<li><i class="fas fa-check"></i> Au moins un chiffre</li>';
+
+
+                }
+
+                //Si, la valeur contient une minuscule et un caractère spécial    
+                if (passwordValue.match(/[a-z]+/) && passwordValue.match(/[-+!*$@%_!]/)) {
+                    //Force = 2
+                    strengthScore = 2;
+                    strengthTextSpan.innerHTML = register.strength[strengthScore];
+                    register.constraints = '<li><i class="fas fa-check"></i> Au moins une lettre minuscule</li>';
+                    register.constraints += '<li><i class="fas fa-check"></i>Au moins un caractère spécial parmi $ @ % * + - _ !</li>';
+
+                }
             }
-               
+
         }
 
         constraintsText.innerHTML = register.constraints;

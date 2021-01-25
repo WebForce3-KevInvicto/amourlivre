@@ -1,6 +1,3 @@
-
-
-
 $(document).ready(function(){	
     $(".search-book").submit(function(event){
         event.preventDefault();
