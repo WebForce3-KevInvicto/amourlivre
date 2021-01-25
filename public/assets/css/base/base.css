@@ -26,7 +26,6 @@ body {
   max-height: 100vh;
   max-width: 100vw;
   font-family: "Poppins", sans-serif;
-  /* background-color: var(--color--white); */
   position: relative;
 }
 
@@ -74,5 +73,3 @@ a {
 strong {
   font-weight: bold;
 }
-
-
