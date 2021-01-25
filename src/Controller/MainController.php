@@ -56,17 +56,12 @@ class MainController extends AbstractController
     /**
      * @Route("/matching", name="matching")
      */
-    public function matching(MatchingRepository $matchingRepository, UserInterface $user, PaginatorInterface $paginator, Request $request): Response
+    public function matching(MatchingRepository $matchingRepository, PaginatorInterface $paginator, UserInterface $user, Request $request): Response
     {
         $userAId = $user->getId();
-     
-        $search = new UserSearch();
-        $form = $this->createForm(UserSearchType::class, $search);
-        $form->handleRequest($request);
-
-        
+           
         $matchingsList = $paginator->paginate(
-            $matchingRepository->findAllVisibleQuery($search, $userAId),
+            $matchingRepository->findByUserAId( $userAId),
             $request->query->getInt('page', 1),
             10
         
@@ -75,7 +70,7 @@ class MainController extends AbstractController
         return $this->render('main/matching.html.twig', [
             'controller_name' => 'MainController',
             'matchings' => $matchingsList,
-            'form' => $form->createView(),
+            // 'form' => $form->createView(),
         ]);
     }
 

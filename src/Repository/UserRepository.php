@@ -47,7 +47,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         if ($search->getMaxAge()) {
             $query = $query
                 ->select('u')
-                ->andWhere(' u.age<= :agemax')
+                ->andWhere(' u.age <= :agemax')
                 ->setParameter('agemax', $search->getMaxAge());
         }
 

@@ -30,7 +30,7 @@ $(document).ready(function(){
            resultElement.removeChild(resultElement.firstChild);
          }
 
-         let template = document.querySelector('#cardResult');
+         let template = document.querySelector('#form-template');
            
          // On envoie la requête à l'API
           $.get("https://www.googleapis.com/books/v1/volumes?q=" + search,function(response){
@@ -42,10 +42,10 @@ $(document).ready(function(){
  
             let cloneTemplate = document.importNode(template.content, true);
  
-            let cardElement = cloneTemplate.querySelector('.article-book');
+            let cardElement = cloneTemplate.querySelector('.addBookForm');
 
 
-            let imgElement = cloneTemplate.querySelector('#book-cover');
+            let imgElement = cloneTemplate.querySelector('#book_cover');
             let titleInput =  cloneTemplate.querySelector('#book_title');
             let authorsInput = cloneTemplate.querySelector('#book_author');
             let thumbnailInput =  cloneTemplate.querySelector('#book_thumbnail');
