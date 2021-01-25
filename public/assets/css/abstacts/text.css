@@ -79,3 +79,7 @@
   margin:-.1em 0px;
   padding-right: .1em
 }
+
+.mdp-forgot:hover{
+  color: var(--color--text--primary);
+}
