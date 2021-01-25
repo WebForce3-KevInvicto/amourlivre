@@ -67,3 +67,15 @@
   line-height: 3rem;
 }
 
+
+   /* LETTRINE
+ * ------------------------------------------------------------------------- */
+.ma-lettrine{
+  font-family: 'Great Vibes', cursive;
+  float: left; 
+  text-shadow:3px 3px 3px silver;  
+  font-size: 4em;  
+  line-height: 80%; 
+  margin:-.1em 0px;
+  padding-right: .1em
+}
