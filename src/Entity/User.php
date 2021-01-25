@@ -156,6 +156,11 @@ class User implements UserInterface
      */
     private $lng;
 
+    /**
+     * @ORM\Column(type="integer",  nullable=true)
+     */
+    private $age;
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
@@ -212,10 +217,10 @@ class User implements UserInterface
         return $this;
     }
 
-   public function getAge(): ?int
+   public function calculerAge(\DateTimeInterface $birthDate): ?int
     {
         $now = new \DateTime;
-        $interval = $now->diff($this->birthdate);
+        $interval = $now->diff($birthDate);
         $age = $interval->format("%y");
         
         return intval($age);
@@ -677,4 +682,20 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function setAge(int $age): self
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of age
+     */ 
+    public function getAge()
+    {
+        return $this->age;
+    }
+
 }

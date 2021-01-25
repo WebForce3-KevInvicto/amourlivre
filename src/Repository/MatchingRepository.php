@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Matching;
+use App\Entity\UserSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -19,16 +20,57 @@ class MatchingRepository extends ServiceEntityRepository
         parent::__construct($registry, Matching::class);
     }
 
-    public function findByUserAId ($userA)
+    // public function findByUserAId ($userA)
+    // {
+    //     return $this->createQueryBuilder('m')
+    //     ->andWhere()
+    //     ->orderBy('m.rate', 'DESC')
+    //     ->setParameter('val', $userA)
+    //     ->setMaxResults(20)
+    //     ->getQuery()
+    //     ->getResult()
+    //     ;
+    // }
+/**
+     * @return Query
+     */
+    public function findAllVisibleQuery(UserSearch $search, $userA)
+    {
+        $query = $this->findVisibleQuery($userA);
+
+        if ($search->getMaxAge()) {
+            $query = $query
+                ->addselect('u.age')
+                ->innerjoin('m.userB', 'u', 'WITH', 'u.id')
+                ->andWhere('u.age <= :maxAge')
+                ->setParameter('maxAge', $search->getMaxAge());
+        }
+
+        
+
+        // if ($search->getLat() && $search->getLng() && $search->getDistance()) {
+        //     $query = $query
+        //         ->select('p')
+        //         ->andWhere('(6353 * 2 * ASIN(SQRT( POWER(SIN((p.lat - :lat) *  pi()/180 / 2), 2) +COS(p.lat * pi()/180) * COS(:lat * pi()/180) * POWER(SIN((p.lng - :lng) * pi()/180 / 2), 2) ))) <= :distance')
+        //         ->setParameter('lng', $search->getLng())
+        //         ->setParameter('lat', $search->getLat())
+        //         ->setParameter('distance', $search->getDistance());
+        // }
+
+        return $query->getQuery();
+    }
+
+
+
+    private function findVisibleQuery($userA)
     {
         return $this->createQueryBuilder('m')
-        ->andWhere('m.userA = :val')
-        ->setParameter('val', $userA)
-        ->setMaxResults(20)
-        ->getQuery()
-        ->getResult()
-    ;
+            ->where('m.userA = :val')
+            ->setParameter('val', $userA);
     }
+
+
+
     // /**
     //  * @return Matching[] Returns an array of Matching objects
     //  */

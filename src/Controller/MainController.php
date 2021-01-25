@@ -36,6 +36,17 @@ class MainController extends AbstractController
      */
     public function profil(User $user): Response
     {
+
+
+        $userAge = $user->calculerAge($user->getBirthdate());
+        dump($userAge);
+
+        $user->setAge($userAge);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($user);
+        $entityManager->flush();
+
         return $this->render('user/show.html.twig', [
             'user' => $user,
             'books' => $user->getBooks()
@@ -48,20 +59,20 @@ class MainController extends AbstractController
     public function matching(MatchingRepository $matchingRepository, UserInterface $user, PaginatorInterface $paginator, Request $request): Response
     {
         $userAId = $user->getId();
+     
         $search = new UserSearch();
         $form = $this->createForm(UserSearchType::class, $search);
         $form->handleRequest($request);
 
-        // $matchingRepository->findByUserAId($userAId)
+        
         $matchingsList = $paginator->paginate(
-            $matchingRepository->findByUserAId($userAId),
+            $matchingRepository->findAllVisibleQuery($search, $userAId),
             $request->query->getInt('page', 1),
             10
         
         );
         
         return $this->render('main/matching.html.twig', [
-  
             'controller_name' => 'MainController',
             'matchings' => $matchingsList,
             'form' => $form->createView(),
