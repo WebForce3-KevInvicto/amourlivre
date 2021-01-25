@@ -21,14 +21,20 @@ class BookRepository extends ServiceEntityRepository
 
     public function findAllBooksForAUserId ($userId)
     {
-            return $this->createQueryBuilder('m')
-            ->andWhere('m.users = :val')
+            return $this->createQueryBuilder('b')
+            ->andWhere('b.users = :val')
             ->setParameter('val', $users)
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
 
+    }
+
+    public function findByISBN($isbn){
+        return $this->createQueryBuilder('b')
+            ->where('b.isbn = :isbn')
+            ->setParameter('isbn', $isbn);
     }
 
     // /**

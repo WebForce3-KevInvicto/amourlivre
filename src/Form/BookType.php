@@ -22,7 +22,9 @@ class BookType extends AbstractType
             ->add('synopsis')
             ->add('thumbnail', HiddenType::class)
             ->add('language')
-            ->add('isbn')
+            ->add('isbn', TextType::class, [
+                 'label_attr' => ['class' => 'isbn-label']
+            ] )
             ->add('publication_date', TextType::class, [
                 'mapped' => false
             ])
@@ -31,7 +33,8 @@ class BookType extends AbstractType
             ->add('genre', EntityType::class, [
                 'class' => Genre::class,
                 'choice_label' => 'name',
-                'multiple' => true
+                'multiple' => true,
+                'help' => 'Veuillez sélectionner le genre qui correspond !'
             ])
         ;
     }

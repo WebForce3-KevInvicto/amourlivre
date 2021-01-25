@@ -73,11 +73,8 @@ form small a:hover{
 #book_isbn,
 #book_language,
 #book_publisher{
-    background-color: var(--color--theme--alt);
     border: none;
 }
-
-
 
 #book_isbn,
 #book_genre,
