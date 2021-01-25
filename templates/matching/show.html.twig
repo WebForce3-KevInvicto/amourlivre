@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Matching{% endblock %}
+{% block title %}Amour Livre - Matching{% endblock %}
 
 {% block body %}
-    <h1>Matching</h1>
+    <h1 class="text-center text-color-dark fw--b fsize-3 mb--1">Matching</h1>
 
     <table class="table">
         <tbody>
@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('matching_index') }}">back to list</a>
+    {# <a href="{{ path('matching_index') }}">back to list</a> #}
 
-    <a href="{{ path('matching_edit', {'id': matching.id}) }}">edit</a>
+    {# <a href="{{ path('matching_edit', {'id': matching.id}) }}">edit</a> #}
 
     {{ include('matching/_delete_form.html.twig') }}
 {% endblock %}

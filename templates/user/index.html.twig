@@ -5,7 +5,7 @@
 
 {% block body %}
 	<section class="section-admin w--100">
-		<h1 class="text-center pb--4">Admin User</h1>
+		<h1 class="text-center text-color-dark fw--b fsize-3 pb--4">Admin User</h1>
 
 		<table class="table">
 			<thead>
@@ -15,13 +15,7 @@
 					<th class="text-color-dark">Gender</th>
 					<th class="text-color-dark">Birthdate</th>
 					<th class="text-color-dark">Email</th>
-					<th class="text-color-dark">Address</th>
-					<th class="text-color-dark">Postal_code</th>
-					<th class="text-color-dark">City</th>
-					<th class="text-color-dark">Preference</th>
 					<th class="text-color-dark">Roles</th>
-					<th class="text-color-dark">Password</th>
-					<th class="text-color-dark">Description</th>
 					<th class="text-color-dark">Last_connection</th>
 					<th class="text-color-dark">Created_at</th>
 					<th class="text-color-dark">Updated_at</th>
@@ -36,19 +30,13 @@
 						<td>{{ user.gender }}</td>
 						<td>{{ user.birthdate ? user.birthdate|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ user.email }}</td>
-						<td>{{ user.address }}</td>
-						<td>{{ user.postalCode }}</td>
-						<td>{{ user.city }}</td>
-						<td>{{ user.preference }}</td>
 						<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-						<td>{{ user.password }}</td>
-						<td>{{ user.description }}</td>
 						<td>{{ user.lastConnection ? user.lastConnection|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
 						<td>
-							<a href="{{ path('user_show', {'id': user.id}) }}">montrer</a>
-							<a href="{{ path('user_edit', {'id': user.id}) }}">éditer</a>
+							<a class="btn btn-secondary w--mob-70 w--200 m--1 text-center" href="{{ path('user_show', {'id': user.id}) }}">montrer</a>
+							<a class="btn btn-primary w--mob-70 w--200 m--1 text-center" href="{{ path('user_edit', {'id': user.id}) }}">éditer</a>
 						</td>
 					</tr>
 				{% else %}

@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}UserSearch{% endblock %}
+{% block title %}Amour Livre - UserSearch{% endblock %}
 
 {% block body %}
-    <h1>UserSearch</h1>
+    <h1 class="text-center text-color-dark fw--b fsize-3 mb--1">UserSearch</h1>
 
     <table class="table">
         <tbody>
@@ -30,7 +30,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('user_search_index') }}">back to list</a>
+    {# <a href="{{ path('user_search_index') }}">back to list</a> #}
 
     <a href="{{ path('user_search_edit', {'id': user_search.id}) }}">edit</a>
 
