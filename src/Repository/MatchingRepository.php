@@ -23,7 +23,9 @@ class MatchingRepository extends ServiceEntityRepository
     public function findByUserAId ($userA)
     {
         return $this->createQueryBuilder('m')
-        ->andWhere('m.userA = :val')
+        ->where('m.userA = :val')
+        ->andWhere('m.rate != 0')
+        ->andWhere('m.userB != :val')
         ->orderBy('m.rate', 'DESC')
         ->setParameter('val', $userA)
         ->setMaxResults(20)

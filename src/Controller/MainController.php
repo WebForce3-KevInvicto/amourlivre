@@ -3,13 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Genre;
 use App\Entity\Contact;
+use App\Entity\Matching;
 use App\Form\ContactType;
 use App\Entity\UserSearch;
 use App\Form\UserSearchType;
 use Doctrine\ORM\Mapping\Entity;
 use App\Repository\BookRepository;
 use App\Repository\UserRepository;
+use App\Repository\GenreRepository;
 use App\Repository\MatchingRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -56,10 +59,66 @@ class MainController extends AbstractController
     /**
      * @Route("membre/matching", name="matching")
      */
-    public function matching(MatchingRepository $matchingRepository, PaginatorInterface $paginator, UserInterface $user, Request $request): Response
+    public function matching(MatchingRepository $matchingRepository, GenreRepository $genreRepository, PaginatorInterface $paginator, UserInterface $userInterface, UserRepository $userRepository, Request $request): Response
     {
-        $userAId = $user->getId();
+        $userAId = $userInterface->getId();
            
+        
+        $userAFavoriteGenre = $this->getUserFavoriteGenre($userInterface, $genreRepository);
+        dump($userAFavoriteGenre);
+
+        $usersList = $userRepository->findAll();
+        dump($usersList);
+        $success = false;
+        
+        foreach($usersList as $key => $userB){
+
+            $userBFavoriteGenre = $this->getUserFavoriteGenre($userB, $genreRepository);
+
+            if($userBFavoriteGenre !== false &&  $userAFavoriteGenre !== false){
+
+                if($userBFavoriteGenre['name'] == $userAFavoriteGenre['name']){
+
+                    $rate = abs($userBFavoriteGenre['rate'] - $userAFavoriteGenre['rate']);
+    
+                    
+                    $matching = new Matching();
+                    $matching->setUserA($userInterface);
+                    $matching->setUserB($userB);
+    
+                    if($rate >= 0 && $rate < 5){
+                        $matching->setRate(100);
+                    } elseif($rate >= 5 && $rate < 10){
+                        $matching->setRate(90);
+                    }elseif($rate >= 10 && $rate < 20){
+                        $matching->setRate(80);
+                    }elseif($rate >= 20 && $rate < 30){
+                        $matching->setRate(70);
+                    }elseif($rate >= 30 && $rate < 40){
+                        $matching->setRate(60);
+                    }elseif($rate >= 40 && $rate <= 50){
+                        $matching->setRate(50);
+                    } else {
+                        $matching->setRate(0);
+                    }
+       
+                    $entityManager = $this->getDoctrine()->getManager();
+                    $entityManager->persist($matching);
+                    $entityManager->flush();
+                    
+                    $success = true;
+                }
+
+            }
+
+           
+        }
+
+        if($success == false){
+            $this->addFlash('warning', 'Pensez à ajouter des livres dans votre bibliothèque !');
+        }
+        
+
         $matchingsList = $paginator->paginate(
             $matchingRepository->findByUserAId( $userAId),
             $request->query->getInt('page', 1),
@@ -69,7 +128,7 @@ class MainController extends AbstractController
         
         return $this->render('main/matching.html.twig', [
             'controller_name' => 'MainController',
-            'matchings' => $matchingsList,
+            'matchings' =>  $matchingsList,
             // 'form' => $form->createView(),
         ]);
     }
@@ -159,4 +218,60 @@ class MainController extends AbstractController
         ]);
     }
 
+    public function getUserFavoriteGenre(User $user){
+
+                // Je récupère tous les livres du user courant.
+                $userABookCollection = $user->getBooks();
+                    // dump($userABookCollection);
+                // Je compte le nombre de livres
+                $totalBooks= count($userABookCollection);
+                // dump($totalBooks);
+                $userAGenreArray = [];
+
+                foreach($userABookCollection as $key => $bookCollection){
+
+                        $userAGenreArray [] = $bookCollection->getGenre()->getName();
+
+                }
+
+                // dump($userAGenreArray);
+                
+                $totaux = array_count_values($userAGenreArray);
+                // dump($totaux);
+
+                if(!empty($totaux)){
+                    $favoriteGenre = [];
+
+
+                    arsort($totaux);
+    
+                    // dump($totaux);
+    
+                    $genreFavoriteName = array_key_first($totaux);
+                    $total = $this->calculPercentage(max(array_values($totaux)), $totalBooks, 100);
+    
+                    $favoriteGenre['name'] = $genreFavoriteName;
+                    $favoriteGenre['rate'] = $total;
+    
+                    // dump($favoriteGenre)   
+                    
+                    return  $favoriteGenre;
+                } else {
+
+                   return false;
+                }
+              
+
+    }
+
+    public function calculPercentage($nombre,$total,$pourcentage)
+    { 
+        $resultat = ($nombre/$total) * $pourcentage;
+        return round($resultat); // Arrondi la valeur
+    }
+
+
+   
+
+ 
 }

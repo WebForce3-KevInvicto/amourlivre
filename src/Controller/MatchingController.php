@@ -96,4 +96,5 @@ class MatchingController extends AbstractController
 
         return $this->redirectToRoute('matching_index');
     }
+
 }

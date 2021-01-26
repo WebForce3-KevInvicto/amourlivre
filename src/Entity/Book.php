@@ -77,15 +77,17 @@ class Book
      */
     private $author;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Genre::class, inversedBy="books")
-     */
-    private $genre;
-
+    
     /**
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="books")
      */
     private $users;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Genre::class, inversedBy="books")
+     * @ORM\JoinColumn(name="genre_id", referencedColumnName="id", nullable=false)
+     */
+    private $genre;
 
 
     
@@ -98,7 +100,6 @@ class Book
         $this->author = new ArrayCollection();
         $this->created_at = new DateTime();
         $this->updated_at = new DateTime();
-        $this->genre = new ArrayCollection();
         $this->users = new ArrayCollection();
        
     }
@@ -274,29 +275,7 @@ class Book
         return $this;
     }
 
-    /**
-     * @return Collection|Genre[]
-     */
-    public function getGenre(): Collection
-    {
-        return $this->genre;
-    }
 
-    public function addGenre(Genre $genre): self
-    {
-        if (!$this->genre->contains($genre)) {
-            $this->genre[] = $genre;
-        }
-
-        return $this;
-    }
-
-    public function removeGenre(Genre $genre): self
-    {
-        $this->genre->removeElement($genre);
-
-        return $this;
-    }
 
     /**
      * @return Collection|User[]
@@ -321,6 +300,18 @@ class Book
         if ($this->users->removeElement($user)) {
             $user->removeBook($this);
         }
+
+        return $this;
+    }
+
+    public function getGenre(): ?Genre
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(?Genre $genre): self
+    {
+        $this->genre = $genre;
 
         return $this;
     }

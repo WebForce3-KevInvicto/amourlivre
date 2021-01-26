@@ -33,7 +33,6 @@ class BookType extends AbstractType
             ->add('genre', EntityType::class, [
                 'class' => Genre::class,
                 'choice_label' => 'name',
-                'multiple' => true,
                 'help' => 'Veuillez sélectionner le genre qui correspond !'
             ])
         ;

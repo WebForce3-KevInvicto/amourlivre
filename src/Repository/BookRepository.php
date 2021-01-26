@@ -19,17 +19,6 @@ class BookRepository extends ServiceEntityRepository
         parent::__construct($registry, Book::class);
     }
 
-    public function findAllBooksForAUserId ($userId)
-    {
-            return $this->createQueryBuilder('b')
-            ->andWhere('b.users = :val')
-            ->setParameter('val', $users)
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-
-    }
 
     public function findByISBN($isbn){
         return $this->createQueryBuilder('b')
