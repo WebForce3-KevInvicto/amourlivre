@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New UserSearch{% endblock %}
+{% block title %}Amour Livre - New UserSearch{% endblock %}
 
 {% block body %}
-    <h1>Create new UserSearch</h1>
+    <h1 class="text-center text-color-dark fw--b fsize-3 mb--1">Create new UserSearch</h1>
 
     {{ include('user_search/_form.html.twig') }}
 
-    <a href="{{ path('user_search_index') }}">back to list</a>
+    {# <a href="{{ path('user_search_index') }}">back to list</a> #}
 {% endblock %}

@@ -1,38 +1,42 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin.html.twig' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Amour Livre - Contact
+{% endblock %}
 
 {% block body %}
-    <h1>Contact</h1>
+	<section class="section-admin w--900 p--2 bck--alt br--15 pb--1">
+		<h1 class="text-center text-color-dark fw--b fsize-3 mb--1">Contact</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ contact.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ contact.nom }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ contact.email }}</td>
-            </tr>
-            <tr>
-                <th>Message</th>
-                <td>{{ contact.message }}</td>
-            </tr>
-            <tr>
-                <th>DateMessage</th>
-                <td>{{ contact.dateMessage ? contact.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+		<table class="table">
+			<tbody>
+				<tr>
+					<th class="text-color-dark">Id</th>
+					<td>{{ contact.id }}</td>
+				</tr>
+				<tr>
+					<th class="text-color-dark">Nom</th>
+					<td>{{ contact.nom }}</td>
+				</tr>
+				<tr>
+					<th class="text-color-dark">Email</th>
+					<td>{{ contact.email }}</td>
+				</tr>
+				<tr>
+					<th class="text-color-dark">Message</th>
+					<td>{{ contact.message }}</td>
+				</tr>
+				<tr>
+					<th class="text-color-dark">DateMessage</th>
+					<td>{{ contact.dateMessage ? contact.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
+				</tr>
+			</tbody>
+		</table>
 
-    <a href="{{ path('contact_index') }}">back to list</a>
 
-    <a href="{{ path('contact_edit', {'id': contact.id}) }}">edit</a>
+		<a class="btn btn-secondary w--mob-70 w--300 m--1 text-center" href="{{ path('contact_index') }}">retour à la liste</a>
 
-    {{ include('contact/_delete_form.html.twig') }}
+		<a class="btn btn-secondary w--mob-70 w--300 m--1 text-center" href="{{ path('contact_edit', {'id': contact.id}) }}">éditer</a>
+	</section>
+
+	{{ include('contact/_delete_form.html.twig') }}
 {% endblock %}

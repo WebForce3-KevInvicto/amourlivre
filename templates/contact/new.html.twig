@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Contact{% endblock %}
+{% block title %}Amour Livre - New Contact{% endblock %}
 
 {% block body %}
-    <h1>Create new Contact</h1>
+    <h1 class="text-center text-color-dark fw--b fsize-3 mb--1">Créer un Contact</h1>
 
     {{ include('contact/_form.html.twig') }}
 
-    <a href="{{ path('contact_index') }}">back to list</a>
+    {# <a href="{{ path('contact_index') }}">back to list</a> #}
 {% endblock %}

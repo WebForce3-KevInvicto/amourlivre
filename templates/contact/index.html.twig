@@ -4,8 +4,8 @@
 {% endblock %}
 
 {% block body %}
-	<section class="section-admin w--900">
-		<h1 class="text-center pb--4">Admin Contact</h1>
+	<section class="section-admin w--900 p--2 bck--alt br--15 pb--1">
+		<h1 class="text-center pb--4 ">Admin Contact</h1>
 
 		<table class="table">
 			<thead>
@@ -27,8 +27,8 @@
 						<td>{{ contact.message }}</td>
 						<td>{{ contact.dateMessage ? contact.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
 						<td>
-							<a href="{{ path('contact_show', {'id': contact.id}) }}">montrer</a>
-							<a href="{{ path('contact_edit', {'id': contact.id}) }}">éditer</a>
+							<a class="btn btn-secondary w--mob-70 w--200 m--1 text-center" href="{{ path('contact_show', {'id': contact.id}) }}">montrer</a>
+							{{ include('contact/_delete_form.html.twig') }}
 						</td>
 					</tr>
 				{% else %}
