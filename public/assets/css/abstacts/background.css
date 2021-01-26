@@ -5,6 +5,10 @@
      background-color: var(--color--theme--primary);
  }
 
+ .bck--admin{
+    background-color: var(--color--theme--admin);
+ }
+
  .bck--alt{
      background-color: var(--color--theme--alt);
  }

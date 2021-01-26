@@ -1,28 +1,28 @@
 {% extends 'baseadmin.html.twig' %}
 
-{% block title %}Amour Livre - Book index
+{% block title %}Amour Livre - adminBook
 {% endblock %}
 
 {% block body %}
-	<section class="section-admin w--900 p--2 bck--alt br--15 pb--1">
-		<h1 class="text-center text-color-dark fw--b fsize-3 mb--1">Book index</h1>
+	<section class="section-admin w--100 p--2 bck--admin br--15 pb--1">
+		<h1 class="text-center text-color-dark fw--b fsize-3 mb--1">Admin Book</h1>
 
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Id</th>
-					<th>Title</th>
-					<th>Synopsis</th>
-					<th>Thumbnail</th>
-					<th>Language</th>
-					<th>Genre</th>
-					<th>Isbn</th>
-					<th>Publication_date</th>
-					<th>Created_at</th>
-					<th>Updated_at</th>
-					<th>Publisher</th>
-					<th>Author</th>
-					<th>actions</th>
+					<th class="text-color-dark">Id</th>
+					<th class="text-color-dark">Title</th>
+					<th class="text-color-dark">Synopsis</th>
+					<th class="text-color-dark">Thumbnail</th>
+					<th class="text-color-dark">Language</th>
+					<th class="text-color-dark">Genre</th>
+					<th class="text-color-dark">Isbn</th>
+					<th class="text-color-dark">Publication_date</th>
+					<th class="text-color-dark">Created_at</th>
+					<th class="text-color-dark">Updated_at</th>
+					<th class="text-color-dark">Publisher</th>
+					<th class="text-color-dark">Author</th>
+					<th class="text-color-dark">actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,7 +33,9 @@
 						<td>{{ book.synopsis }}</td>
 						<td>{{ book.thumbnail }}</td>
 						<td>{{ book.language }}</td>
-						<td>{{ book.genre }}</td>
+						{% for genre in book.genre %}
+							<td>{{ genre.name }}</td>
+						{% endfor %}
 						<td>{{ book.isbn }}</td>
 						<td>{{ book.publicationDate ? book.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ book.createdAt ? book.createdAt|date('Y-m-d H:i:s') : '' }}</td>
@@ -42,17 +44,17 @@
 						<td>{{ book.author }}</td>
 						<td>
 							<a class="btn btn-secondary w--mob-70 w--200 m--1 text-center" href="{{ path('book_show', {'id': book.id}) }}">montrer</a>
-							<a class="btn btn-primary w--mob-70 w--200 m--1 text-center" href="{{ path('book_edit', {'id': book.id}) }}">modifier</a>
+							{{ include('book/_delete_form.html.twig') }}
 						</td>
 					</tr>
 				{% else %}
 					<tr>
-						<td colspan="12">no records found</td>
+						<td colspan="12" class="text-color-dark">Pas d'entrée</td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
 
-		<a href="{{ path('book_new') }}">Create new</a>
+		{#<a href="{{ path('book_new') }}" class="text-color-dark fw--b">Créer nouvelle entrée</a>#}
 	</section>
 {% endblock %}

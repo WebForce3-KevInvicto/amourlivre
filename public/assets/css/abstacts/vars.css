@@ -68,7 +68,8 @@
     --color--theme--secondary-hover: var(--color--navy-blue);
     --color--theme--alt: var(--color--vanilla70);
     --color--theme--matching: var(--color--navy-blue);
-
+    --color--theme--admin: var(--color--vanilla);
+    
     /* BACKGROUND */
     /* --color--background--dark: var(--color--theme--dark70); */
     --color--background--white: var(--color--white);
