@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="blablablablablablablablablablabla">
+		<meta name="description" content="Amour Livre est un site de rencontre pour les amoureux du livre">
 		<link rel="icon" type="image/png" href="{{asset('assets/img/favicon-196x196.png')}}">
 		<title>
 			{% block title %}Amour Livre
@@ -23,7 +23,7 @@
 			<nav class="navbar navbar-default navbar-expand-lg w--mob-100 bck--dark  br--blr--15">
 			{% if app.user is empty  %}
 				<div class="container-fluid">
-					<a class="navbar-brand d--mob--flex m--mob-auto" href="#"><img class="w--50 m--auto" src="{{ asset('assets/img/logo/logo-white.png')}}" alt=""></a>
+					<a class="navbar-brand d--mob--flex m--mob-auto" href="{{path('profil', {id: app.user.id})}}"><img class="w--50 m--auto" src="{{ asset('assets/img/logo/logo-white.png')}}" alt=""></a>
 				</div>
 				<div class="d--mob-none w--70 w--100  d--flex jc--fe">
 					<a class="btn btn-secondary w--150 m--1 text-center" href="{{path('app_login')}}">Connexion</a>

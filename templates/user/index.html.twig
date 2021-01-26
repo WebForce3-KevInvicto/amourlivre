@@ -15,7 +15,7 @@
 					<th class="text-color-dark">Gender</th>
 					<th class="text-color-dark">Birthdate</th>
 					<th class="text-color-dark">Email</th>
-					<th class="text-color-dark">Roles</th>
+					<th class="text-color-dark">Avatar</th>
 					<th class="text-color-dark">Last_connection</th>
 					<th class="text-color-dark">Created_at</th>
 					<th class="text-color-dark">Updated_at</th>
@@ -30,7 +30,7 @@
 						<td>{{ user.gender }}</td>
 						<td>{{ user.birthdate ? user.birthdate|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ user.email }}</td>
-						<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+						<td>{{ user.avatar }}</td>
 						<td>{{ user.lastConnection ? user.lastConnection|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '' }}</td>

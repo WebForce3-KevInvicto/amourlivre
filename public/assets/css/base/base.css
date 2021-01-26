@@ -73,3 +73,7 @@ a {
 strong {
   font-weight: bold;
 }
+
+.t--ac {
+  text-align: center;
+}
