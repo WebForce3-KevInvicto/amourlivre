@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Amour Livre - Genre index{% endblock %}
+{% block title %}Genre index{% endblock %}
 
 {% block body %}
-    <h1 class="text-center text-color-dark fw--b fsize-3 mb--1">Genre index</h1>
+    <h1>Genre index</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -23,8 +23,8 @@
                 <td>{{ genre.createdAt ? genre.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ genre.updatedAt ? genre.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a class="btn btn-secondary w--mob-70 w--200 m--1 text-center" href="{{ path('genre_show', {'id': genre.id}) }}">monter</a>
-                    <a class="btn btn-primary w--mob-70 w--200 m--1 text-center" href="{{ path('genre_edit', {'id': genre.id}) }}">modifier</a>
+                    <a href="{{ path('genre_show', {'id': genre.id}) }}">show</a>
+                    <a href="{{ path('genre_edit', {'id': genre.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -35,5 +35,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('genre_new') }}">Creer un nouveau genre</a>
+    <a href="{{ path('genre_new') }}">Create new</a>
 {% endblock %}

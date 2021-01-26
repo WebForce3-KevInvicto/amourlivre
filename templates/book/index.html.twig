@@ -1,55 +1,58 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin.html.twig' %}
 
-{% block title %}Amour Livre - Book index{% endblock %}
+{% block title %}Amour Livre - Book index
+{% endblock %}
 
 {% block body %}
-    <h1 class="text-center text-color-dark fw--b fsize-3 mb--1">Book index</h1>
+	<section class="section-admin w--900 p--2 bck--alt br--15 pb--1">
+		<h1 class="text-center text-color-dark fw--b fsize-3 mb--1">Book index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Synopsis</th>
-                <th>Thumbnail</th>
-                <th>Language</th>
-                <th>Genre</th>
-                <th>Isbn</th>
-                <th>Publication_date</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>Publisher</th>
-                <th>Author</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for book in books %}
-            <tr>
-                <td>{{ book.id }}</td>
-                <td>{{ book.title }}</td>
-                <td>{{ book.synopsis }}</td>
-                <td>{{ book.thumbnail }}</td>
-                <td>{{ book.language }}</td>
-                <td>{{ book.genre }}</td>
-                <td>{{ book.isbn }}</td>
-                <td>{{ book.publicationDate ? book.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ book.createdAt ? book.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ book.updatedAt ? book.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ book.publisher }}</td>
-                <td>{{ book.author }}</td>
-                <td>
-                    <a class="btn btn-secondary w--mob-70 w--200 m--1 text-center" href="{{ path('book_show', {'id': book.id}) }}">montrer</a>
-                    <a class="btn btn-primary w--mob-70 w--200 m--1 text-center" href="{{ path('book_edit', {'id': book.id}) }}">modifier</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="12">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Title</th>
+					<th>Synopsis</th>
+					<th>Thumbnail</th>
+					<th>Language</th>
+					<th>Genre</th>
+					<th>Isbn</th>
+					<th>Publication_date</th>
+					<th>Created_at</th>
+					<th>Updated_at</th>
+					<th>Publisher</th>
+					<th>Author</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for book in books %}
+					<tr>
+						<td>{{ book.id }}</td>
+						<td>{{ book.title }}</td>
+						<td>{{ book.synopsis }}</td>
+						<td>{{ book.thumbnail }}</td>
+						<td>{{ book.language }}</td>
+						<td>{{ book.genre }}</td>
+						<td>{{ book.isbn }}</td>
+						<td>{{ book.publicationDate ? book.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
+						<td>{{ book.createdAt ? book.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+						<td>{{ book.updatedAt ? book.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+						<td>{{ book.publisher }}</td>
+						<td>{{ book.author }}</td>
+						<td>
+							<a class="btn btn-secondary w--mob-70 w--200 m--1 text-center" href="{{ path('book_show', {'id': book.id}) }}">montrer</a>
+							<a class="btn btn-primary w--mob-70 w--200 m--1 text-center" href="{{ path('book_edit', {'id': book.id}) }}">modifier</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="12">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 
-    <a href="{{ path('book_new') }}">Create new</a>
+		<a href="{{ path('book_new') }}">Create new</a>
+	</section>
 {% endblock %}

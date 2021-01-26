@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Amour Livre - Genre{% endblock %}
+{% block title %}Genre{% endblock %}
 
 {% block body %}
-    <h1 class="text-center text-color-dark fw--b fsize-3 mb--1">Genre</h1>
+    <h1>Genre</h1>
 
     <table class="table">
         <tbody>
@@ -16,19 +16,19 @@
                 <td>{{ genre.name }}</td>
             </tr>
             <tr>
-                <th>Created_at</th>
+                <th>CreatedAt</th>
                 <td>{{ genre.createdAt ? genre.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Updated_at</th>
+                <th>UpdatedAt</th>
                 <td>{{ genre.updatedAt ? genre.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    {# <a href="{{ path('genre_index') }}">back to list</a> #}
+    <a href="{{ path('genre_index') }}">back to list</a>
 
-    {# <a href="{{ path('genre_edit', {'id': genre.id}) }}">edit</a> #}
+    <a href="{{ path('genre_edit', {'id': genre.id}) }}">edit</a>
 
     {{ include('genre/_delete_form.html.twig') }}
 {% endblock %}
