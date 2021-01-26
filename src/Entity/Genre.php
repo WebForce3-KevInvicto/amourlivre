@@ -35,9 +35,10 @@ class Genre
     private $updatedAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Book::class, mappedBy="genre")
+     * @ORM\OneToMany(targetEntity=Book::class, mappedBy="genre")
      */
     private $books;
+
 
     public function __construct()
     {
@@ -98,7 +99,7 @@ class Genre
     {
         if (!$this->books->contains($book)) {
             $this->books[] = $book;
-            $book->addGenre($this);
+            $book->setGenre($this);
         }
 
         return $this;
@@ -107,9 +108,14 @@ class Genre
     public function removeBook(Book $book): self
     {
         if ($this->books->removeElement($book)) {
-            $book->removeGenre($this);
+            // set the owning side to null (unless already changed)
+            if ($book->getGenre() === $this) {
+                $book->setGenre(null);
+            }
         }
 
         return $this;
     }
+
+  
 }

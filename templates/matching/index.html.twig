@@ -6,6 +6,13 @@
 			<h2 class="w--100 text-center">Votre histoire ne fait que commencer !</h2>
 			<p class="m--1 text-center">Très bientôt des personnes correspondant à votre recherche arriveront.</p>
 	</article>
+
+			{% for message in app.flashes('warning') %}
+				<div class="alert alert-warning">
+				{{ message }}
+				</div>
+			{% endfor %}
+
 {% else %}
 <section class="section-matching bck--alt br--15 p--2 w--900 d--flex m--1">
 	<h1 class="text-center section-matching__h1 mb--1 w--100">
@@ -26,6 +33,7 @@
 			
 		{{form_end(form)}}
 	</div> #}
+
 	
 
 </section>

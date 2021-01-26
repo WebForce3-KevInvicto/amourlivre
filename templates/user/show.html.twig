@@ -83,10 +83,13 @@
   </div>
        
     
-    <div class="books-container d--flex jc--se">
-          {% for book in books %}
-            <a class="d-block" href="{{path('book_show', {id: book.id})}}"><img src="{{ book.thumbnail }}" class="d-block w-30 mx--auto-top-1" alt="..." /></a>
-          {% endfor %}
+    <div class="books-container d--flex jc--sa">
+      <div class="row">
+        {% for book in books %}
+            <a class="d-block col-4" href="{{path('book_show', {id: book.id})}}"><img src="{{ book.thumbnail }}" class="d-block w-50 mx--auto-top-1" alt="..." /></a>
+          {% endfor %}  
+      </div>
+         
     </div>
 
   </section>
