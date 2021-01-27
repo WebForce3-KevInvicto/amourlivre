@@ -57,6 +57,16 @@
 
 }
 
+.btn-bookpage {
+  background-color: var(--color--theme--secondary-hover);
+  color: var(--color--text--light);
+  font-weight: 900;
+}
+
+.btn-bookpage:hover {
+  background-color: var(--color--lochmara);
+}
+
 #edit-profil-btn:hover{
   color: white;
 }

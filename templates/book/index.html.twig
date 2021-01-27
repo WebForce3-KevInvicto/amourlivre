@@ -1,11 +1,11 @@
 {% extends 'baseadmin.html.twig' %}
 
-{% block title %}Amour Livre - adminBook
+{% block title %}Amour Livre - Gestion livres
 {% endblock %}
 
 {% block body %}
 	<section class="section-admin w--100 p--2 bck--admin br--15 pb--1">
-		<h1 class="text-center pb--4 fsize-3 mb--1">Admin Book</h1>
+		<h1 class="text-center pb--4 fsize-3 mb--1">Gestion livres</h1>
 
 		<table class="table-book-index">
 			<thead>
@@ -28,12 +28,11 @@
 						<td>{{ book.title }}</td>
 						<td><img src="{{ book.thumbnail }}" alt="couverture du livre {{book.title}}"></td>
 						<td>{{ book.genre }}</td>
-						<td>{{ book.publicationDate ? book.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
+						<td>{{ book.publicationDate ? book.publicationDate|date('Y-m-d') : '' }}</td>
 						<td>{{ book.createdAt ? book.createdAt|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ book.updatedAt ? book.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ book.author }}</td>
 						<td>
-							{# <a class="btn btn-secondary w--mob-70 w--200  m--top--3 text-center" href="{{ path('book_show', {'id': book.id}) }}">montrer</a> #}
 							<a class="btn btn-secondary w--mob-70 w--200 m--1 text-center" href="{{ path('book_edit', {'id': book.id}) }}">éditer</a>
 							{{ include('book/_delete_form.html.twig') }}
 						</td>

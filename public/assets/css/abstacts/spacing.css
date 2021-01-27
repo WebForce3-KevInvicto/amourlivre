@@ -120,6 +120,8 @@
   margin: 1rem;
 }
 
+
+
 .m--auto {
   margin: auto;
 }
@@ -175,6 +177,7 @@
 .mb--100 {
   margin-bottom: 100vh;
 }
+
 .m--left {
   margin: 2rem 2.5rem 0 1rem;
 }

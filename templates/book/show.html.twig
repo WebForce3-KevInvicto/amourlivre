@@ -5,9 +5,9 @@
 {% block body %}
 
 <section id="section-transparent" class="d--flex jc--c w--100 m--1">
-    <article class="article-bookpage__img card hgt--card w-600 d--flex fd--c m--left" style="width: 20rem;">
+    <article class="card hgt--card w-600 d--flex fd--c m--left" style="width: 20rem;">
         <div class="card-body">
-            <img src="{{ book.thumbnail }}" class="card-img-top hgt--img" alt="" />
+            <img src="{{ book.thumbnail }}" class="card-img-top hgt--img" alt="{{ book.title }}" />
         </div>
     </article>
 
@@ -26,6 +26,7 @@
         </div>
     </article>
 </section>
+
 <section class="w--1500 bck--alt br--15 p--2 p--relative">
     <div class="section-header d--flex fd--c ai--c mb--2">
         <h2 class="text-center mb--2">Commentaires</h2>
