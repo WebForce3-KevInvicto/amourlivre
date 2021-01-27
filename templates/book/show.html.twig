@@ -1,107 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Amour Livre - Livre{{ book.title }}{% endblock %}
+{% block title %}Amour Livre - Livre : {{ book.title }}{% endblock %}
 
 {% block body %}
 
 <section id="section-transparent" class="d--flex jc--c w--100 m--1">
-    <article class="card mb--2 w-600 d--flex fd--c m--left" style="width: 20rem;">
-        <div class="card-header">
-            <img src="{{ book.thumbnail }}" class="card-img-top" alt="" />
+    <article class="card hgt--card w-600 d--flex fd--c m--left" style="width: 20rem;">
+        <div class="card-body">
+            <a href="#"><img src="{{ book.thumbnail }}" class="card-img-top hgt--img" alt="" /></a>
         </div>
     </article>
 
-    <article class="article-bookpage w--900 d--flex fd--c m--left">
-        <div class="d--flex fd--c ai--c">
-            <div class="article-header d--flex jc--sb">
-                <h1><span>Titre :  </span> {{book.title}}</h1>
-                    <div class="article-subheader d--flex jc--sb">
-                        <p><span>Auteur(s) :  </span> {{book.author}}<p>
-                    </div>
-                   
-            </div>
-
-            <div class="article-bottom w--100">
-                <p><span>Editeur :  </span> {{book.publisher}}</p>
-                <p><span>Publié le :  </span> {{ book.publicationDate ? book.publicationDate|date('Y-m-d') : '' }}</p>
-                {% for genre in book.genre %}
-                    <p><span>Genre(s) :  </span> {{genre.name}}</p>
-                {% endfor %}
-                <p><span>Résumé :  </span> {{book.synopsis}}</p>
-                <p><span>ISBN :  </span> {{book.isbn}}</p>
-            </div>
-
+    <article class="article-bookpage w--950 d--flex fd--c m--left">
+        <div class="d--flex fd--c">
+            <h1><span>Titre :  </span> {{book.title}}</h1>
+            <p><span>Auteur(s) :  </span> {{book.author}}<p>    
+            <p><span>Editeur :  </span> {{book.publisher}}</p>
+            <p><span>Publié le :  </span> {{ book.publicationDate ? book.publicationDate|date('Y-m-d') : '' }}</p>
+            <p><span>Langue :  </span> {{book.language}}</p>
+            {% for genre in book.genre %}
+                <p><span>Genre(s) :  </span> {{genre.name}}</p>
+            {% endfor %}
+            <p><span>ISBN :  </span> {{book.isbn}}</p>
+            <p><span>Résumé :  </span> {{book.synopsis}}</p>
         </div>
     </article>
-
-    {# <article class="article-bookpage w--1300 d--flex fd--c m--left">
-        <button class="btn btn-bookpage w--300 p--1">Ajouter un commentaire</button>
-        <h1 class="text-center mb--1 w--100">Commentaires</h1>
-    </article> #}
 </section>
-
-<section class="w--1300 bck--alt br--15 m--top-5 p--2 p--relative">
+<section class="w--1500 bck--alt br--15 p--2 p--relative">
     <div class="section-header d--flex fd--c ai--c mb--2">
         <h2 class="text-center mb--2">Commentaires</h2>
-            <a class="btn btn-primary w--mob-70 w--330 text-center" href="#" role="button">Ajouter un commentaire</a>
+        <a class="btn btn-primary w--mob-70 w--330 text-center" href="#" role="button">Ajouter un commentaire</a>
     </div>
 </section>
-
-{# <h1>Book</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ book.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ book.title }}</td>
-            </tr>
-            <tr>
-                <th>Synopsis</th>
-                <td>{{ book.synopsis }}</td>
-            </tr>
-            <tr>
-                <th>Thumbnail</th>
-                <td>{{ book.thumbnail }}</td>
-            </tr>
-            <tr>
-                <th>Language</th>
-                <td>{{ book.language }}</td>
-            </tr>
-
-            {% for genre in book.genre %}
-            <tr>
-                <th>genre</th>
-                <td>{{ genre.name }}</td>
-            </tr>
-            {% endfor %}
-            <tr>
-                <th>Isbn</th>
-                <td>{{ book.isbn }}</td>
-            </tr>
-            <tr>
-                <th>Publication_date</th>
-                <td>{{ book.publicationDate ? book.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Created_at</th>
-                <td>{{ book.createdAt ? book.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Updated_at</th>
-                <td>{{ book.updatedAt ? book.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Publisher</th>
-                <td>{{ book.publisher }}</td>
-            </tr>
-            <tr>
-                <th>Author</th>
-                <td>{{ book.author }}</td>
-            </tr>
-        </tbody>
-    </table> #}
-    {% endblock %}
+{% endblock %}

@@ -1,7 +1,7 @@
-/* MISE EN FORME ARTICLE */
+/* ARTICLE */
 
 .article-bookpage{
-    padding: 2rem;
+    padding: 1.5rem;
     background-color: var(--color--theme--primary);
     border-radius: 15px;
     box-shadow: 2px 2px 10px var(--color--theme--dark);
@@ -9,42 +9,44 @@
     line-height: 2rem;
 }
 
-/* TITRES */
+/* TITLE */
 
 .article-bookpage h1{
-    font-weight: normal;
-    padding: 0rem;
-}
-
-.article-bookpage h2{
-    font-weight: normal;
-    padding: 0rem;
+    padding: 0 0 1rem 0;
 }
 
 .article-bookpage span{
     font-weight: 900;
-    padding: 0.5rem;
+    padding-right: 1rem;
     color: var(--color--text--dark);
 }
 
-/* TAILLE */
+/* SIZING */
+
+.hgt--card{
+    height: 58vh;
+}
+
+.hgt--img{
+    height: 54vh;
+}
 
 .w--330{
     width: 330px;
 }
 
-.w--1300{
-    width: 1300px;
-  }
+.w--950{
+    width: 950px;
+}
 
-  /* BOUTONS */
+/* BUTTONS */
 
 .btn-bookpage {
     background-color: var(--color--theme--secondary-hover);
     color: var(--color--text--light);
     font-weight: 900;
-  }
+}
   
 .btn-bookpage:hover {
     background-color: var(--color--lochmara);
-  }
+}
