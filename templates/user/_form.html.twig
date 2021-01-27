@@ -4,9 +4,9 @@
       {{ flashError }}
     </div>
   {% endfor %}
-  <section class="w--900 p--2" id="registration">
+  <section class="w--900 p--2 bck--alt br--15" id="registration">
     <h1 class="text-center text-color-dark fw--b fsize-3 mb--1">
-      Inscription
+      Editer mon profil
     </h1>
 
     <p class="text-color-dark fw--b">
@@ -43,10 +43,7 @@
                 }
                 )
             }}
-                <small class="d--inlblc ml--1 m--top-05 text-color-dark ">Force:</small>
-            <meter  max="5" id="password-strength-meter"></meter>
-            <span class="d--inlblc strength-text m--top-05 text-color-dark"></span>
-            <ul class="ml--1 m--top-05 text-color-dark" id="password-strength-text"></ul>
+                <small class="d--inlblc ml--1 m--top-05 text-color-dark ">8 caractères minimum</small>
         </div>
 
         <div class="form-right w--50">
@@ -78,21 +75,32 @@
             }}
             <small class="ml--1 text-color-dark">Ex: Marseille</small>
         </div>
-        <div class="form-part-bottom d--flex-nowrap w--100">
-    
-       {{
-          form_row(
-            userEditForm.description,
-            {
-              label: 'Description'
-            }
-          )
-        }}
+        <div class="form-part-bottom d--flex m--1 w--100">
+          <div class="row">
+          
+          {{
+            form_row(
+                userEditForm.avatar,
+                {
+                label: 'Avatar'
+                }
+            )
+            }}
+          
+            
+          </div>
+          <div class="row w--100 m--1">
+             
+                  {{ form_label( userEditForm.description) }}
+                  {{ form_widget( userEditForm.description, {'attr': {'class': 'w--100'}}) }}
+  
+          </div>
+     
       </div>
       
       <div class="form-footer d--flex jc--c m--top-1 w--100">
         <button type="submit" class="btn btn-primary btn-submit m--top-1 w--300">
-          Inscription
+          Enregistrer
         </button>
       </div>
     </div>
@@ -101,5 +109,5 @@
 
 {% endblock %}
     {% block javascripts %}
-			<script src="{{asset('assets/js/registration.js')}}"></script>
+		
 		{% endblock %}
