@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<section class="section-admin w--900 p--2 bck--alt br--15 pb--1">
+	<section class="section-admin w--900 p--2 bck--admin br--15 pb--1">
 		<h1 class="text-center text-color-dark fw--b fsize-3 mb--1">Contact</h1>
 
 		<table class="table">
@@ -32,11 +32,11 @@
 			</tbody>
 		</table>
 
-
-		<a class="btn btn-secondary w--mob-70 w--300 m--1 text-center" href="{{ path('contact_index') }}">retour à la liste</a>
-
-		<a class="btn btn-secondary w--mob-70 w--300 m--1 text-center" href="{{ path('contact_edit', {'id': contact.id}) }}">éditer</a>
+		<div class="d--flex jc--sa">
+			<a id="section-admin__div" class="btn btn-secondary w--mob-70 w--200 m--1 text-center" href="{{ path('contact_index') }}">retour liste</a>
+			{{ include('contact/_delete_form.html.twig') }}
+		</div>
 	</section>
 
-	{{ include('contact/_delete_form.html.twig') }}
+
 {% endblock %}

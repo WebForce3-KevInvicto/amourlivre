@@ -31,6 +31,7 @@
 
 .btn-secondary:hover {
   background-color: var(--color--theme--secondary-hover);
+  color: var(--color--text--light);
 }
 
 /* .btn-signin,

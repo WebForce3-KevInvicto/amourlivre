@@ -26,9 +26,8 @@
   text-decoration: none;
 }
 
-.section-admin a:hover {
-  text-decoration: underline;
-  color: var(--color--text--dark);
+#section-admin__div a:hover {
+  color: var(--color--text--white);
 }
 
 .section-contact, .section-matching{
