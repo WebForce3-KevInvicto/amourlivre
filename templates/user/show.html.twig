@@ -20,7 +20,9 @@
         )
         }}">
         <i class="far fa-edit text-color-dark"></i>
+        <small>Editer mon profil</small>
       </a>
+    
       <div class="article-header">
         {% if user.avatar %}
           <img src="{{ asset('uploads/' ~ user.avatar  ) }}"
