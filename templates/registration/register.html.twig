@@ -61,9 +61,9 @@
         }}
 				<small class="ml--1 text-color-dark">8 caractères minimum</small>
 				<!-- <small class="d--inlblc ml--1 m--top-05 text-color-dark ">Force:</small>
-				        <meter  max="5" id="password-strength-meter"></meter>
-				        <span class="d--inlblc strength-text m--top-05 text-color-dark"></span>
-				        <ul class="ml--1 m--top-05 text-color-dark" id="password-strength-text"></ul> -->
+								        <meter  max="5" id="password-strength-meter"></meter>
+								        <span class="d--inlblc strength-text m--top-05 text-color-dark"></span>
+								        <ul class="ml--1 m--top-05 text-color-dark" id="password-strength-text"></ul> -->
 			</div>
 
 			<div class="form-right w--mob-100 w--50">
@@ -117,10 +117,20 @@
 				</div>
 			</div>
 
+
+			<div>
+				<p class="mtl--2">En cochant la case ci-dessous, vous acceptez nos
+					<a class="mdp-forgot fw--b text-color-dark" href="{{path('cgu')}}">Conditions d'Utilisation</a>
+				</p>
+				{{ form_row(
+          registrationForm.agreeTerms,
+          {
+            label: 'Accepter les conditions'
+          }
+        )
+      }}
+      </div>
 			<div class="form-footer d--flex jc--c m--top-1 w--100">
-
-				{{ form_row(registrationForm.agreeTerms) }}
-
 				<button type="submit" class="btn btn-primary btn-signin m--top-1 w--300">
 					Inscription
 				</button>
@@ -131,6 +141,6 @@
 
 {% endblock %}
 {% block javascripts %}
-  <script src="{{asset('assets/js/registration.js')}}"></script>
+	<script src="{{asset('assets/js/registration.js')}}"></script>
 	<script src="{{asset('assets/js/algolia.js')}}"></script>
 {% endblock %}
