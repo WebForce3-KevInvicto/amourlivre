@@ -25,7 +25,7 @@
 						<td>{{ contact.nom }}</td>
 						<td>{{ contact.email }}</td>
 						<td>{{ contact.message }}</td>
-						<td>{{ contact.dateMessage ? contact.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
+						<td>{{ contact.dateMessage ? contact.dateMessage|date('Y-m-d') : '' }}</td>
 						<td>
 							<a class="btn btn-secondary w--mob-70 w--200 m--1 text-center" href="{{ path('contact_show', {'id': contact.id}) }}">montrer</a>
 							{{ include('contact/_delete_form.html.twig') }}

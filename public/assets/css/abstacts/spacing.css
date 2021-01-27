@@ -94,6 +94,10 @@
 .m--top-5 {
   margin-top: 5rem;
 }
+.m--top-7 {
+  margin-top: 7rem;
+}
+
 
 .m--top-13 {
   margin-top: 13rem;
@@ -175,6 +179,10 @@
 
 .mb--2 {
   margin-bottom: 2rem;
+}
+
+.mb--5 {
+  margin-bottom: 5rem;
 }
 
 .mb--60 {

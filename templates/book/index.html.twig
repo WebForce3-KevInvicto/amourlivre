@@ -29,8 +29,8 @@
 						<td><img src="{{ book.thumbnail }}" alt="couverture du livre {{book.title}}"></td>
 						<td>{{ book.genre }}</td>
 						<td>{{ book.publicationDate ? book.publicationDate|date('Y-m-d') : '' }}</td>
-						<td>{{ book.createdAt ? book.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-						<td>{{ book.updatedAt ? book.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+						<td>{{ book.createdAt ? book.createdAt|date('Y-m-d') : '' }}</td>
+						<td>{{ book.updatedAt ? book.updatedAt|date('Y-m-d') : '' }}</td>
 						<td>{{ book.author }}</td>
 						<td>
 							<a class="btn btn-secondary w--mob-70 w--200 m--1 text-center" href="{{ path('book_edit', {'id': book.id}) }}">éditer</a>

@@ -60,6 +60,10 @@
   .ac--sa{
     align-content: space-around;
   }
+
+  .ac--c{
+    align-content: center;
+  }
   
   .as--c{
     align-self: center;
