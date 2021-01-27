@@ -1,10 +1,10 @@
 {{ form_start(bookForm) }}
 
 <div class="row">
-  <div class="col-3">
+  <div class="col-4">
     <img src="{{ book.thumbnail }}" class="card-img-top hgt--img" alt="" />
   </div>
-  <div class="col-9">
+  <div class="col-8">
     <div class="row m--1">
       <div class="col-12">
         {{ form_label(bookForm.title) }}
@@ -19,21 +19,21 @@
     </div>
     <div class="row m--1">
       <div class="row">
-        <div class="col-8">
+        <div class="col-7">
           {{ form_label(bookForm.publisher) }}
           {{ form_widget(bookForm.publisher) }}
         </div>
-        <div class="col-4">
+        <div class="col-5">
           {{ form_label(bookForm.publication_date) }}
           {{ form_widget(bookForm.publication_date) }}
         </div>
       </div>
       <div class="row m--1">
-        <div class="col-8">
+        <div class="col-7 mb--2">
           {{ form_label(bookForm.language) }}
           {{ form_widget(bookForm.language) }}
         </div>
-        <div class="col-4">
+        <div class="col-5">
           {{ form_label(bookForm.genre) }}
           {{ form_widget(bookForm.genre) }}
          <small class="text-color-dark">Veuillez sélectionner le genre correspondant.</small>
