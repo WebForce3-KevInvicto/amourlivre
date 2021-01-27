@@ -67,6 +67,14 @@ class RegistrationFormType extends AbstractType
                     'Les Hommes' => 'hommes',
                 ],
             ])
+            ->add('agreeTerms', CheckboxType::class, [
+                'mapped' => false,
+                'constraints' => [
+                    new IsTrue([
+                        'message' => 'En créant un compte, vous acceptez automatiquement nos Conditions',
+                    ]),
+                ],
+            ])
            
         ;
     }

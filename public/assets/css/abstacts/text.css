@@ -87,3 +87,10 @@
 .mdp-forgot:hover{
   color: var(--color--text--primary);
 }
+
+   /* DECORATION
+ * ------------------------------------------------------------------------- */
+
+.text-deco-none{
+  text-decoration: none;
+}
