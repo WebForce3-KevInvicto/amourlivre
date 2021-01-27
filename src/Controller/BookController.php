@@ -138,7 +138,7 @@ class BookController extends AbstractController
      */
     public function edit(Request $request, Book $book): Response
     {
-        $form = $this->createForm(BookFormType::class, $book);
+        $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
