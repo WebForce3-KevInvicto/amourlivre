@@ -56,6 +56,10 @@
 
 }
 
+#edit-profil-btn:hover{
+  color: white;
+}
+
 /* .btn-logout{
   border-radius: 8px;
   width: 150px;

@@ -14,8 +14,10 @@
 			<p class="text-center text-color-light fsize-1d2">Avec Amour Livre, rencontrez des célibataires qui partagent votre passion.</p>
 
 			<div class="text-center">
+			{% if app.user is empty  %}
 				<a class="btn btn-secondary btn-signin w--mob-min80 m--1 p--1 w--mob-min80 w--300" href="{{path('app_login')}}">Connexion</a>
 				<a class="btn btn-primary btn-signup w--mob-min80 m--1 p--1 w--mob-min80 w--300" href="{{path('app_register')}}">Inscription</a>
+			{% endif  %}
 			</div>
 
 		</div>
@@ -77,7 +79,9 @@
 				<p class="mb--1">
 					Grâce à notre plateforme sécurisée et aux profils vérifiés régulièrement par notre équipe, vous pouvez naviguer en toute sérénité.
 				</p>
-				<a class="btn btn-primary m1--auto p--1 w--mob-min80 w--300" href="{{path('app_register')}}">Inscription</a>
+				{% if app.user is empty  %}
+					<a class="btn btn-primary m1--auto p--1 w--mob-min80 w--300" href="{{path('app_register')}}">Inscription</a>
+				{% endif  %}
 			</div>
 		</article>
 	</section>
