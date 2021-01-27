@@ -23,7 +23,7 @@
       </a>
       <div class="article-header">
         {% if user.avatar %}
-          <img src="{{ asset("upload/ #{user.avatar} ") }}"
+          <img src="{{ asset('uploads/' ~ user.avatar  ) }}"
             class="card-img-top"
             alt="Avatar de  {{ user.nickname }}" />
         {% else %}
