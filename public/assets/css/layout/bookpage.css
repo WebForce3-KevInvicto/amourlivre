@@ -50,3 +50,16 @@
 .btn-bookpage:hover {
     background-color: var(--color--lochmara);
 }
+
+/* @media(max-width:500px){
+
+    .article-bookpage__img .card-body{
+        height: 50%;
+    }
+
+    .article-bookpage__img .card-img-top{
+        height: 50%;
+        object-fit: cover;
+    }
+} */
+
