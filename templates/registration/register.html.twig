@@ -1,29 +1,29 @@
 {% extends 'homebase.html.twig' %}
 
 {% block title %}
-  Amour Livre - Inscription
+	Amour Livre - Inscription
 {% endblock %}
 
 {% block body %}
-  {% for flashError in app.flashes('verify_email_error') %}
-    <div class="alert alert-danger" role="alert">
-      {{ flashError }}
-    </div>
-  {% endfor %}
-  <section class="w--900 p--2 bck--alt br--15" id="registration">
-    <h1 class="text-center text-color-dark">
-      Inscription
-    </h1>
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">
+			{{ flashError }}
+		</div>
+	{% endfor %}
+	<section class="w--900 p--2 bck--alt br--15" id="registration">
+		<h1 class="text-center text-color-dark">
+			Inscription
+		</h1>
 
-    <p class="text-color-dark fw--b">
-      *Obligatoire
-    </p>
+		<p class="text-color-dark fw--b">
+			*Obligatoire
+		</p>
 
-    {{ form_start(registrationForm) }}
+		{{ form_start(registrationForm) }}
 
-    <div class="form-container fd--mob-c d--flex">
-      <div class="form-left w--mob-100 w--50 text-color-light">
-        {{
+		<div class="form-container fd--mob-c d--flex">
+			<div class="form-left w--mob-100 w--50 text-color-light">
+				{{
           form_row(
             registrationForm.nickname,
             {
@@ -31,9 +31,9 @@
             }
           )
         }}
-        <small class="ml--1 m--top-1 text-color-dark">Ex: John Doe</small>
+				<small class="ml--1 m--top-1 text-color-dark">Ex: John Doe</small>
 
-        {{
+				{{
           form_row(
             registrationForm.birthdate,
             {
@@ -42,7 +42,7 @@
           )
         }}
 
-        {{
+				{{
           form_row(
             registrationForm.email,
             {
@@ -50,8 +50,8 @@
             }
           )
         }}
-        <small class="ml--1 text-color-dark">Ex: johndoe@mailer.com</small>
-        {{
+				<small class="ml--1 text-color-dark">Ex: johndoe@mailer.com</small>
+				{{
           form_row(
             registrationForm.plainPassword,
             {
@@ -59,15 +59,15 @@
             }
           )
         }}
-        <small class="ml--1 text-color-dark">8 caractères minimum</small>
-         <!-- <small class="d--inlblc ml--1 m--top-05 text-color-dark ">Force:</small>
-        <meter  max="5" id="password-strength-meter"></meter>
-        <span class="d--inlblc strength-text m--top-05 text-color-dark"></span>
-        <ul class="ml--1 m--top-05 text-color-dark" id="password-strength-text"></ul> -->      
-      </div>
+				<small class="ml--1 text-color-dark">8 caractères minimum</small>
+				<!-- <small class="d--inlblc ml--1 m--top-05 text-color-dark ">Force:</small>
+				        <meter  max="5" id="password-strength-meter"></meter>
+				        <span class="d--inlblc strength-text m--top-05 text-color-dark"></span>
+				        <ul class="ml--1 m--top-05 text-color-dark" id="password-strength-text"></ul> -->
+			</div>
 
-      <div class="form-right w--mob-100 w--50">
-        {{
+			<div class="form-right w--mob-100 w--50">
+				{{
           form_row(
             registrationForm.address,
             {
@@ -77,8 +77,8 @@
             }
           )
         }}
-        <small class="ml--1 text-color-dark">Ex: 8 Allée Léon Gambetta</small>
-        {{
+				<small class="ml--1 text-color-dark">Ex: 8 Allée Léon Gambetta</small>
+				{{
           form_row(
             registrationForm.postal_code,
             {
@@ -86,8 +86,8 @@
             }
           )
         }}
-        <small class="ml--1 text-color-dark">Ex: 13001</small>
-        {{
+				<small class="ml--1 text-color-dark">Ex: 13001</small>
+				{{
           form_row(
             registrationForm.city,
             {
@@ -95,9 +95,9 @@
             }
           )
         }}
-        <small class="ml--1 text-color-dark">Ex: Marseille</small>
-        <div class="form-part-bottom  fd--mob-c d--flex-nowrap w--100">
-        {{
+				<small class="ml--1 text-color-dark">Ex: Marseille</small>
+				<div class="form-part-bottom  fd--mob-c d--flex-nowrap w--100">
+					{{
           form_row(
             registrationForm.gender,
             {
@@ -105,8 +105,8 @@
             }
           )
         }}
-        
-        {{
+
+					{{
           form_row(
             registrationForm.preference,
             {
@@ -114,29 +114,23 @@
             }
           )
         }}
-      </div>
-      </div>
-      
-      <div class="form-footer d--flex jc--c m--top-1 w--100">
-     
-        <small class="m--1 text-color-dark">
-          <input type="checkbox"> En créant un compte, vous acceptez automatiquement nos <a class="text-color-dark fw--b"
-            href="{{ path('cgu') }}">
-            Conditions Générales d'Utilisation
-          </a>.
-        </small>
+				</div>
+			</div>
 
-        <button type="submit"
-          class="btn btn-primary btn-signin m--top-1 w--300">
-          Inscription
-        </button>
-      </div>
-    </div>
-    {{ form_end(registrationForm) }}
-  </section>
+			<div class="form-footer d--flex jc--c m--top-1 w--100">
+
+				{{ form_row(registrationForm.agreeTerms) }}
+
+				<button type="submit" class="btn btn-primary btn-signin m--top-1 w--300">
+					Inscription
+				</button>
+			</div>
+		</div>
+		{{ form_end(registrationForm) }}
+	</section>
 
 {% endblock %}
-    {% block javascripts %}
-      <!-- <script src="{{asset('assets/js/registration.js')}}"></script> -->
-      <script src="{{asset('assets/js/algolia.js')}}"></script>
-		{% endblock %}
+{% block javascripts %}
+  <script src="{{asset('assets/js/registration.js')}}"></script>
+	<script src="{{asset('assets/js/algolia.js')}}"></script>
+{% endblock %}
