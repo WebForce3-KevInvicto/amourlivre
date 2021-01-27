@@ -78,7 +78,7 @@ strong {
   text-align: center;
 }
 
-.table-book-index{
+.table-book-index, .table-user-index{
   table-layout: fixed;
 }
 
@@ -94,3 +94,16 @@ strong {
   margin-bottom: -5rem;
 }
 
+.table-user-index td {
+  height: 15%;
+  width: 480px;
+  padding: 2px;
+  text-align: center;
+}
+.table-user-index img{
+  height: 20vh;
+  object-fit: contain;
+  display: inline-block;
+  margin-top: 2rem;
+  margin-bottom: -5rem;
+}

@@ -2,13 +2,8 @@
   text-transform: uppercase;
   border-radius: 15px;
   box-shadow: 2px 2px 10px var(--color--theme--dark);
-  text-align:
+  text-align: center;
 }
-
-
-/* .btn:focus {
-  background-color: var(--color--theme--dark);
-} */
 
 .btn-primary,
 .btn-secondary{
@@ -33,12 +28,6 @@
   background-color: var(--color--theme--secondary-hover);
   color: var(--color--text--light);
 }
-
-/* .btn-signin,
-.btn-signup {
-  padding: 1rem 5rem;
-  font-size: 1.3rem;
-} */
 
 .btn-matching {
   background-color: var(--color--text--match);
@@ -71,11 +60,3 @@
   color: white;
 }
 
-/* .btn-logout{
-  border-radius: 8px;
-  width: 150px;
-}
-
-.btn-submit{
-  border-radius: 8px;
-} */
