@@ -33,7 +33,7 @@
 						<td>{{ book.updatedAt ? book.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ book.author }}</td>
 						<td>
-							<a class="btn btn-secondary w--mob-70 w--200  m--top--3 text-center" href="{{ path('book_show', {'id': book.id}) }}">montrer</a>
+							{# <a class="btn btn-secondary w--mob-70 w--200  m--top--3 text-center" href="{{ path('book_show', {'id': book.id}) }}">montrer</a> #}
 							<a class="btn btn-secondary w--mob-70 w--200 m--1 text-center" href="{{ path('book_edit', {'id': book.id}) }}">éditer</a>
 							{{ include('book/_delete_form.html.twig') }}
 						</td>
