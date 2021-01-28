@@ -59,8 +59,8 @@
 	   </div> 
       </div>
 	  <div class="card-footer d--flex jc--se">
-	  <button class="btn btn-matching w--mob-70 w--200 p--1">Voir Profil</button>
-				<button class="btn btn-nomatching w--mob-70 w--200 p--1">Ignorer</button>
+	  		<button class="btn btn-matching w--mob-70 w--200 p--1"><a href="{{path('profil', {id: matching.userB.id})}}">Voir Profil</a></button>
+			<button class="btn btn-nomatching w--mob-70 w--200 p--1">Ignorer</button>
 	  </div>
     </article>
 	{% endfor %}
@@ -69,4 +69,4 @@
 
 {{knp_pagination_render(matchings)}}
 
-{# <a href="{{ path('matching_new') }}">Create new</a> #}
+

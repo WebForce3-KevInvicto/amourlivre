@@ -106,7 +106,7 @@ class User implements UserInterface
     private $comments;
 
     /**
-     * @ORM\OneToMany(targetEntity=Matching::class, mappedBy="userA_id", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Matching::class, mappedBy="userA", orphanRemoval=true)
      */
     private $matchingsA;
 
