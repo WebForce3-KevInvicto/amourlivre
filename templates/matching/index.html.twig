@@ -34,7 +34,7 @@
       <div class="article-header  d--flex ai--c">
 	  <div class="article-header__left w--mob-100 w--50">
 	   {% if matching.userB.avatar %}
-          <img src="{{ asset("upload/ #{user.avatar} ") }}"
+          <img src="{{ asset("uploads/#{matching.userB.avatar}")}}"
             class="card-img-top w--mob-100 w--30"
             alt="Avatar de  {{ matching.userB.nickname }}" />
         {% else %}

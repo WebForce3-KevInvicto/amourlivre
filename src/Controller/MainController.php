@@ -63,6 +63,13 @@ class MainController extends AbstractController
     {
         $userAId = $userInterface->getId();
            
+        $user = $this->getUser();
+
+        $userMatchingB = $user->getMatchingsB();
+
+        foreach($userMatchingB as $m){
+            $user->removeMatchingsB($m);
+        }
         
         $userAFavoriteGenre = $this->getUserFavoriteGenre($userInterface, $genreRepository);
         dump($userAFavoriteGenre);
