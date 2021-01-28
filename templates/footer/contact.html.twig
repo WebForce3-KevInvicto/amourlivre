@@ -4,11 +4,18 @@
 {% endblock %}
 
 {% block body %}
+	{% for message in app.flashes('success') %}
+        <div class="alert alert-success m--2">
+        {{ message }}
+        </div>
+    {% endfor %}
+
 	<section class="section-contact bck--alt br--15 w--900 pb--1">
+
 		<h1 class="text-center mb--1 text-color-dark fw--b fsize-3">
 			Contactez-nous
 		</h1>
-		<p class="ml--1 fw--b">{{messageConfirmation ?? ''}}</p>
+		<p class="ml--1 fw--b">{{ messageConfirmation }}</p>
 		{{include('contact/_form.html.twig')}}
 		
 	</section>

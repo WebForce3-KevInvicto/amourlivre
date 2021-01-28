@@ -182,10 +182,12 @@ class MainController extends AbstractController
 
             $messageConfirmation = "Message bien reçu. Nous vous répondrons rapidement.";
 
-            //return $this->redirectToRoute('contact_index');
+            $this->addFlash("success", "Message bien reçu. Nous vous répondrons rapidement.");
+
+            return $this->redirectToRoute('contact');
         }
         return $this->render('footer/contact.html.twig', [
-            'messageConfirmation'   => $messageConfirmation,
+            'messageConfirmation'  => $messageConfirmation,
             'contact' => $contact,
             'form' => $form->createView(),
         ]);
