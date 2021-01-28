@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin.html.twig' %}
 
 {% block title %}Amour Livre - Genre
 {% endblock %}
@@ -31,7 +31,7 @@
 		<div class="d--flex jc--sa">
 			<a class="btn btn-secondary w--mob-70 w--200 m--1 text-center" href="{{ path('genre_index') }}">retour liste</a>
 
-			<a class="btn btn-primary w--mob-70 w--200 m--1 text-center" href="{{ path('genre_edit', {'id': genre.id}) }}">éditer</a>
+			{#<a class="btn btn-primary w--mob-70 w--200 m--1 text-center" href="{{ path('genre_edit', {'id': genre.id}) }}">éditer</a>#}
 
 			{{ include('genre/_delete_form.html.twig') }}
 		</div>
