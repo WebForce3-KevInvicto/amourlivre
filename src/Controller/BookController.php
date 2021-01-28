@@ -110,7 +110,7 @@ class BookController extends AbstractController
                 $entityManager->persist($newBook);
                 $entityManager->flush();
 
-                $this->addFlash('success', 'Ajout du livre Reussie ! Vous pouvez dès à présent le retrouver dans votre bibliothèque ou faire une nouvelle recherche.');
+                $this->addFlash('success', 'Ajout du livre réussi ! Vous pouvez dès à présent le retrouver dans votre bibliothèque ou faire une nouvelle recherche.');
             }
            
           
