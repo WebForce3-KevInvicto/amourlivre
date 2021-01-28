@@ -63,8 +63,8 @@ class RegistrationFormType extends AbstractType
             ->add('preference', ChoiceType::class, [
                 'choices'  => [
                     'Selectionnez' => null,
-                    'Les Femmes' => 'femmes',
-                    'Les Hommes' => 'hommes',
+                    'Les Femmes' => 'femme',
+                    'Les Hommes' => 'homme',
                 ],
             ])
             ->add('agreeTerms', CheckboxType::class, [

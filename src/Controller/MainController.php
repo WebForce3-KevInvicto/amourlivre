@@ -59,19 +59,26 @@ class MainController extends AbstractController
     /**
      * @Route("membre/matching", name="matching")
      */
-    public function matching(MatchingRepository $matchingRepository, GenreRepository $genreRepository, PaginatorInterface $paginator, UserInterface $userInterface, UserRepository $userRepository, Request $request): Response
+    public function matching(MatchingRepository $matchingRepository, GenreRepository $genreRepository, PaginatorInterface $paginator, UserRepository $userRepository, Request $request): Response
     {
-        $userAId = $userInterface->getId();
+        // $userAId = $userInterface->getId();
            
         $user = $this->getUser();
 
-        $userMatchingB = $user->getMatchingsB();
 
-        foreach($userMatchingB as $m){
-            $user->removeMatchingsB($m);
+        $userMatchingA = $user->getMatchingsA();
+        $entityManager = $this->getDoctrine()->getManager();
+            
+        foreach($userMatchingA as $m){
+            dump($m);
+            $user->removeMatchingsA($m);
+            $entityManager->remove($m);
         }
+
+        $entityManager->flush();
         
-        $userAFavoriteGenre = $this->getUserFavoriteGenre($userInterface, $genreRepository);
+        
+        $userAFavoriteGenre = $this->getUserFavoriteGenre($user, $genreRepository);
         dump($userAFavoriteGenre);
 
         $usersList = $userRepository->findAll();
@@ -84,13 +91,13 @@ class MainController extends AbstractController
 
             if($userBFavoriteGenre !== false &&  $userAFavoriteGenre !== false){
 
-                if($userBFavoriteGenre['name'] == $userAFavoriteGenre['name']){
+                if($userBFavoriteGenre['name'] == $userAFavoriteGenre['name'] && ($userB->getGender() === $user->getPreference()) && ($user->getGender() === $userB->getPreference())){
 
                     $rate = abs($userBFavoriteGenre['rate'] - $userAFavoriteGenre['rate']);
     
                     
                     $matching = new Matching();
-                    $matching->setUserA($userInterface);
+                    $matching->setUserA($user);
                     $matching->setUserB($userB);
     
                     if($rate >= 0 && $rate < 5){
@@ -127,12 +134,15 @@ class MainController extends AbstractController
         
 
         $matchingsList = $paginator->paginate(
-            $matchingRepository->findByUserAId( $userAId),
+            $matchingRepository->findByUserAId( $user),
             $request->query->getInt('page', 1),
             10
         
         );
         
+        
+        dump($user);
+
         return $this->render('main/matching.html.twig', [
             'controller_name' => 'MainController',
             'matchings' =>  $matchingsList,
