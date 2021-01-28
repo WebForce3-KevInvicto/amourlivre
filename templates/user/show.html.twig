@@ -1,107 +1,100 @@
-
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Amour Livre - Mon Profil
+	Amour Livre - Mon Profil
 {% endblock %}
 
 {% block body %}
-<div class="d--flex ai--c">
-<section class="w--30 w--mob-100">
-    <h1 class="fw--b text-center text-color-light">
-      Mon Profil
-       
-    </h1>
-    <article class="card mb--2 w--300 m--auto bck--primary px--4">
-      <div class="article-header">
-        {% if user.avatar %}
-          <img src="{{ asset('uploads/' ~ user.avatar  ) }}"
-            class="card-img-top"
-            alt="Avatar de  {{ user.nickname }}" />
-        {% else %}
-          {% if user.gender == 'homme' %}
-            <img src="{{ asset('assets/img/profil/avatar-homme.png') }}"
-              class="card-img-top"
-              alt="Avatar par défaut: silhouette {{ user.gender }}" />
-          {% else %}
-            <img src="{{ asset('assets/img/profil/avatar-femme.png') }}"
-              class="card-img-top"
-              alt="..." />
-          {% endif %}
-        {% endif %}
-        <h3 class="text-center text-color-light fw--b py--1">
-          {{ user.nickname }}
-        </h3>
-        <p class="card-text text-center p--0">
-          {{ user.getAge() }} ans - {{ user.city }}
-        </p>
-      </div>
-      <div class="card-body b--top m--top-1">
-        <p class="card-text text-color-light">
-          {{ user.description }}
-        </p>
-      </div>
-      <div class="card-footer d--flex jc--c">
-        <a id="edit-profil-btn" class="fsize-1d2 text-color-light text-deco-none" href="{{
-          path(
-            'user_edit',
-            {
-              id: user.id
-            }
-          )
-          }}">
-          <i class="far fa-edit text-color-dark"></i>
-          <small class="text-color-dark">Editer</small>
-      </a>
-      
-      </div>
-    </article>
-    
-  </section>
-  
-  <section class="w--70 w--mob-100"> 
-    <h2 class="text-color-light mb--2 text-center">
-      Mes 5 livres favoris
-    </h2>
-    <div class="top5-containrer d--flex">
-        <img src="{{asset('assets/img/book/new-book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..." />
-   
-    
-         <img src="{{asset('assets/img/book/new-book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..." />
-    
-     
-         <img src="{{asset('assets/img/book/new-book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..." />
-    
-  
-         <img src="{{asset('assets/img/book/new-book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..." />
-    
-   
-         <img src="{{asset('assets/img/book/new-book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..." />
-    </div>
-        
-  
-  </section>
-  <section class="w--100 bck--alt br--15 m--top-5 p--2 p--relative">
-  <div class="section-header d--flex fd--c ai--c mb--2">
-   <h2 class="text-center mb--2">
-            Ma Bibliothèque
-            </h2>
-         <a class="btn btn-primary w--mob-70 w--300 text-center" href="{{path('book_new')}}" role="button">Ajouter un livre</a>
-  </div>
-       
-    
-    <div class="books-container d--flex jc--sa">
-      <div class="row">
-        {% for book in books %}
-            <a class="d-block col-4" href="{{path('book_show', {id: book.id})}}"><img src="{{ book.thumbnail }}" class="d-block w-50 mx--auto-top-1" alt="..." /></a>
-          {% endfor %}  
-      </div>
-         
-    </div>
+	<div class="d--flex ai--c">
+		<section class="w--30 w--mob-100">
+			<h1 class="fw--b text-center text-color-light">
+				Mon Profil
 
-  </section>
-</div>
-  
-  
+			</h1>
+			<article class="card mb--2 w--300 m--auto bck--primary px--4">
+				<div class="article-header">
+					{% if user.avatar %}
+						<img src="{{ asset('uploads/' ~ user.avatar ) }}" class="card-img-top" alt="Avatar de  {{ user.nickname }}"/>
+					{% else %}
+						{% if user.gender == 'homme' %}
+							<img src="{{ asset('assets/img/profil/avatar-homme.png') }}" class="card-img-top" alt="Avatar par défaut: silhouette {{ user.gender }}"/>
+						{% else %}
+							<img src="{{ asset('assets/img/profil/avatar-femme.png') }}" class="card-img-top" alt="..."/>
+						{% endif %}
+					{% endif %}
+					<h3 class="text-center text-color-light fw--b py--1">
+						{{ user.nickname }}
+					</h3>
+					<p class="card-text text-center p--0">
+						{{ user.getAge() }}
+						ans -
+						{{ user.city }}
+					</p>
+				</div>
+				<div class="card-body b--top m--top-1">
+					{% if user.description is empty or user.avatar is empty %}
+						<p class="card-text text-color-light">
+							Complétez votre profil en ajoutant un avatar et une description.
+						</p>
+					{% else %}
+						<p class="card-text text-color-light">
+							{{ user.description }}
+						</p>
+					{% endif %}
+				</div>
+				<div class="card-footer d--flex jc--c">
+					<a id="edit-profil-btn" class="fsize-1d2 text-color-light text-deco-none" href="{{ path( 'user_edit', { id: user.id } ) }}">
+						<i class="far fa-edit text-color-dark"></i>
+						<small class="text-color-dark">Editer</small>
+					</a>
+
+				</div>
+			</article>
+
+		</section>
+
+		<section class="w--70 w--mob-100">
+			<h2 class="text-color-light mb--2 text-center">
+				Mes 5 livres favoris
+			</h2>
+			<div class="top5-containrer d--flex">
+				<img src="{{asset('assets/img/book/new-book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..."/>
+
+
+				<img src="{{asset('assets/img/book/new-book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..."/>
+
+
+				<img src="{{asset('assets/img/book/new-book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..."/>
+
+
+				<img src="{{asset('assets/img/book/new-book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..."/>
+
+
+				<img src="{{asset('assets/img/book/new-book.png')}}" class="d-block w-30 mx--auto-top-1" alt="..."/>
+			</div>
+
+
+		</section>
+		<section class="w--100 bck--alt br--15 m--top-5 p--2 p--relative">
+			<div class="section-header d--flex fd--c ai--c mb--2">
+				<h2 class="text-center mb--2">
+					Ma Bibliothèque
+				</h2>
+				<a class="btn btn-primary w--mob-70 w--300 text-center" href="{{path('book_new')}}" role="button">Ajouter un livre</a>
+			</div>
+
+
+			<div class="books-container d--flex jc--sa">
+				<div class="row">
+					{% for book in books %}
+						<a class="d-block col-4" href="{{path('book_show', {id: book.id})}}"><img src="{{ book.thumbnail }}" class="d-block w-50 mx--auto-top-1" alt="..."/></a>
+					{% endfor %}
+				</div>
+
+			</div>
+
+		</section>
+	</div>
+
 
 {% endblock %}
