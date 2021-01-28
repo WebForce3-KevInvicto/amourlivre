@@ -99,6 +99,8 @@ class UserController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
+
+            $this->addFlash('success', "Vos modifications ont bien été pris en compte !");
         }
 
         return $this->render('user/edit.html.twig', [

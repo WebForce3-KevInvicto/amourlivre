@@ -5,6 +5,12 @@
 
 {% block body %}
 
+			{% for message in app.flashes('success') %}
+				<div class="alert alert-success">
+				{{ message }}
+				</div>
+			{% endfor %}
+
 	{{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
   
 {% endblock %}
