@@ -6,7 +6,7 @@
 <section class="w--1000 p--2 bck--admin br--15" id="registration">
     <h1 class="text-center text-color-dark fw--b fsize-3 mb--1">Editer Livre</h1>
 
-    {{ include('book/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('book/_edit.html.twig', {'button_label': 'Update'}) }}
     {{ include('book/_delete_form.html.twig') }}
     <a class="btn btn-secondary w--mob-70 w--200 m--top-1 text-center" href="{{ path('book_index') }}">retour liste</a>
 </section>
